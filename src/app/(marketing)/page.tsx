@@ -3,6 +3,7 @@ import Hero from "@/components/sections/hero";
 import PainPoints from "@/components/sections/pain-points";
 import SolutionBridge from "@/components/sections/solution-bridge";
 import ProductPreview from "@/components/sections/product-preview";
+import ChatbotSection from "@/components/sections/chatbot-section";
 import ServicesPreview from "@/components/sections/services-preview";
 import Pricing from "@/components/sections/pricing";
 import UseCases from "@/components/sections/use-cases";
@@ -54,6 +55,7 @@ export default function HomePage() {
       <PainPoints />
       <SolutionBridge />
       <ProductPreview />
+      <ChatbotSection />
       <ServicesPreview />
       <Pricing />
       <UseCases />

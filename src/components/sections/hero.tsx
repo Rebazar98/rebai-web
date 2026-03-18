@@ -49,14 +49,16 @@ export default function Hero() {
 
           {/* H1 */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F172A] leading-[1.1] tracking-tight mb-6">
-            Nunca más pierdas una ayuda o normativa del{" "}
-            <span className="text-[#2563EB]">BOPA de Asturias</span>
+            El sistema que revisa el{" "}
+            <span className="text-[#2563EB]">BOPA</span> por ti,
+            detecta lo importante y te dice qué hacer
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl text-[#64748B] leading-relaxed max-w-2xl mb-10">
-            Tu equipo recibe cada mañana un resumen inteligente con lo que les
-            afecta. Sin horas de búsqueda manual. Sin sorpresas regulatorias.
+            Cada mañana, tu equipo recibe un resumen de las ayudas, normativas y
+            cambios del BOPA de Asturias que les afectan — sin buscar manualmente
+            ni perderse ningún plazo.
           </p>
 
           {/* Email capture */}
