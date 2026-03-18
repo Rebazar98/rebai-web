@@ -11,13 +11,13 @@ export default function UseCases() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <AnimatedSection>
           <div className="text-center mb-16">
-            <SectionLabel className="mb-6">Casos de uso</SectionLabel>
+            <SectionLabel className="mb-6">Escenarios tipo</SectionLabel>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight mb-4">
-              Empresas asturianas que ya lo usan
+              ¿Cómo podría ayudarte RebAI?
             </h2>
             <p className="text-[#64748B] text-lg max-w-xl mx-auto">
-              Escenarios reales del sector técnico y rural de Asturias. Sin
-              tecnología de escaparate — resultados medibles.
+              Escenarios representativos del sector técnico y rural de Asturias.
+              Cada caso se adapta a tu realidad concreta.
             </p>
           </div>
         </AnimatedSection>
@@ -28,6 +28,11 @@ export default function UseCases() {
             return (
               <AnimatedSection key={useCase.sector} delay={i * 120}>
                 <div className="bg-[#F8FAFC] rounded-[12px] border border-[#E2E8F0] p-8 h-full flex flex-col">
+                  {/* Badge escenario */}
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#F1F5F9] border border-[#E2E8F0] text-[#94A3B8] text-xs font-medium mb-4 w-fit">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#94A3B8]" />
+                    Escenario de ejemplo
+                  </div>
                   {/* Header */}
                   <div className="flex items-start gap-4 mb-6">
                     <div className="w-10 h-10 rounded-xl bg-[#1B2A4A] flex items-center justify-center shrink-0">

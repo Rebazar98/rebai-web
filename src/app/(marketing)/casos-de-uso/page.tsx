@@ -10,7 +10,7 @@ import { USE_CASES } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Casos de uso",
   description:
-    "Escenarios reales de automatización con IA para ingenierías, cooperativas y consultoras técnicas en Asturias. Resultados concretos y medibles.",
+    "Escenarios representativos de cómo RebAI podría ayudar a ingenierías, cooperativas y consultoras técnicas en Asturias con la automatización del BOPA y subvenciones.",
 };
 
 const iconMap = { Building2, Tractor, BarChart3 } as const;
@@ -24,12 +24,11 @@ export default function CasosDeUsoPage() {
           <div className="max-w-[1280px] mx-auto px-6 lg:px-8 text-center">
             <SectionLabel className="mb-6">Casos de uso</SectionLabel>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#0F172A] tracking-tight mb-6">
-              Asturias. Sector técnico. Resultados reales.
+              ¿Cómo podría ayudarte RebAI?
             </h1>
             <p className="text-[#64748B] text-xl max-w-2xl mx-auto">
-              No vendemos tecnología de escaparate. Estos son los escenarios
-              reales en los que RebAI ya está generando valor para empresas del
-              Principado.
+              Estos son escenarios representativos del tipo de empresas asturianas
+              con las que trabajamos. Cada caso se adapta a tu realidad concreta.
             </p>
           </div>
         </section>

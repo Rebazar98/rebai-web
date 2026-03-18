@@ -15,31 +15,23 @@ export default function CTABanner() {
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-6 max-w-3xl mx-auto">
-          ¿Listo para eliminar la carga burocrática?
+          Solicita una demo personalizada
         </h2>
         <p className="text-white/60 text-lg mb-10 max-w-xl mx-auto">
-          Cuéntanos tu caso. En 48 horas te respondemos con una propuesta
-          adaptada a tu empresa y sector.
+          Cuéntanos tu caso. En 24 horas te mostramos cómo funciona
+          adaptado a tu empresa y sector en Asturias.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/contacto"
-            className="inline-flex items-center justify-center gap-2 bg-[#2563EB] hover:bg-[#3B82F6] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-150 group text-base"
-          >
-            Solicitar consulta gratuita
-            <ArrowRight
-              size={18}
-              className="group-hover:translate-x-0.5 transition-transform duration-150"
-            />
-          </Link>
-          <a
-            href="mailto:hola@rebai.es"
-            className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-150 border border-white/20 text-base"
-          >
-            hola@rebai.es
-          </a>
-        </div>
+        <Link
+          href="/contacto?tipo=demo"
+          className="inline-flex items-center justify-center gap-2 bg-[#2563EB] hover:bg-[#3B82F6] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-150 group text-base"
+        >
+          Ver cómo funciona para mi empresa
+          <ArrowRight
+            size={18}
+            className="group-hover:translate-x-0.5 transition-transform duration-150"
+          />
+        </Link>
 
         <p className="text-white/40 text-sm mt-8">
           Sin compromiso · Respondemos en menos de 48h · Empresa asturiana

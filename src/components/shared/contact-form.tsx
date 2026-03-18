@@ -96,6 +96,27 @@ export default function ContactForm() {
         </div>
       </div>
 
+      {/* Situación actual con el BOPA */}
+      <div>
+        <label htmlFor="situacion" className="block text-sm font-medium text-[#0F172A] mb-1.5">
+          ¿Cómo gestionáis el BOPA ahora? <span className="text-[#EA580C]">*</span>
+        </label>
+        <select
+          id="situacion"
+          name="situacion"
+          required
+          disabled={isPending}
+          defaultValue=""
+          className="w-full px-4 py-3 rounded-lg border border-[#E2E8F0] bg-white text-[#0F172A] text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition-all duration-150 disabled:opacity-50"
+        >
+          <option value="" disabled>Selecciona una opción...</option>
+          <option value="manual">Lo revisamos manualmente</option>
+          <option value="delegado">Tenemos a alguien que lo hace</option>
+          <option value="no-revisamos">No lo revisamos habitualmente</option>
+          <option value="otra-herramienta">Usamos otra herramienta</option>
+        </select>
+      </div>
+
       {/* Reto */}
       <div>
         <label htmlFor="reto" className="block text-sm font-medium text-[#0F172A] mb-1.5">

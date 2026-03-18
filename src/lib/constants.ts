@@ -20,9 +20,8 @@ export const SITE = {
 // =====================================================
 
 export const NAV_LINKS = [
-  { label: "Servicios", href: "/servicios" },
-  { label: "Casos de uso", href: "/casos-de-uso" },
-  { label: "Sobre nosotros", href: "/sobre-nosotros" },
+  { label: "Cómo funciona", href: "/#como-funciona" },
+  { label: "Precios", href: "/#precios" },
   { label: "Contacto", href: "/contacto" },
 ] as const;
 

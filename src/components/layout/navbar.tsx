@@ -48,9 +48,15 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <Link
               href="/contacto"
+              className="text-[#64748B] hover:text-[#0F172A] text-sm font-medium transition-colors duration-150"
+            >
+              Contacto
+            </Link>
+            <Link
+              href="/contacto?tipo=demo"
               className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors duration-150"
             >
-              Solicitar consulta
+              Solicitar demo
             </Link>
           </div>
 
@@ -79,11 +85,11 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/contacto"
+            href="/contacto?tipo=demo"
             onClick={() => setMenuOpen(false)}
             className="bg-[#2563EB] text-white font-semibold px-4 py-3 rounded-lg text-center mt-2"
           >
-            Solicitar consulta
+            Solicitar demo
           </Link>
         </div>
       )}
