@@ -279,35 +279,36 @@ export const USE_CASES = [
     location: "Oviedo, Asturias",
     icon: "Building2",
     problem:
-      "Una ingeniería ambiental con 12 proyectos activos dedicaba un día a la semana a revisar el BOPA y clasificar manualmente las disposiciones relevantes para cada expediente.",
+      "Imagina una ingeniería ambiental con 12 proyectos activos que dedica un día a la semana a revisar el BOPA y clasificar manualmente las disposiciones relevantes para cada expediente.",
     solution:
-      "Implementamos el agente BOPA de RebAI configurado para las categorías de medio ambiente, residuos y contratación pública.",
+      "Con el agente BOPA de RebAI, configurado para las categorías de medio ambiente, residuos y contratación pública, ese proceso se automatiza por completo.",
     result:
-      "Ahora reciben un resumen automático cada lunes con las alertas clasificadas por proyecto. El equipo recuperó más de 6 horas semanales.",
-    metric: "+6h/semana recuperadas",
+      "El equipo recibiría un resumen automático cada lunes con las alertas clasificadas por proyecto, recuperando más de 6 horas semanales para trabajo de valor.",
+    metric: "Estimación: +6h/semana",
   },
   {
     sector: "Cooperativa Ganadera",
     location: "Navia, Asturias",
     icon: "Tractor",
     problem:
-      "Una cooperativa láctea de Navia perdía 3 semanas al año gestionando solicitudes de subvenciones del IDEPA y el MAPA. El proceso era completamente manual y se perdían convocatorias por desconocimiento.",
+      "Imagina una cooperativa láctea que pierde 3 semanas al año gestionando solicitudes de subvenciones del IDEPA y el MAPA. El proceso es completamente manual y se pierden convocatorias por desconocimiento.",
     solution:
       "El agente de subvenciones monitoriza las convocatorias del IDEPA, MAPA y otras fuentes, y alerta cuando hay una aplicable con tiempo suficiente para preparar la solicitud.",
     result:
-      "Detectaron 4 convocatorias nuevas el primer año que antes no habían solicitado. Tres aprobadas.",
-    metric: "3 subvenciones nuevas aprobadas",
+      "La cooperativa podría detectar convocatorias que antes pasaban desapercibidas y llegar a cada plazo con la documentación lista para presentar.",
+    metric: "Sin perder ningún plazo",
   },
   {
     sector: "Consultora Técnica",
     location: "Gijón, Asturias",
     icon: "BarChart3",
     problem:
-      "Una consultora de Gijón con 8 técnicos generaba informes de cumplimiento normativo manualmente para sus clientes industriales. Cada informe tardaba entre 4 y 6 horas.",
+      "Imagina una consultora con 8 técnicos que genera informes de cumplimiento normativo manualmente para sus clientes industriales. Cada informe tarda entre 4 y 6 horas.",
     solution:
-      "Desarrollamos un agente de IA a medida que genera el borrador del informe automáticamente a partir de los datos de cada instalación.",
-    result: "El tiempo de generación pasó de 5 horas a 45 minutos. Capacidad para atender más clientes sin ampliar equipo.",
-    metric: "De 5h a 45min por informe",
+      "Un agente de IA a medida generaría el borrador del informe automáticamente a partir de los datos de cada instalación, listo para revisar y firmar.",
+    result:
+      "El tiempo de generación podría reducirse de 5 horas a menos de 1 hora, liberando capacidad para atender más clientes sin ampliar equipo.",
+    metric: "Estimación: de 5h a <1h",
   },
 ];
 

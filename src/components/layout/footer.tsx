@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Linkedin, Mail } from "lucide-react";
 import { SITE, NAV_LINKS, LEGAL_LINKS } from "@/lib/constants";
 
@@ -9,13 +10,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-[#2563EB] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm font-mono">R</span>
-              </div>
-              <span className="font-bold text-lg tracking-tight">
-                Reb<span className="text-[#3B82F6]">AI</span>
-              </span>
+            <div className="mb-4">
+              <Image
+                src="/logo.png"
+                alt={SITE.name}
+                width={120}
+                height={32}
+                className="h-8 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-[#64748B] text-sm leading-relaxed max-w-xs">
               Automatizamos la burocracia que frena a tu empresa en Asturias.
