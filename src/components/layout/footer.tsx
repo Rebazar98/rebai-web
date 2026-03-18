@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.png" alt={SITE.name} className="h-8 w-auto brightness-0 invert" />
+              <img src="/logo.png" alt={SITE.name} className="h-24 w-auto brightness-0 invert" />
             </div>
             <p className="text-[#64748B] text-sm leading-relaxed max-w-xs">
               Automatizamos la burocracia que frena a tu empresa en Asturias.

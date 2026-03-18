@@ -28,7 +28,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.png" alt={SITE.name} className="h-8 w-auto" />
+            <img src="/logo.png" alt={SITE.name} className="h-24 w-auto" />
           </Link>
 
           {/* Desktop nav */}
