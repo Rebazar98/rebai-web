@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/lib/constants";
 
@@ -28,14 +27,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-18">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Image
-              src="/logo.png"
-              alt={SITE.name}
-              width={120}
-              height={32}
-              className="h-8 w-auto"
-              priority
-            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.png" alt={SITE.name} className="h-8 w-auto" />
           </Link>
 
           {/* Desktop nav */}

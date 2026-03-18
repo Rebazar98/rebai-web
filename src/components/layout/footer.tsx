@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Linkedin, Mail } from "lucide-react";
 import { SITE, NAV_LINKS, LEGAL_LINKS } from "@/lib/constants";
 
@@ -11,13 +10,8 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-4">
-              <Image
-                src="/logo.png"
-                alt={SITE.name}
-                width={120}
-                height={32}
-                className="h-8 w-auto brightness-0 invert"
-              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.png" alt={SITE.name} className="h-8 w-auto brightness-0 invert" />
             </div>
             <p className="text-[#64748B] text-sm leading-relaxed max-w-xs">
               Automatizamos la burocracia que frena a tu empresa en Asturias.
