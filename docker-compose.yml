@@ -17,10 +17,14 @@ services:
       - trazev_net
     # Sin "ports": no se expone directamente, solo a través de Caddy.
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/ || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
+      # node en vez de wget/curl: la imagen node:20-alpine no garantiza tenerlos instalados,
+      # pero node sí (es la propia imagen base) — evita que el healthcheck falle solo por
+      # falta del binario, independientemente de si la app arrancó bien o no.
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/', (r) => process.exit(r.statusCode < 500 ? 0 : 1)).on('error', () => process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
     deploy:
       resources:
         limits:
