@@ -1,74 +1,142 @@
-import SectionLabel from "@/components/shared/section-label";
-import AnimatedSection from "@/components/shared/animated-section";
+import Image from "next/image";
+import { Bot, CheckCircle, Database, FileSearch, Mail } from "lucide-react";
 
-const HOW_IT_WORKS = [
+import AnimatedSection from "@/components/shared/animated-section";
+import SectionLabel from "@/components/shared/section-label";
+
+const WORKFLOW_STEPS = [
   {
     number: "01",
-    title: "Configuras tu perfil",
+    icon: FileSearch,
+    title: "Revisa el BOPA cada dia por ti",
     description:
-      "Dinos qué sectores, tipos de ayuda y normativa te afectan. Medio ambiente, urbanismo, subvenciones, contratación pública...",
+      "El sistema detecta nuevas publicaciones, convocatorias y cambios para que tu equipo no tenga que abrir y revisar el boletin completo a mano.",
   },
   {
     number: "02",
-    title: "El agente descarga el BOPA",
+    icon: CheckCircle,
+    title: "Filtra y prioriza segun tus criterios",
     description:
-      "Cada día, automáticamente. Ninguna publicación se escapa. Sin intervención manual por tu parte.",
+      "Combina reglas, contexto y clasificacion asistida para separar lo que afecta a tu actividad del ruido que no requiere movimiento.",
   },
   {
     number: "03",
-    title: "La IA filtra y resume",
+    icon: Mail,
+    title: "Resume lo relevante y lo deja listo",
     description:
-      "Solo lo relevante para tu empresa, con contexto explicado en lenguaje claro. Sin tecnicismos innecesarios.",
+      "Cada publicacion importante llega con un resumen claro, mas contexto para entender el impacto, los requisitos y el siguiente paso.",
   },
   {
     number: "04",
-    title: "Recibes la alerta",
+    icon: Bot,
+    title: "Tu equipo consulta al agente y decide",
     description:
-      "Por email o WhatsApp. Tu equipo actúa, no busca. Tiempo recuperado para proyectos de valor.",
+      "El agente con base documental permite preguntar por encaje, plazos, requisitos o cambios sin empezar cada vez desde cero.",
   },
-];
+] as const;
+
+const SUPPORT_POINTS = [
+  {
+    icon: Database,
+    title: "Base documental consultable",
+    description:
+      "Las publicaciones y documentos detectados se guardan para que el equipo pueda volver a ellos con contexto.",
+  },
+  {
+    icon: Bot,
+    title: "Agente con RAG",
+    description:
+      "No se limita a mandar alertas. Ayuda a procesar la publicacion y a responder preguntas utiles para actuar antes.",
+  },
+  {
+    icon: CheckCircle,
+    title: "Salidas accionables",
+    description:
+      "El objetivo no es leer mas. Es decidir antes que hacer con cada ayuda, cambio o convocatoria relevante.",
+  },
+] as const;
 
 export default function SolutionBridge() {
   return (
-    <section id="como-funciona" className="bg-[#F8FAFC] py-24 lg:py-32 border-t border-[#E2E8F0]">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+    <section
+      id="como-funciona"
+      className="relative overflow-hidden border-t border-[#E2E8F0] bg-[#F8FAFC] py-24 lg:py-32"
+    >
+      <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
         <AnimatedSection>
-          <div className="text-center mb-16">
-            <SectionLabel className="mb-6">Cómo funciona</SectionLabel>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight mb-4">
-              De cero a alertas automáticas en días
+          <div className="mb-12 text-center">
+            <SectionLabel className="mb-6">Como funciona</SectionLabel>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
+              BOPA Inteligente convierte publicaciones oficiales en decisiones mas
+              rapidas para tu equipo.
             </h2>
-            <p className="text-[#64748B] text-lg max-w-2xl mx-auto">
-              Sin meses de implementación. Sin equipo técnico interno.
-              Configuramos todo por ti y te acompañamos en el proceso.
+            <p className="mx-auto max-w-3xl text-lg text-[#64748B]">
+              No se queda en una alerta. Revisa el boletin, filtra lo que encaja con tus
+              criterios, resume cada publicacion relevante y pone a tu equipo un agente de
+              IA para consultar impacto, requisitos, plazos y siguiente paso.
             </p>
           </div>
         </AnimatedSection>
 
-        {/* Steps grid — 2x2 en desktop, 1 col en mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {HOW_IT_WORKS.map((step, i) => (
-            <AnimatedSection key={step.number} delay={i * 100}>
-              <div className="relative bg-white rounded-[12px] border border-[#E2E8F0] p-6 h-full shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-                {/* Número */}
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#EFF6FF] border-2 border-[#2563EB] mb-4">
-                  <span className="text-[#2563EB] font-bold text-xs font-mono">
-                    {step.number}
-                  </span>
+        <AnimatedSection>
+          <div className="relative mb-14 hidden overflow-hidden rounded-[28px] border border-[#DCE8F5] bg-white/70 lg:mx-[-1.5%] lg:block">
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(248,250,252,0.82)_0%,rgba(248,250,252,0.48)_45%,rgba(248,250,252,0.82)_100%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(248,250,252,0.92)_0%,rgba(248,250,252,0.56)_10%,rgba(248,250,252,0.14)_24%,rgba(248,250,252,0.08)_76%,rgba(248,250,252,0.44)_90%,rgba(248,250,252,0.86)_100%)]" />
+            <div className="relative h-[250px] w-full">
+              <Image
+                src="/workflow-tech-background.png"
+                alt=""
+                fill
+                className="scale-[1.04] object-cover object-center opacity-[0.4]"
+              />
+            </div>
+          </div>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {WORKFLOW_STEPS.map((step, i) => {
+            const Icon = step.icon;
+
+            return (
+              <AnimatedSection key={step.number} delay={i * 100}>
+                <div className="relative h-full rounded-[12px] border border-[#E2E8F0] bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#2563EB] bg-[#EFF6FF]">
+                      <span className="font-mono text-xs font-bold text-[#2563EB]">
+                        {step.number}
+                      </span>
+                    </div>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1B2A4A] text-white">
+                      <Icon size={18} />
+                    </div>
+                  </div>
+                  {i < WORKFLOW_STEPS.length - 1 && (
+                    <div className="absolute top-11 -right-3 z-10 hidden h-0.5 w-6 bg-[#BFDBFE] lg:block" />
+                  )}
+                  <h3 className="mb-2 text-base font-semibold text-[#0F172A]">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-[#64748B]">{step.description}</p>
                 </div>
-                {/* Conector entre pasos (desktop) */}
-                {i < HOW_IT_WORKS.length - 1 && (
-                  <div className="hidden lg:block absolute top-11 -right-3 w-6 h-0.5 bg-[#BFDBFE] z-10" />
-                )}
-                <h3 className="text-[#0F172A] font-semibold text-base mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-[#64748B] text-sm leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            </AnimatedSection>
-          ))}
+              </AnimatedSection>
+            );
+          })}
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {SUPPORT_POINTS.map((item, index) => {
+            const Icon = item.icon;
+
+            return (
+              <AnimatedSection key={item.title} delay={index * 100}>
+                <div className="rounded-[18px] border border-[#DCE8F5] bg-white p-6">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#EFF6FF] text-[#2563EB]">
+                    <Icon size={20} />
+                  </div>
+                  <h3 className="mb-2 text-base font-semibold text-[#0F172A]">{item.title}</h3>
+                  <p className="text-sm leading-relaxed text-[#64748B]">{item.description}</p>
+                </div>
+              </AnimatedSection>
+            );
+          })}
         </div>
       </div>
     </section>

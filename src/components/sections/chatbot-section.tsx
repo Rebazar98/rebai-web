@@ -2,17 +2,18 @@ import Link from "next/link";
 import { ArrowRight, MessageSquare, Search, FileText, Zap } from "lucide-react";
 import SectionLabel from "@/components/shared/section-label";
 import AnimatedSection from "@/components/shared/animated-section";
+import { buildContactHref } from "@/lib/contact";
 
 const EXAMPLES = [
   {
-    question: "¿Hay alguna ayuda del IDEPA para modernización de maquinaria agrícola este año?",
+    question: "¿Hay alguna ayuda del IDEPA para modernización de maquinaria este año?",
     answer:
-      "Sí. El IDEPA publicó el 14 de marzo la convocatoria de ayudas para modernización de explotaciones agrícolas 2026. Plazo: 15 de abril. Dotación: 2M€. Hasta 40% subvencionable. ¿Quieres que prepare el borrador de solicitud?",
+      "Sí. El IDEPA publicó el 14 de marzo la convocatoria de ayudas para modernización de instalaciones 2026. Plazo: 15 de abril. Dotación: 2M€. Hasta 40% subvencionable. ¿Quieres que prepare el borrador de solicitud?",
   },
   {
-    question: "¿Qué cambios ha habido en la normativa de residuos de construcción en Asturias?",
+    question: "¿Qué cambios ha habido en la normativa de contratación pública que afecten a nuestros expedientes?",
     answer:
-      "El BOPA del 18 de marzo publicó la modificación de la Ley de Residuos que afecta a obras de más de 500m². Entrada en vigor: 1 de mayo. Tus expedientes nº 234 y 891 podrían verse afectados.",
+      "El BOPA del 18 de marzo publicó la modificación que afecta a licitaciones de obra menor. Entrada en vigor: 1 de mayo. Tus expedientes nº 234 y 891 podrían verse afectados.",
   },
 ];
 
@@ -129,7 +130,7 @@ export default function ChatbotSection() {
                   Incluido en todos los planes. Sin límite de consultas.
                 </p>
                 <Link
-                  href="/contacto?tipo=demo"
+                  href={buildContactHref({ servicio: "bopa", tipo: "demo" })}
                   className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-150 group text-sm"
                 >
                   Ver el asistente en acción

@@ -1,0 +1,609 @@
+================================================================================
+PLAN DE LANZAMIENTO — BOPA INTELIGENTE (RebAI)
+Objetivo: primeros clientes de pago en 30 días
+================================================================================
+
+Fecha de redacción: marzo 2026
+Producto: BOPA Inteligente — monitorización automática del Boletín Oficial
+          del Principado de Asturias mediante IA
+Mercado objetivo: ingenierías, consultoras y cooperativas de Asturias
+
+
+================================================================================
+RESUMEN EJECUTIVO
+================================================================================
+
+El BOPA es un problema real, recurrente y poco resuelto para el tejido
+empresarial asturiano. Nadie en el mercado ofrece una solución específica
+para Asturias. La ventana de oportunidad es ahora.
+
+El objetivo de este plan es conseguir los primeros 3-5 clientes de pago
+en 30 días mediante outreach directo, demostración del producto y una
+estrategia de contenido que genere confianza antes de que llegue el tráfico
+orgánico. El SEO y los canales de pago son para el mes 2-3.
+
+
+================================================================================
+FASE 1 — FUNDAMENTOS (Días 1-7)
+================================================================================
+
+1.1 CONFIGURACIÓN DE CAPTACIÓN DE LEADS
+----------------------------------------
+
+Antes de cualquier acción de marketing, los leads deben quedar registrados
+automáticamente. Ninguno puede perderse.
+
+ACCIONES:
+
+a) Crear workflow en n8n:
+   - Trigger: POST a /api/lead (ya implementado en la web)
+   - Rama 1 → Email a hola@rebaaidigital.com con datos del lead
+   - Rama 2 → Fila nueva en Google Sheets con:
+     nombre | empresa | email | telefono | situacion_bopa | origen | fecha
+   - Rama 3 -> (opcional) Notificacion interna por email al equipo comercial
+
+b) Configurar Google Sheets:
+   - Hoja: "Leads RebAI"
+   - Columnas: Fecha | Nombre | Empresa | Email | Teléfono | Origen |
+     Situación BOPA actual | Estado (nuevo/contactado/piloto/cliente)
+   - Compartir con todos los miembros del equipo
+
+c) Añadir Calendly a la página de contacto:
+   - Crear cuenta en calendly.com (plan gratuito)
+   - Configurar reunión de 30 min: "Demo BOPA Inteligente"
+   - Descripción: "En 30 minutos te mostramos cómo funciona el sistema
+     adaptado a tu empresa. Sin compromiso."
+   - Embed en /contacto además del formulario
+   - Esto elimina la fricción de esperar 48h de respuesta
+
+d) Configurar RESEND_API_KEY en Vercel:
+   - Verificar dominio rebaaidigital.com en resend.com
+   - Añadir variable de entorno en Vercel dashboard
+   - Probar envío desde formulario de contacto
+
+HERRAMIENTAS:
+   - n8n (self-hosted o cloud.n8n.io — plan starter ~20€/mes)
+   - Google Sheets (gratis)
+   - Calendly (plan gratuito suficiente al inicio)
+   - Resend (gratis hasta 3.000 emails/mes)
+
+
+1.2 LINKEDIN — CONFIGURACIÓN BASE
+-----------------------------------
+
+LinkedIn es el canal B2B más efectivo en España para este tipo de producto.
+El ciclo de venta es directo: perfil → contenido → conexión → mensaje → demo.
+
+ACCIONES:
+
+a) Perfil personal del fundador (clave — no el de empresa):
+   - Foto profesional, fondo azul o en exterior técnico
+   - Titular: "Automatizo el BOPA de Asturias para que las ingenierías
+     no pierdan ayudas ni normativa | RebAI"
+   - About: 3 párrafos (problema, solución, llamada a conectar)
+   - Experiencia: fundador de RebAI + contexto técnico previo
+   - Banner: imagen con "BOPA Inteligente — Alertas automáticas para
+     ingenierías y cooperativas de Asturias"
+
+b) Página de empresa RebAI:
+   - Logo oficial, descripción centrada en BOPA
+   - URL: linkedin.com/company/rebai
+   - Enlace a rebaaidigital.com
+
+c) Primer post de lanzamiento (publicar en día 3):
+   Formato: texto largo (1.200-1.500 caracteres) + imagen del mockup de alerta
+
+   --- BORRADOR ---
+   "Cada semana, cientos de técnicos en Asturias abren el BOPA y leen
+   páginas y páginas buscando lo que les afecta.
+
+   La mayoría no encuentra nada relevante ese día.
+   Algunos sí encuentran algo — pero ya es tarde para el plazo.
+   Unos pocos se pierden una convocatoria de 40.000€ que nunca sabrán
+   que existió.
+
+   Llevamos meses construyendo un sistema que hace ese trabajo por ellos.
+   Cada mañana descarga el BOPA, filtra lo relevante para cada empresa
+   y manda una alerta con exactamente lo que necesitan saber.
+
+   Esta semana lo lanzamos.
+
+   Si trabajas en una ingeniería, consultora o cooperativa en Asturias
+   y el BOPA forma parte de tu vida laboral — me encantaría que lo probaras.
+
+   Primer mes gratis. Sin permanencia. ¿Hablamos?"
+
+   --- FIN BORRADOR ---
+
+   Añadir 3-5 hashtags: #Asturias #Ingeniería #Automatización #BOPA #IA
+
+
+================================================================================
+FASE 2 — OUTREACH DIRECTO (Días 5-21)
+================================================================================
+
+Los primeros clientes no llegan solos. Hay que ir a buscarlos.
+Objetivo: 50 contactos directos → 10 respuestas → 5 demos → 3 pilotos.
+
+2.1 CONSTRUCCIÓN DE LA LISTA
+------------------------------
+
+Fuentes para construir la lista de empresas objetivo:
+
+INGENIERÍAS Y CONSULTORAS:
+- Colegio Oficial de Ingenieros Industriales del Principado de Asturias (COIIA)
+  → coiia.es — directorio de empresas asociadas
+- Colegio de Ingenieros de Caminos, Canales y Puertos (delegación Asturias)
+- Colegio de Ingenieros Técnicos Agrícolas de Asturias
+- Google Maps: "ingeniería ambiental Asturias", "consultora técnica Oviedo/Gijón"
+- LinkedIn: buscar "ingeniero" + "Asturias" + "medio ambiente / forestal / agrícola"
+
+COOPERATIVAS:
+- ASAJA Asturias (asaja.es/asturias) — base de cooperativas agrícolas
+- Unión de Cooperativas Agrarias de Asturias (UCA)
+- Federación Asturiana de Empresarios (FADE)
+- Google: "cooperativa ganadera Asturias", "cooperativa agrícola Asturias"
+
+FORMATO DE LA LISTA:
+   Empresa | Contacto (nombre) | Cargo | Email | LinkedIn | Sector | Prioridad
+
+
+2.2 SECUENCIA DE OUTREACH POR EMAIL
+-------------------------------------
+
+No enviar correos genéricos. Cada email debe parecer escrito a mano.
+Máximo 5 líneas. Sin adjuntos. Sin presentación de empresa.
+
+MENSAJE 1 — Apertura (día 0):
+---
+Asunto: BOPA Asturias — una pregunta rápida
+
+Hola [Nombre],
+
+¿Revisáis el BOPA manualmente en [Empresa]?
+
+Hemos construido un sistema que lo hace automáticamente y manda cada mañana
+un resumen de lo que afecta a vuestro tipo de proyectos. Lo estamos probando
+con ingenierías asturianas y buscamos 5 empresas más para el piloto.
+
+¿Te puedo mandar más información o preferirías una demo de 20 minutos?
+
+Un saludo,
+[Nombre]
+RebAI — rebaaidigital.com
+---
+
+MENSAJE 2 — Seguimiento si no responde (día 5):
+---
+Asunto: Re: BOPA Asturias
+
+[Nombre], te escribí hace unos días sobre la automatización del BOPA.
+
+Esta semana el sistema detectó [X convocatorias relevantes para ingeniería
+ambiental / cooperativas ganaderas — usar dato real del BOPA de esa semana].
+
+¿Os habría sido útil saberlo antes?
+
+Si quieres verlo en acción, 20 minutos son suficientes.
+---
+
+MENSAJE 3 — Cierre (día 12):
+---
+Asunto: Último aviso — piloto gratuito BOPA
+
+[Nombre], último mensaje de mi parte.
+
+Estamos cerrando los 5 pilotos gratuitos de BOPA Inteligente.
+Si os interesa probar el sistema durante un mes sin coste y sin compromiso,
+dímelo esta semana.
+
+Si no es el momento, sin problema — lo entiendo perfectamente.
+---
+
+2.3 OUTREACH POR LINKEDIN
+---------------------------
+
+Secuencia para perfiles de técnicos/gerentes en LinkedIn:
+
+Paso 1: Solicitar conexión sin nota (tasa de aceptación más alta)
+Paso 2 (24-48h tras aceptar):
+---
+Hola [Nombre], gracias por conectar.
+
+Vi que trabajas en [Empresa] — seguramente el BOPA forma parte de tu día a día.
+
+Estamos lanzando un sistema que lo monitoriza automáticamente y manda alertas
+personalizadas. Lo estamos probando con ingenierías y cooperativas asturianas.
+
+¿Te interesaría verlo? 20 minutos, sin compromiso.
+---
+
+Paso 3 si no responde (día 7):
+---
+[Nombre], esta semana el BOPA publicó [dato real relevante para su sector].
+¿Os llegó a tiempo?
+
+El sistema que hemos construido habría enviado la alerta en menos de 2 horas.
+
+¿15 minutos para verlo?
+---
+
+
+================================================================================
+FASE 3 — CONTENIDO (Semana 2-4, luego continuo)
+================================================================================
+
+El contenido tiene dos objetivos: generar confianza a corto plazo y
+posicionar en Google a medio plazo. Son la misma acción.
+
+3.1 NEWSLETTER SEMANAL DEL BOPA
+---------------------------------
+
+Nombre: "El BOPA de la semana — lo que necesitas saber"
+Frecuencia: cada lunes por la mañana
+Plataforma: Beehiiv (gratis hasta 2.500 suscriptores) o Substack
+
+Estructura de cada edición:
+   - Línea 1: número de disposiciones publicadas esa semana
+   - Bloque A: Convocatorias de subvenciones abiertas (con plazo y dotación)
+   - Bloque B: Cambios normativos relevantes para ingeniería y medio ambiente
+   - Bloque C: Contratación pública destacada
+   - Cierre: "Esto lo detecta automáticamente nuestro sistema. ¿Quieres recibirlo
+     filtrado para tu empresa? [Solicitar demo]"
+
+Esta newsletter es el mejor anuncio posible del producto. Quien la lee,
+ya entiende el valor. La demo es casi un trámite.
+
+Distribución inicial:
+   - Publicar en LinkedIn cada lunes
+   - Enviar por email a la lista de contactos del sector
+   - Compartir por email en asociaciones sectoriales y contactos relevantes
+   - Pedir a contactos del sector que la reenvíen
+
+3.2 ARTÍCULOS SEO (blog — implementar semana 3)
+-------------------------------------------------
+
+Añadir al repo: Sanity CMS + ruta /blog con artículos estáticos.
+En paralelo, publicar los artículos en LinkedIn como posts nativos.
+
+Calendario de contenido (primeros 3 meses):
+
+Mes 1:
+   - "Subvenciones IDEPA Asturias 2026: guía completa para ingenierías"
+   - "Cómo revisar el BOPA de Asturias sin perder horas cada semana"
+   - "Ayudas para cooperativas ganaderas en Asturias: qué buscar en el BOPA"
+
+Mes 2:
+   - "BOPA vs BOE: qué normativa afecta realmente a las ingenierías asturianas"
+   - "Normativa de residuos en Asturias: los cambios que debes conocer en 2026"
+   - "Automatización administrativa para el sector técnico: por dónde empezar"
+
+Mes 3:
+   - "Software de monitorización de boletines oficiales: comparativa 2026"
+   - "Cómo no perderse una subvención: checklist para ingenierías de Asturias"
+   - "IDEPA Asturias: guía de convocatorias abiertas y cómo solicitarlas"
+
+Cada artículo debe:
+   - Tener entre 800-1.500 palabras
+   - Incluir al menos 1 CTA a la demo
+   - Estar optimizado para 1-2 keywords específicas del sector
+
+
+3.3 CASOS DE USO REALES (cuando los tengas)
+---------------------------------------------
+
+En cuanto tengas un cliente piloto usando el sistema, documentar:
+   - Cuántas horas dedicaba antes a revisar el BOPA
+   - Cuántas convocatorias detectó el sistema en el primer mes
+   - Cita textual (con permiso)
+
+Esto pasa de "escenario de ejemplo" a caso de uso real. Es el activo
+de marketing más valioso que puedes tener.
+
+
+================================================================================
+FASE 4 — CANALES PAGADOS (Mes 2-3)
+================================================================================
+
+No invertir en publicidad hasta tener:
+   a) Al menos 3 clientes piloto activos
+   b) 1 caso de uso real documentado
+   c) Proceso de demo optimizado (sabes lo que pregunta el cliente)
+
+4.1 GOOGLE ADS
+---------------
+
+Presupuesto inicial recomendado: 200-300€/mes
+Tipo de campaña: Search (búsqueda)
+
+Keywords principales (coste estimado bajo por falta de competencia):
+   - "BOPA Asturias" — búsqueda informacional con alta intención
+   - "boletín oficial Principado Asturias subvenciones"
+   - "alertas normativa Asturias ingeniería"
+   - "subvenciones IDEPA Asturias 2026"
+   - "software gestión BOPA"
+
+Página de destino: homepage (ya optimizada para conversión)
+Conversión objetivo: formulario enviado o Calendly reservado
+
+Extensiones de anuncio recomendadas:
+   - Enlace de sitio: "Cómo funciona", "Ver precios", "Demo gratuita"
+   - Texto destacado: "Empresa asturiana", "Sin permanencia", "Alertas en 24h"
+
+4.2 LINKEDIN ADS (opcional, mes 3)
+------------------------------------
+
+LinkedIn Ads es caro (~8-15€/clic) pero muy preciso para B2B.
+Segmentación ideal:
+   - Ubicación: Asturias
+   - Cargo: Gerente, Director Técnico, Ingeniero Senior
+   - Sector: Ingeniería civil, Medio ambiente, Agricultura
+
+Formato recomendado: Sponsored Content con imagen del mockup de alerta
+Presupuesto mínimo efectivo: 300-500€/mes
+No empezar hasta tener caso de uso real para usar en el anuncio.
+
+
+================================================================================
+FASE 5 — ALIANZAS ESTRATÉGICAS (Mes 1-3, en paralelo)
+================================================================================
+
+Una sola alianza correcta vale más que 1.000€ en publicidad.
+
+5.1 COLEGIOS PROFESIONALES
+----------------------------
+
+Objetivo: aparecer en su newsletter o en un evento como solución recomendada.
+
+COIIA (Colegio Oficial de Ingenieros Industriales de Asturias)
+→ Contactar con el área de servicios a colegiados
+→ Propuesta: demo gratuita para colegiados interesados + artículo en su newsletter
+
+Colegio de Ingenieros de Caminos (delegación Asturias)
+→ Mismo enfoque
+
+Colegio de Ingenieros Técnicos Agrícolas de Asturias
+→ Más relevante para cooperativas y sector rural
+
+MENSAJE PARA COLEGIOS:
+"Somos una empresa asturiana que ha desarrollado un sistema de
+monitorización automática del BOPA especialmente diseñado para
+profesionales técnicos. Nos gustaría ofrecerlo gratuitamente a vuestros
+colegiados durante 30 días y presentarlo en vuestro próximo evento o newsletter.
+¿Con quién podríamos hablar?"
+
+5.2 ASOCIACIONES SECTORIALES
+------------------------------
+
+ASAJA Asturias — Asociación Agraria Joven de Asturias
+→ Sus socios son exactamente el cliente ideal para subvenciones IDEPA
+→ Proponer colaboración para difundir convocatorias de ayudas
+
+UCA — Unión de Cooperativas Agrarias de Asturias
+→ Similar a ASAJA, foco en cooperativas
+
+FADE — Federación Asturiana de Empresarios
+→ Acceso a eventos y visibilidad ante empresas técnicas
+
+5.3 DESPACHOS DE GESTIÓN Y ASESORÍA
+--------------------------------------
+
+Los asesores y gestorías que trabajan con ingenierías y cooperativas
+pueden convertirse en prescriptores. Un asesor que recomienda el sistema
+a 10 clientes suyos es un canal de ventas completo.
+
+Propuesta: comisión del 20% del primer año por cada cliente referido.
+
+
+================================================================================
+FASE 6 — PROCESO DE DEMO Y CIERRE
+================================================================================
+
+La demo es el momento más crítico del proceso de venta.
+Un buen proceso convierte el 50-70% de las demos en clientes piloto.
+
+6.1 ESTRUCTURA DE LA DEMO (30 minutos)
+----------------------------------------
+
+Min 0-5: Entender el problema del cliente
+   Preguntas: "¿Cuántas horas dedica tu equipo al BOPA cada semana?
+   ¿Os ha pasado alguna vez perder un plazo o enteraros tarde de una convocatoria?
+   ¿Hay alguien en el equipo que tenga esto como tarea?"
+
+Min 5-20: Demostración del sistema
+   1. Mostrar un resumen real del BOPA de esa semana
+   2. Mostrar cómo se configuran las alertas por categoría
+   3. Enseñar el mockup del email de alerta
+   4. Demostrar el asistente de consulta de normativa (chatbot)
+   5. Explicar como llegaria la alerta a su equipo (email)
+
+Min 20-25: Adaptar al caso del cliente
+   "¿Cuáles de estas categorías son las más relevantes para vosotros?
+   ¿Tenéis varios técnicos que necesitarían recibir las alertas?"
+
+Min 25-30: Propuesta y siguiente paso
+   No cerrar el precio en la demo. Cerrar el piloto.
+   "Lo que propongo es esto: empezáis con un mes gratuito, sin compromiso.
+   Configuramos las alertas adaptadas a vuestro perfil esta semana y en 30 días
+   me decís qué valor le habéis sacado. ¿Os parece bien?"
+
+6.2 SEGUIMIENTO POST-DEMO
+---------------------------
+
+- Email mismo día: resumen de lo visto + enlace para arrancar el piloto
+- Seguimiento día 3 si no responden: "¿Alguna duda antes de arrancar?"
+- Seguimiento día 7: enviar análisis del BOPA de esa semana relevante para ellos
+- Seguimiento día 14: "¿Cómo va el piloto? ¿Estáis recibiendo las alertas?"
+
+
+================================================================================
+MÉTRICAS Y SEGUIMIENTO
+================================================================================
+
+SEMANA 1-2:
+   □ Leads capturados en Google Sheets: objetivo 10+
+   □ Emails de outreach enviados: objetivo 30+
+   □ Conexiones LinkedIn aceptadas: objetivo 20+
+   □ Demos solicitadas: objetivo 3+
+
+SEMANA 3-4:
+   □ Demos realizadas: objetivo 5+
+   □ Pilotos activos: objetivo 3+
+   □ Suscriptores newsletter: objetivo 50+
+   □ Artículo SEO publicado: 1
+
+MES 2:
+   □ Clientes de pago: objetivo 2-3
+   □ MRR (ingresos mensuales recurrentes): primer hito
+   □ Caso de uso real documentado: 1
+   □ Suscriptores newsletter: 150+
+   □ Artículos SEO: 3+
+   □ Google Ads activo
+
+MES 3:
+   □ Clientes de pago: objetivo 5-8
+   □ MRR estabilizado
+   □ Pipeline de demos activo (2-3 demos/semana)
+   □ 1 alianza con colegio profesional o asociación activa
+
+
+================================================================================
+VISIÓN A 6-12 MESES — DE LANDING A SAAS
+================================================================================
+
+La web ya tiene la arquitectura preparada. La evolución natural es:
+
+FASE A — Panel de cliente (mes 3-4)
+   Ruta /panel ya reservada en el repo.
+   Añadir: Auth.js + PostgreSQL (Neon o Supabase)
+   El cliente ve sus alertas históricas, configura su perfil, descarga PDFs.
+
+FASE B — Autoservicio y pagos (mes 5-6)
+   Añadir Stripe en /precios.
+   El cliente elige plan, paga y se onboardea sin intervención del equipo.
+   Esto multiplica la capacidad de escalar sin más personal.
+
+FASE C — Chatbot avanzado (mes 6-9)
+   La demo ya incluye el asistente de consulta.
+   Mejorar con memoria de conversación, citas del BOPA, exportación a Word.
+   Diferenciador clave vs cualquier competidor que aparezca.
+
+FASE D — Expansión geográfica (mes 9-12)
+   BOPA Asturias es la cabeza de lanza.
+   Misma arquitectura: BOE (nacional), BOCYL (Castilla y León), DOE (Extremadura).
+   El modelo de negocio escala sin reescribir el producto.
+
+FASE E — API para integradores (mes 12+)
+   Despachos y gestorías integran las alertas en su propio software.
+   Precio por llamada API o licencia mensual.
+   Abre un canal B2B2B sin coste de adquisición directo.
+
+
+================================================================================
+CHECKLIST DE LANZAMIENTO — 30 DÍAS
+================================================================================
+
+SEMANA 1 (Infraestructura y primeros contactos)
+   □ n8n configurado y conectado a Google Sheets
+   □ RESEND_API_KEY activa en Vercel
+   □ Calendly en /contacto
+   □ Perfil LinkedIn del fundador actualizado
+   □ Primer post de lanzamiento publicado en LinkedIn
+   □ Lista de 50 empresas objetivo construida
+   □ Primeros 10 emails de outreach enviados
+
+SEMANA 2 (Demos y newsletter)
+   □ Primera edición de newsletter publicada
+   □ 20 emails adicionales enviados
+   □ 30 nuevas conexiones en LinkedIn
+   □ Primera demo realizada
+   □ Seguimiento a todos los contactos de semana 1
+
+SEMANA 3 (Pilotos)
+   □ Al menos 1 piloto activo
+   □ Artículo SEO número 1 publicado en blog
+   □ Newsletter edición 2 publicada
+   □ Primer testimonio (aunque sea informal) documentado
+   □ Contacto con 1 colegio profesional realizado
+
+SEMANA 4 (Revisión y ajuste)
+   □ Revisión de métricas
+   □ Ajuste del mensaje de outreach según respuestas
+   □ Demo nº 5+ realizada
+   □ Plan de mes 2 definido (Google Ads o no)
+   □ Precio definitivo fijado basado en feedback de demos
+
+
+================================================================================
+PRECIOS RECOMENDADOS (orientativos)
+================================================================================
+
+Los precios exactos se definen tras las primeras demos.
+Referencia de partida para las conversaciones:
+
+BÁSICO — Autónomos y despachos pequeños
+   ~50-80€/mes
+   1 perfil · email diario · soporte básico
+
+PROFESIONAL — Ingenierías y consultoras
+   ~150-250€/mes
+   5 perfiles � alertas por email � BOPA + subvenciones � soporte prioritario
+
+EMPRESA — Cooperativas y empresas con equipo técnico
+   ~400-600€/mes o precio negociado
+   Perfiles ilimitados · integración · gestor de cuenta
+
+Política de piloto:
+   Primer mes gratuito para todos los primeros 10 clientes.
+   Esto elimina la barrera de entrada y genera los casos de uso reales
+   que necesitas para vender al resto.
+
+
+================================================================================
+HERRAMIENTAS NECESARIAS (coste estimado mes 1)
+================================================================================
+
+   Vercel (hosting)          → gratuito (plan hobby) o ~20€/mes (pro)
+   Resend (email)            → gratuito hasta 3.000 emails/mes
+   n8n (automatización)      → ~20€/mes (cloud starter)
+   Calendly (demos)          → gratuito (plan básico suficiente)
+   Beehiiv (newsletter)      → gratuito hasta 2.500 suscriptores
+   Google Sheets (CRM)       → gratuito
+   LinkedIn Premium (1 mes)  → ~40€/mes (opcional pero útil para búsqueda)
+   Dominio + DNS              → ya configurado (rebaaidigital.com)
+
+   TOTAL MES 1: ~40-80€ (sin LinkedIn Premium)
+
+
+================================================================================
+CONTACTOS CLAVE A INVESTIGAR ANTES DE EMPEZAR
+================================================================================
+
+Buscar en LinkedIn antes de arrancar el outreach:
+
+COLEGIOS PROFESIONALES:
+   - Secretario/a o Responsable de Servicios del COIIA
+   - Delegado/a del Colegio de Ingenieros de Caminos en Asturias
+   - Presidente del Colegio de Ingenieros Técnicos Agrícolas
+
+ASOCIACIONES:
+   - Director/a de ASAJA Asturias
+   - Gerente de UCA Asturias
+   - Área de innovación de FADE
+
+EMPRESAS OBJETIVO TIPO:
+   - Gerentes de ingenierías ambientales en Oviedo, Gijón y Avilés
+   - Directores técnicos de cooperativas en la zona central de Asturias
+   - Socios directores de consultoras técnicas con proyectos en el Principado
+
+
+================================================================================
+FIN DEL PLAN
+================================================================================
+
+Próxima revisión recomendada: fin de semana 2 (ajustar outreach según resultados)
+Contacto para dudas del plan: hola@rebaaidigital.com
+
+"El mercado no espera al producto perfecto. Espera al producto que llega primero."
+================================================================================
+

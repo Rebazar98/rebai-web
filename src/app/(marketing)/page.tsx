@@ -1,50 +1,48 @@
 import type { Metadata } from "next";
 import Hero from "@/components/sections/hero";
+import TrustStrip from "@/components/sections/trust-strip";
+import CapabilitiesShowcase from "@/components/sections/capabilities-showcase";
 import PainPoints from "@/components/sections/pain-points";
-import SolutionBridge from "@/components/sections/solution-bridge";
-import ProductPreview from "@/components/sections/product-preview";
-import ChatbotSection from "@/components/sections/chatbot-section";
-import ServicesPreview from "@/components/sections/services-preview";
-import Pricing from "@/components/sections/pricing";
-import UseCases from "@/components/sections/use-cases";
-import WhyRebAI from "@/components/sections/why-rebai";
+import WhyTrazev from "@/components/sections/why-trazev";
 import CTABanner from "@/components/sections/cta-banner";
+import FAQSection from "@/components/sections/faq-section";
+import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "RebAI — Monitorización automática del BOPA de Asturias con IA",
+  title: "IA y automatización para ayuntamientos y empresas",
   description:
-    "Nunca más pierdas una ayuda o normativa del BOPA de Asturias. Alertas automáticas diarias para ingenierías, consultoras y cooperativas del Principado de Asturias.",
+    "TRAZEV ayuda a ayuntamientos y empresas privadas de toda España a redactar planes urbanísticos, atender al ciudadano, vigilar el BOPA y medir la satisfacción ciudadana con IA.",
   keywords: [
-    "BOPA Asturias automatización",
-    "alertas BOPA Asturias automáticas",
-    "monitorización boletín oficial Asturias IA",
-    "subvenciones IDEPA Asturias automático",
-    "software BOPA ingeniería asturiana",
-    "automatización burocracia Principado de Asturias",
+    "TRAZEV automatización",
+    "BOPA Inteligente",
+    "IA para ayuntamientos",
+    "redacción de planes urbanísticos con IA",
+    "asistente de atención al ciudadano",
+    "satisfacción ciudadana ayuntamiento",
+    "automatización administrativa para empresas",
   ],
 };
 
 export default function HomePage() {
   return (
     <>
-      {/* Structured data for Organization */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            name: "RebAI",
-            url: "https://rebai.es",
+            name: "TRAZEV",
+            url: SITE.url,
             description:
-              "Automatización de procesos con IA para el sector técnico y rural en Asturias.",
+              "TRAZEV ayuda a ayuntamientos y empresas privadas de toda España a redactar planes urbanísticos, atender al ciudadano, vigilar el BOPA y medir la satisfacción ciudadana con IA.",
             areaServed: {
-              "@type": "Place",
-              name: "Principado de Asturias, España",
+              "@type": "Country",
+              name: "España",
             },
             contactPoint: {
               "@type": "ContactPoint",
-              email: "hola@rebai.es",
+              email: SITE.email,
               contactType: "customer service",
               availableLanguage: "Spanish",
             },
@@ -52,14 +50,11 @@ export default function HomePage() {
         }}
       />
       <Hero />
+      <TrustStrip />
+      <CapabilitiesShowcase />
       <PainPoints />
-      <SolutionBridge />
-      <ProductPreview />
-      <ChatbotSection />
-      <ServicesPreview />
-      <Pricing />
-      <UseCases />
-      <WhyRebAI />
+      <WhyTrazev />
+      <FAQSection />
       <CTABanner />
     </>
   );

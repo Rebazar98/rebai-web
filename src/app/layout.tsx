@@ -1,44 +1,52 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: {
-    default: "RebAI — Automatización con IA para el sector técnico en Asturias",
-    template: "%s | RebAI",
+    default: "TRAZEV",
+    template: "%s | TRAZEV",
   },
   description:
-    "Automatizamos la burocracia que frena a tu empresa en Asturias. Agentes de IA, análisis del BOPA y automatización de procesos para ingenierías, consultoras y cooperativas del Principado.",
+    "TRAZEV ayuda a ayuntamientos y empresas privadas de toda España a redactar planes urbanísticos, atender al ciudadano, vigilar el BOPA y medir la satisfacción ciudadana con IA.",
   keywords: [
-    "automatización BOPA Asturias",
-    "agente IA subvenciones IDEPA",
-    "inteligencia artificial Asturias",
-    "automatización burocracia Principado de Asturias",
-    "gestión documental automatizada cooperativas Asturias",
+    "automatizacion BOPA Asturias",
+    "IA para ayuntamientos",
+    "redacción de planes urbanísticos con IA",
+    "asistente de atención al ciudadano",
+    "satisfacción ciudadana ayuntamiento",
+    "trazabilidad y protección de datos IA",
+    "automatización administrativa para empresas",
   ],
-  authors: [{ name: "RebAI" }],
-  creator: "RebAI",
-  metadataBase: new URL("https://rebai.es"),
+  authors: [{ name: "TRAZEV" }],
+  creator: "TRAZEV",
+  metadataBase: new URL(SITE.url),
+  icons: {
+    icon: [{ url: "/icon", sizes: "32x32", type: "image/png" }],
+    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/icon"],
+  },
   openGraph: {
     type: "website",
     locale: "es_ES",
-    siteName: "RebAI",
-    title: "RebAI — Automatización con IA para el sector técnico en Asturias",
+    siteName: "TRAZEV",
+    title: "TRAZEV - IA y automatización para ayuntamientos y empresas",
     description:
-      "Automatizamos la burocracia que frena a tu empresa. BOPA, subvenciones IDEPA y automatización para ingenierías y cooperativas asturianas.",
+      "Planes urbanísticos, atención al ciudadano, BOPA Inteligente y satisfacción ciudadana con IA para entidades locales y empresas de toda España.",
     images: [
       {
         url: "/og",
         width: 1200,
         height: 630,
-        alt: "RebAI — Automatización con IA en Asturias",
+        alt: "TRAZEV - IA y automatización para ayuntamientos y empresas",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RebAI — Automatización con IA para el sector técnico en Asturias",
+    title: "TRAZEV - IA y automatización para ayuntamientos y empresas",
     description:
-      "Automatizamos la burocracia que frena a tu empresa en Asturias.",
+      "Planes urbanísticos, atención al ciudadano, BOPA Inteligente y satisfacción ciudadana con IA.",
     images: ["/og"],
   },
   robots: {
@@ -60,8 +68,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body>{children}</body>
+    <html lang="es" suppressHydrationWarning>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

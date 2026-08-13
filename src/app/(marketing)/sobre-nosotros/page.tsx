@@ -1,83 +1,81 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, MapPin, Target, Cpu } from "lucide-react";
+import { ArrowRight, Landmark, Target, Cpu } from "lucide-react";
 import SectionLabel from "@/components/shared/section-label";
 import AnimatedSection from "@/components/shared/animated-section";
-import CTABanner from "@/components/sections/cta-banner";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Sobre nosotros",
   description:
-    "RebAI es una empresa asturiana especializada en automatización de procesos con IA para el sector técnico y rural del Principado de Asturias.",
+    "TRAZEV es una empresa especializada en automatización, IA aplicada y trazabilidad para ayuntamientos y empresas privadas en toda España.",
 };
 
 export default function SobreNosotrosPage() {
   return (
     <>
       <div className="min-h-screen bg-white pt-24">
-        {/* Header */}
-        <section className="bg-[#F8FAFC] border-b border-[#E2E8F0] py-20 lg:py-28">
+        <section className="border-b border-[#E2E8F0] bg-[#F8FAFC] py-20 lg:py-28">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
             <div className="max-w-3xl">
               <SectionLabel className="mb-6">Sobre nosotros</SectionLabel>
-              <h1 className="text-4xl sm:text-5xl font-bold text-[#0F172A] tracking-tight mb-6">
-                Somos de Asturias.
+              <h1 className="mb-6 text-4xl font-bold tracking-tight text-[#0F172A] sm:text-5xl">
+                Automatización con criterio.
                 <br />
-                <span className="text-[#2563EB]">Construimos para Asturias.</span>
+                <span className="text-[#2563EB]">Para ayuntamientos y empresas de toda España.</span>
               </h1>
-              <p className="text-[#64748B] text-xl leading-relaxed">
-                RebAI nació de una convicción clara: las empresas técnicas y
-                rurales asturianas merecen herramientas de automatización que
-                entiendan su realidad, no soluciones genéricas adaptadas a la
-                fuerza.
+              <p className="text-xl leading-relaxed text-[#64748B]">
+                TRAZEV nace de una convicción clara: las administraciones
+                públicas y las empresas que trabajan con ellas merecen
+                soluciones que reduzcan carga administrativa y mejoren la
+                operativa, no herramientas genéricas adaptadas a la fuerza.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Main content */}
         <section className="py-20 lg:py-24">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
               <AnimatedSection direction="left">
                 <div className="space-y-8">
                   <div>
-                    <h2 className="text-2xl font-bold text-[#0F172A] mb-4">
+                    <h2 className="mb-4 text-2xl font-bold text-[#0F172A]">
                       Por qué existimos
                     </h2>
-                    <p className="text-[#64748B] leading-relaxed mb-4">
-                      El tejido empresarial técnico del Principado —
-                      ingenierías, consultoras, cooperativas ganaderas y
-                      agrícolas — convive a diario con una carga burocrática
-                      enorme: el BOPA, las convocatorias del IDEPA, la
-                      normativa ambiental, los expedientes de contratación
-                      pública.
+                    <p className="mb-4 leading-relaxed text-[#64748B]">
+                      Los ayuntamientos y las empresas que dependen de la
+                      administración pública conviven a diario con una carga
+                      burocrática enorme: boletines oficiales, licitaciones,
+                      expedientes urbanísticos, atención al ciudadano y
+                      procesos que deberían estar más automatizados.
                     </p>
-                    <p className="text-[#64748B] leading-relaxed mb-4">
-                      Estas empresas no necesitan grandes presupuestos de
+                    <p className="mb-4 leading-relaxed text-[#64748B]">
+                      Estas organizaciones no necesitan grandes presupuestos de
                       transformación digital ni consultoras que vendan
                       estrategias de cinco años. Necesitan herramientas que
-                      funcionen mañana y que entiendan qué es el BOPA y cómo
-                      afecta a un proyecto de ingeniería ambiental en el
-                      occidente de Asturias.
+                      funcionen pronto, encajen en su operativa y entiendan qué
+                      impacto tiene un cambio normativo o un cuello de botella
+                      administrativo en el trabajo de cada semana.
                     </p>
-                    <p className="text-[#64748B] leading-relaxed">
-                      Para eso existe RebAI. Empresa local. Conocimiento
-                      regional. Tecnología que trabaja.
+                    <p className="leading-relaxed text-[#64748B]">
+                      Para eso existe TRAZEV: criterio técnico, trazabilidad y
+                      tecnología orientada a ahorrar tiempo y mejorar
+                      decisiones, tanto en administración pública como en
+                      empresa privada.
                     </p>
                   </div>
 
                   <div>
-                    <h2 className="text-2xl font-bold text-[#0F172A] mb-4">
+                    <h2 className="mb-4 text-2xl font-bold text-[#0F172A]">
                       Nuestro enfoque
                     </h2>
-                    <p className="text-[#64748B] leading-relaxed">
+                    <p className="leading-relaxed text-[#64748B]">
                       Cada proyecto empieza con una pregunta simple: ¿qué
-                      proceso consume más tiempo a tu equipo y menos valor
-                      genera? A partir de ahí, construimos la automatización
-                      mínima necesaria para resolver ese problema — sin
-                      sobrediseñar, sin prometidas transformaciones totales.
+                      proceso consume más tiempo, genera más fricción o retrasa
+                      más al equipo? A partir de ahí, construimos la mejora
+                      mínima necesaria para obtener impacto real, sin
+                      sobrediseñar ni prometer transformaciones irreales.
                     </p>
                   </div>
                 </div>
@@ -87,16 +85,16 @@ export default function SobreNosotrosPage() {
                 <div className="space-y-4">
                   {[
                     {
-                      icon: MapPin,
-                      title: "Especialización asturiana",
+                      icon: Landmark,
+                      title: "Especialización en administración pública y empresa técnica",
                       description:
-                        "Conocemos el BOPA, el IDEPA, el SADEI y el tejido empresarial del Principado. No adaptamos plantillas — construimos desde el conocimiento local.",
+                        "Conocemos el BOPA, la operativa municipal y los procesos administrativos de ingenierías y asesorías. No adaptamos plantillas genéricas: construimos desde el conocimiento real del sector.",
                     },
                     {
                       icon: Target,
                       title: "Resultados concretos primero",
                       description:
-                        "No empezamos por la tecnología. Empezamos por el problema y las métricas de éxito. ¿Cuántas horas se pueden ahorrar? ¿Cuántos documentos automatizar?",
+                        "No empezamos por la tecnología. Empezamos por el problema y las métricas de éxito: cuánto tiempo se puede ahorrar y cuántos pasos se pueden automatizar.",
                     },
                     {
                       icon: Cpu,
@@ -107,29 +105,29 @@ export default function SobreNosotrosPage() {
                   ].map((item) => (
                     <div
                       key={item.title}
-                      className="flex gap-4 p-6 bg-[#F8FAFC] rounded-[12px] border border-[#E2E8F0]"
+                      className="flex gap-4 rounded-[12px] border border-[#E2E8F0] bg-[#F8FAFC] p-6"
                     >
-                      <div className="w-10 h-10 rounded-xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center shrink-0">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#BFDBFE] bg-[#EFF6FF]">
                         <item.icon size={18} className="text-[#2563EB]" />
                       </div>
                       <div>
-                        <h3 className="text-[#0F172A] font-semibold text-sm mb-1">
+                        <h3 className="mb-1 text-sm font-semibold text-[#0F172A]">
                           {item.title}
                         </h3>
-                        <p className="text-[#64748B] text-sm leading-relaxed">
+                        <p className="text-sm leading-relaxed text-[#64748B]">
                           {item.description}
                         </p>
                       </div>
                     </div>
                   ))}
 
-                  <div className="p-6 bg-[#1B2A4A] rounded-[12px] text-white">
-                    <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-2">
-                      Ubicación
+                  <div className="rounded-[12px] bg-[#1B2A4A] p-6 text-white">
+                    <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/60">
+                      Cobertura
                     </div>
                     <div className="font-semibold">{SITE.location}</div>
-                    <div className="text-white/60 text-sm mt-1">
-                      Empresa 100% asturiana
+                    <div className="mt-1 text-sm text-white/60">
+                      Ayuntamientos y empresas en todo el territorio nacional
                     </div>
                   </div>
                 </div>
@@ -138,33 +136,32 @@ export default function SobreNosotrosPage() {
           </div>
         </section>
 
-        {/* Sectors */}
-        <section className="bg-[#F8FAFC] border-y border-[#E2E8F0] py-20 lg:py-24">
+        <section className="border-y border-[#E2E8F0] bg-[#F8FAFC] py-20 lg:py-24">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
             <AnimatedSection>
-              <div className="text-center mb-12">
-                <h2 className="text-2xl font-bold text-[#0F172A] tracking-tight mb-3">
+              <div className="mb-12 text-center">
+                <h2 className="mb-3 text-2xl font-bold tracking-tight text-[#0F172A]">
                   Sectores con los que trabajamos
                 </h2>
                 <p className="text-[#64748B]">
-                  Del BOPA a los boletines estatales, de las cooperativas a las
-                  ingenierías técnicas.
+                  De la administración local a las empresas que trabajan con
+                  ella cada día.
                 </p>
               </div>
             </AnimatedSection>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
               {[
+                "Ayuntamientos y entidades locales",
+                "Mancomunidades y consorcios",
+                "Oficinas técnicas de urbanismo",
                 "Ingenierías técnicas",
-                "Consultoras ambientales",
-                "Cooperativas agrícolas",
-                "Cooperativas ganaderas",
-                "Empresas forestales",
-                "Constructoras",
+                "Asesorías y consultoras",
+                "Empresas constructoras",
                 "Despachos jurídicos",
-                "Administraciones locales",
+                "Empresas con licitación pública",
               ].map((sector, i) => (
                 <AnimatedSection key={sector} delay={i * 50}>
-                  <div className="bg-white rounded-lg border border-[#E2E8F0] px-4 py-3 text-center text-[#0F172A] text-sm font-medium">
+                  <div className="rounded-lg border border-[#E2E8F0] bg-white px-4 py-3 text-center text-sm font-medium text-[#0F172A]">
                     {sector}
                   </div>
                 </AnimatedSection>
@@ -173,25 +170,24 @@ export default function SobreNosotrosPage() {
           </div>
         </section>
 
-        {/* CTA */}
         <section className="py-20 lg:py-24">
-          <div className="max-w-[1280px] mx-auto px-6 lg:px-8 text-center">
+          <div className="max-w-[1280px] mx-auto px-6 text-center lg:px-8">
             <AnimatedSection>
-              <h2 className="text-3xl font-bold text-[#0F172A] mb-4">
+              <h2 className="mb-4 text-3xl font-bold text-[#0F172A]">
                 ¿Hablamos?
               </h2>
-              <p className="text-[#64748B] text-lg mb-8 max-w-xl mx-auto">
+              <p className="mx-auto mb-8 max-w-xl text-lg text-[#64748B]">
                 Primera consulta gratuita. Sin compromiso. Te respondemos en
                 menos de 48 horas.
               </p>
               <Link
                 href="/contacto"
-                className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-150 group"
+                className="group inline-flex items-center gap-2 rounded-lg bg-[#2563EB] px-8 py-4 font-semibold text-white transition-all duration-150 hover:bg-[#1D4ED8]"
               >
-                Contactar con RebAI
+                Contactar con TRAZEV
                 <ArrowRight
                   size={18}
-                  className="group-hover:translate-x-0.5 transition-transform duration-150"
+                  className="transition-transform duration-150 group-hover:translate-x-0.5"
                 />
               </Link>
             </AnimatedSection>

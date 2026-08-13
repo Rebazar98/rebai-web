@@ -1,152 +1,171 @@
 import Link from "next/link";
 import { Check } from "lucide-react";
-import SectionLabel from "@/components/shared/section-label";
-import AnimatedSection from "@/components/shared/animated-section";
 
-const TIERS = [
+import AnimatedSection from "@/components/shared/animated-section";
+import SectionLabel from "@/components/shared/section-label";
+import { buildContactHref } from "@/lib/contact";
+
+type PricingTier = {
+  name: string;
+  description: string;
+  price: string;
+  priceNote: string;
+  badge?: string;
+  features: string[];
+  cta: string;
+  href: string;
+  highlighted: boolean;
+};
+
+const TIERS: PricingTier[] = [
   {
-    name: "Básico",
-    description: "Para autónomos y despachos pequeños",
+    name: "Pro",
+    description:
+      "Para la persona que hoy carga con el seguimiento y necesita contexto claro para actuar antes.",
+    price: "29 EUR/mes",
+    priceNote: "Para empezar con criterio sin depender de revisiones manuales.",
     features: [
-      "1 perfil de alertas BOPA",
-      "Resumen diario por email",
-      "Histórico últimos 30 días",
-      "Soporte por email",
+      "1 usuario con acceso completo al agente",
+      "1 perfil de seguimiento ajustado a tu actividad",
+      "Resumen claro de cada publicacion que realmente te afecta",
+      "Chat para preguntar impacto, requisitos y siguiente paso",
+      "Criterios y fuentes ajustados a medida",
+      "Alerta diaria por email para no llegar tarde",
+      "Historico y soporte por email",
     ],
-    cta: "Solicitar info",
-    href: "/contacto?tier=basico",
+    cta: "Quiero empezar con Pro",
+    href: buildContactHref({ servicio: "bopa", tier: "basico" }),
     highlighted: false,
   },
   {
-    name: "Profesional",
-    description: "Para ingenierías y consultoras técnicas",
-    badge: "Más elegido",
+    name: "Equipo",
+    description:
+      "Para despachos, ingenierias y equipos pequenos que comparten seguimiento, criterio y decisiones.",
+    price: "79 EUR/mes",
+    priceNote: "Pensado para equipos que necesitan mas uso, mas perfiles y consulta compartida.",
     features: [
-      "Hasta 5 perfiles de alertas",
-      "Email + WhatsApp",
-      "BOPA + Subvenciones IDEPA",
-      "Exportación a PDF/Excel",
-      "Histórico completo",
-      "Soporte prioritario",
+      "Hasta 5 usuarios para compartir seguimiento y consulta",
+      "Hasta 5 perfiles de seguimiento por actividad o cliente",
+      "Resumenes utiles para priorizar sin repartir PDFs",
+      "Agente compartido para resolver dudas y procesar publicaciones",
+      "Criterios y fuentes ajustados a medida",
+      "Mayor volumen de consultas y uso del chat",
+      "Historico completo, exportacion y soporte prioritario",
     ],
-    cta: "Solicitar demo",
-    href: "/contacto?tier=profesional&tipo=demo",
+    cta: "Quiero ver Equipo en accion",
+    href: buildContactHref({ servicio: "bopa", tier: "profesional" }),
     highlighted: true,
   },
   {
     name: "Empresa",
-    description: "Para cooperativas y empresas con varios técnicos",
+    description:
+      "Para organizaciones con varias areas, criterios internos complejos e integraciones propias.",
+    price: "A consultar",
+    priceNote: "Cuando necesitas adaptar el seguimiento al funcionamiento real de tu organizacion.",
     features: [
-      "Perfiles ilimitados",
-      "Email + WhatsApp + integración propia",
-      "BOPA + IDEPA + BOE filtrado",
-      "API/webhook para tu sistema",
-      "Onboarding personalizado",
-      "Gestor de cuenta dedicado",
+      "Usuarios y perfiles de seguimiento ilimitados",
+      "Resumenes filtrados por actividad, equipo o criterio interno",
+      "Agente y chat web para varios equipos y casos de uso",
+      "Criterios y fuentes ajustados a medida",
+      "API o webhook para conectar con tu sistema",
+      "Onboarding personalizado y cuenta dedicada",
     ],
-    cta: "Contactar",
-    href: "/contacto?tier=empresa",
+    cta: "Quiero hablar de mi caso",
+    href: buildContactHref({ servicio: "bopa", tier: "empresa" }),
     highlighted: false,
   },
-];
+] as const;
 
 export default function Pricing() {
   return (
-    <section id="precios" className="bg-[#F8FAFC] py-24 lg:py-32 border-t border-[#E2E8F0]">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+    <section id="precios" className="border-t border-[#E2E8F0] bg-[#F8FAFC] py-24 lg:py-32">
+      <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
         <AnimatedSection>
-          <div className="text-center mb-16">
-            <SectionLabel className="mb-6">Precios</SectionLabel>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight mb-4">
-              Elige el plan que encaja con tu empresa
+          <div className="mb-16 text-center">
+            <SectionLabel className="mb-6">Precios de BOPA Inteligente</SectionLabel>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
+              Elige como empezar a dejar de revisar el BOPA a mano
             </h2>
-            <p className="text-[#64748B] text-lg max-w-xl mx-auto">
-              Precios personalizados según tu caso. Solicita la info y
-              te hacemos una propuesta a medida sin compromiso.
+            <p className="mx-auto max-w-3xl text-lg text-[#64748B]">
+              BOPA Inteligente detecta lo que afecta a tu actividad, lo resume y te
+              ayuda a decidir el siguiente paso. La diferencia esta en cuanta gente lo
+              usa y cuanta operativa necesitas cubrir.
             </p>
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-3">
           {TIERS.map((tier, i) => (
             <AnimatedSection key={tier.name} delay={i * 100}>
               <div
-                className={`relative flex flex-col h-full rounded-[16px] border p-8 ${
+                className={`relative flex h-full flex-col rounded-[16px] border p-8 ${
                   tier.highlighted
-                    ? "bg-[#1B2A4A] border-[#1B2A4A] shadow-[0_8px_32px_rgba(27,42,74,0.25)]"
-                    : "bg-white border-[#E2E8F0] shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+                    ? "border-[#1B2A4A] bg-[#1B2A4A] shadow-[0_8px_32px_rgba(27,42,74,0.25)]"
+                    : "border-[#E2E8F0] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
                 }`}
               >
-                {/* Badge */}
-                {tier.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2563EB] text-white text-xs font-bold shadow-sm">
-                      ⭐ {tier.badge}
+                {tier.badge ? (
+                  <div className="absolute left-1/2 top-[-12px] -translate-x-1/2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#2563EB] px-3 py-1 text-xs font-bold text-white shadow-sm">
+                      {tier.badge}
                     </span>
                   </div>
-                )}
+                ) : null}
 
-                {/* Header */}
                 <div className="mb-6">
                   <h3
-                    className={`text-xl font-bold mb-1 ${
+                    className={`mb-1 text-xl font-bold ${
                       tier.highlighted ? "text-white" : "text-[#0F172A]"
                     }`}
                   >
                     {tier.name}
                   </h3>
                   <p
-                    className={`text-sm ${
-                      tier.highlighted ? "text-white/60" : "text-[#64748B]"
+                    className={`text-sm leading-relaxed ${
+                      tier.highlighted ? "text-white/70" : "text-[#64748B]"
                     }`}
                   >
                     {tier.description}
                   </p>
                 </div>
 
-                {/* Price placeholder */}
                 <div
-                  className={`mb-8 pb-6 border-b ${
+                  className={`mb-8 border-b pb-6 ${
                     tier.highlighted ? "border-white/10" : "border-[#F1F5F9]"
                   }`}
                 >
                   <p
-                    className={`text-sm font-medium ${
-                      tier.highlighted ? "text-white/70" : "text-[#64748B]"
+                    className={`text-3xl font-bold tracking-tight ${
+                      tier.highlighted ? "text-white" : "text-[#0F172A]"
                     }`}
                   >
-                    Precio según caso
+                    {tier.price}
                   </p>
                   <p
-                    className={`text-xs mt-1 ${
-                      tier.highlighted ? "text-white/40" : "text-[#94A3B8]"
+                    className={`mt-2 text-xs ${
+                      tier.highlighted ? "text-white/60" : "text-[#64748B]"
                     }`}
                   >
-                    Solicita una propuesta personalizada
+                    {tier.priceNote}
                   </p>
                 </div>
 
-                {/* Features */}
-                <ul className="space-y-3 flex-1 mb-8">
+                <ul className="mb-8 flex-1 space-y-3">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
                       <div
-                        className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                          tier.highlighted
-                            ? "bg-[#2563EB]/20"
-                            : "bg-[#EFF6FF]"
+                        className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
+                          tier.highlighted ? "bg-[#2563EB]/20" : "bg-[#EFF6FF]"
                         }`}
                       >
                         <Check
                           size={11}
-                          className={
-                            tier.highlighted ? "text-[#60A5FA]" : "text-[#2563EB]"
-                          }
+                          className={tier.highlighted ? "text-[#60A5FA]" : "text-[#2563EB]"}
                         />
                       </div>
                       <span
                         className={`text-sm leading-relaxed ${
-                          tier.highlighted ? "text-white/80" : "text-[#374151]"
+                          tier.highlighted ? "text-white/85" : "text-[#374151]"
                         }`}
                       >
                         {feature}
@@ -155,13 +174,12 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                {/* CTA */}
                 <Link
                   href={tier.href}
-                  className={`w-full inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-150 ${
+                  className={`inline-flex w-full items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-150 ${
                     tier.highlighted
-                      ? "bg-[#2563EB] hover:bg-[#1D4ED8] text-white"
-                      : "bg-[#F8FAFC] hover:bg-[#EFF6FF] border border-[#E2E8F0] hover:border-[#2563EB] text-[#0F172A] hover:text-[#2563EB]"
+                      ? "bg-[#2563EB] text-white hover:bg-[#1D4ED8]"
+                      : "border border-[#E2E8F0] bg-[#F8FAFC] text-[#0F172A] hover:border-[#2563EB] hover:bg-[#EFF6FF] hover:text-[#2563EB]"
                   }`}
                 >
                   {tier.cta}
@@ -172,8 +190,26 @@ export default function Pricing() {
         </div>
 
         <AnimatedSection>
-          <p className="text-center text-[#94A3B8] text-sm mt-8">
-            Sin permanencia mínima · Sin sorpresas · Empresa asturiana
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center text-sm text-[#94A3B8]">
+            <span>Sin permanencia minima</span>
+            <span>Implantacion sencilla</span>
+            <span>Respuesta humana y contextual</span>
+            <span>Criterios ajustados a tu actividad</span>
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection>
+          <p className="mt-10 text-center text-sm text-[#64748B]">
+            ¿Buscas el Redactor de Informes Urbanísticos, el Asistente de
+            Atención al Ciudadano o el Radar de Satisfacción Municipal? Son
+            proyectos a medida de cada ayuntamiento:{" "}
+            <Link
+              href={buildContactHref()}
+              className="font-semibold text-[#2563EB] hover:underline"
+            >
+              hablemos de tu caso
+            </Link>
+            .
           </p>
         </AnimatedSection>
       </div>

@@ -1,8 +1,17 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = "https://rebai.es";
+import { SERVICES, SITE } from "@/lib/constants";
+
+const BASE_URL = SITE.url;
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const serviceUrls = SERVICES.map((service) => ({
+    url: `${BASE_URL}/servicios/${service.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: service.category === "principal" ? 0.8 : 0.6,
+  }));
+
   return [
     {
       url: BASE_URL,
@@ -16,30 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
-    {
-      url: `${BASE_URL}/servicios/bopa`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/servicios/agentes-ia`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/servicios/subvenciones`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/servicios/cumplimiento`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    ...serviceUrls,
     {
       url: `${BASE_URL}/casos-de-uso`,
       lastModified: new Date(),

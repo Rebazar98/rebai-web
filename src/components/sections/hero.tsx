@@ -1,31 +1,36 @@
-"use client";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowRight,
+  CheckCircle2,
+  FileText,
+  Map,
+  MessageCircle,
+  Radar,
+  type LucideIcon,
+} from "lucide-react";
 
-import { useState } from "react";
-import { ArrowRight, Mail } from "lucide-react";
-import { captureEmail } from "@/app/actions/email-capture";
+import SectionLabel from "@/components/shared/section-label";
+import { SITE, SERVICES } from "@/lib/constants";
+
+const iconMap: Record<string, LucideIcon> = {
+  FileText,
+  Map,
+  MessageCircle,
+  Radar,
+};
+
+const HERO_SERVICES = SERVICES.filter((service) => service.category === "principal");
+
+const VALUE_POINTS = [
+  "Detecta antes que cambia, que te afecta y que necesita movimiento del equipo.",
+  "Reduce revision manual, retrasos y errores con mas contexto util para decidir.",
+  "Empieza por una demo, un diagnostico o una mejora concreta, sin rehacer toda tu operativa.",
+] as const;
 
 export default function Hero() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!email) return;
-    setStatus("loading");
-    const result = await captureEmail(email);
-    setStatus(result.ok ? "success" : "error");
-    if (result.ok) {
-      setEmail("");
-      // Scroll suave a cómo funciona
-      setTimeout(() => {
-        document.getElementById("como-funciona")?.scrollIntoView({ behavior: "smooth" });
-      }, 800);
-    }
-  }
-
   return (
-    <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-16">
-      {/* Background grid pattern */}
+    <section className="relative overflow-hidden bg-white pt-20">
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -35,94 +40,140 @@ export default function Hero() {
         }}
       />
 
-      {/* Gradient glow */}
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-[#2563EB] opacity-[0.06] rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#1B2A4A] opacity-[0.05] rounded-full blur-[100px] pointer-events-none" />
+      <div className="pointer-events-none absolute right-0 top-1/4 h-[520px] w-[520px] rounded-full bg-[#2563EB] opacity-[0.08] blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-[360px] w-[360px] rounded-full bg-[#1B2A4A] opacity-[0.05] blur-[100px]" />
 
-      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-8 py-24 lg:py-32">
-        <div className="max-w-3xl">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#E2E8F0] bg-[#F8FAFC] text-[#2563EB] text-xs font-semibold uppercase tracking-wider mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] inline-block animate-pulse" />
-            Monitorización automática del BOPA · Alertas en 24h
+      <div className="pointer-events-none absolute inset-y-0 right-[-8%] hidden w-[58%] lg:block">
+        <div className="relative h-full w-full">
+          <Image
+            src="/hero-tech-background.png"
+            alt=""
+            fill
+            priority
+            className="object-contain object-right opacity-[0.28]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,1)_0%,rgba(255,255,255,0.94)_22%,rgba(255,255,255,0.62)_48%,rgba(255,255,255,0.16)_72%,rgba(255,255,255,0)_100%)]" />
+        </div>
+      </div>
+
+      <div className="relative mx-auto max-w-[1280px] px-6 py-20 lg:px-8 lg:py-24">
+        <div className="mx-auto mb-16 max-w-5xl text-center lg:mb-20">
+          <SectionLabel className="mb-6">
+            Menos revision manual. Mas decisiones claras.
+          </SectionLabel>
+
+          <h1 className="mx-auto max-w-5xl text-4xl font-bold leading-[1.06] tracking-tight text-[#0F172A] sm:text-5xl lg:text-6xl xl:text-[5rem]">
+            IA y automatizacion para que tu equipo deje de perseguir
+            publicaciones, expedientes y tareas repetitivas.
+          </h1>
+        </div>
+
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-14">
+          <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
+            <p className="text-lg leading-relaxed text-[#4B6480] sm:text-xl">
+              TRAZEV ayuda a ayuntamientos y empresas privadas a detectar lo
+              importante, entender antes el impacto y trabajar con mas
+              trazabilidad, mas seguridad y mejor control.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/contacto"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-6 py-3.5 font-semibold text-white transition-colors duration-150 hover:bg-[#1D4ED8]"
+              >
+                Quiero una recomendacion clara
+                <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="/servicios"
+                className="inline-flex items-center justify-center rounded-xl border border-[#CBDCF2] bg-white px-6 py-3.5 font-semibold text-[#1D4ED8] transition-colors duration-150 hover:bg-[#EFF6FF]"
+              >
+                Ver servicios
+              </Link>
+            </div>
+
+            <p className="mt-5 text-sm leading-relaxed text-[#64748B]">
+              Diagnostico inicial sin compromiso · Respuesta en menos de 48 h ·{" "}
+              {SITE.location}
+            </p>
+
+            <ul className="mt-8 space-y-3">
+              {VALUE_POINTS.map((point) => (
+                <li key={point} className="flex items-start gap-3">
+                  <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#EFF6FF]">
+                    <CheckCircle2 size={14} className="text-[#2563EB]" />
+                  </div>
+                  <span className="text-sm leading-relaxed text-[#36506F]">{point}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* H1 */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F172A] leading-[1.1] tracking-tight mb-6">
-            El sistema que revisa el{" "}
-            <span className="text-[#2563EB]">BOPA</span> por ti,
-            detecta lo importante y te dice qué hacer
-          </h1>
-
-          {/* Subheadline */}
-          <p className="text-lg sm:text-xl text-[#64748B] leading-relaxed max-w-2xl mb-10">
-            Cada mañana, tu equipo recibe un resumen de las ayudas, normativas y
-            cambios del BOPA de Asturias que les afectan — sin buscar manualmente
-            ni perderse ningún plazo.
-          </p>
-
-          {/* Email capture */}
-          {status === "success" ? (
-            <div className="flex items-center gap-3 px-5 py-4 rounded-xl bg-[#F0FDF4] border border-[#16A34A]/20 mb-4 max-w-lg">
-              <div className="w-6 h-6 rounded-full bg-[#16A34A] flex items-center justify-center shrink-0">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l2.5 2.5L10 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <p className="text-[#15803D] text-sm font-medium">
-                ¡Perfecto! Échale un vistazo a cómo funciona más abajo.
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 mb-4 max-w-lg">
-              <div className="flex-1 relative">
-                <Mail size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]" />
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="tu@empresa.com"
-                  required
-                  disabled={status === "loading"}
-                  className="w-full pl-9 pr-4 py-3.5 rounded-lg border border-[#E2E8F0] bg-white text-[#0F172A] text-sm placeholder-[#94A3B8] focus:outline-none focus:ring-2 focus:ring-[#2563EB]/30 focus:border-[#2563EB] transition-all disabled:opacity-60"
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="inline-flex items-center justify-center gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] disabled:bg-[#93C5FD] text-white font-semibold px-6 py-3.5 rounded-lg transition-all duration-150 whitespace-nowrap group"
-              >
-                {status === "loading" ? "Enviando..." : "Quiero verlo"}
-                {status !== "loading" && (
-                  <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-150" />
-                )}
-              </button>
-            </form>
-          )}
-
-          {status === "error" && (
-            <p className="text-[#DC2626] text-sm mb-4">Ha ocurrido un error. Escríbenos a hola@rebai.es</p>
-          )}
-
-          <p className="text-[#94A3B8] text-xs mb-10">
-            Sin compromiso · Respondemos en 24h · Empresa asturiana
-          </p>
-
-          {/* Trust indicators */}
-          <div className="flex flex-wrap items-center gap-6 pt-8 border-t border-[#F1F5F9]">
-            {[
-              "BOPA analizado cada día",
-              "Alertas por email/WhatsApp",
-              "Filtrado por expediente",
-              "Sin permanencia",
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-[#F0FDF4] border border-[#16A34A] flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
+          <div className="relative">
+            <div className="rounded-[32px] border border-[#D9E6F6] bg-[linear-gradient(180deg,rgba(16,32,58,0.94)_0%,rgba(27,42,74,0.92)_100%)] p-7 shadow-[0_24px_80px_rgba(16,32,58,0.18)] backdrop-blur-[3px] lg:p-8">
+              <div className="mb-6 flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#93C5FD]">
+                    Donde gana tiempo tu equipo
+                  </p>
+                  <h2 className="mt-2 text-2xl font-semibold text-white">
+                    Cuatro formas de reducir carga y decidir antes
+                  </h2>
                 </div>
-                <span className="text-[#64748B] text-sm">{item}</span>
+                <div className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-[#DBEAFE]">
+                  Impacto primero
+                </div>
               </div>
-            ))}
+
+              <p className="mb-6 max-w-xl text-sm leading-relaxed text-white/70">
+                No vendemos tecnologia por vender. Aplicamos IA y automatizacion donde
+                reducen trabajo manual, acortan tiempos y mejoran la capacidad real del
+                equipo para actuar.
+              </p>
+
+              <div className="grid gap-3">
+                {HERO_SERVICES.map((service) => {
+                  const Icon = iconMap[service.icon];
+
+                  return (
+                    <div
+                      key={service.slug}
+                      className="rounded-[20px] border border-white/10 bg-white/5 p-4"
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10">
+                          {Icon && <Icon size={18} className="text-white" />}
+                        </div>
+                        <div>
+                          <h3 className="mb-1 text-sm font-semibold text-white">
+                            {service.name}
+                          </h3>
+                          <p className="text-sm leading-relaxed text-white/65">
+                            {service.tagline}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                {[
+                  "Menos carga administrativa",
+                  "Mas control operativo",
+                  "Implantacion realista",
+                  "Cobertura nacional",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/12 bg-white/6 px-3 py-1.5 text-xs font-medium text-[#DBEAFE]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

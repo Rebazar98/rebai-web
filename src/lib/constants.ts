@@ -1,33 +1,37 @@
 // =====================================================
-// REBAI — FUENTE ÚNICA DE DATOS DEL SITIO
-// Asturias-focused B2B automation company
+// REBAI - FUENTE ÚNICA DE DATOS DEL SITIO
 // =====================================================
+
+const DEFAULT_SITE_URL = "https://trazev.com";
+const DEFAULT_CONTACT_EMAIL = "info@trazev.com";
+const DEFAULT_TRANSACTIONAL_FROM_ADDRESS = "noreply@send.trazev.com";
+
+export const EMAIL_DEFAULTS = {
+  contact: DEFAULT_CONTACT_EMAIL,
+  transactionalFromAddress: DEFAULT_TRANSACTIONAL_FROM_ADDRESS,
+  transactionalFrom: `TRAZEV <${DEFAULT_TRANSACTIONAL_FROM_ADDRESS}>`,
+  transactionalReplyTo: DEFAULT_CONTACT_EMAIL,
+} as const;
 
 export const SITE = {
-  name: "RebAI",
-  tagline: "Automatización con IA para el sector técnico en Asturias",
+  name: "TRAZEV",
+  logoSrc: "/logo.png",
+  tagline: "IA y automatización con trazabilidad, seguridad y protección de datos, para ayuntamientos y empresas",
   description:
-    "Automatizamos la burocracia que frena a tu empresa en Asturias. Agentes de IA, análisis del BOPA y automatización de procesos para ingenierías, consultoras y cooperativas del Principado.",
-  email: "hola@rebai.es",
-  phone: "",
-  location: "Asturias, España",
-  url: "https://rebai.es",
-  linkedin: "https://linkedin.com/company/rebai",
+    "TRAZEV ayuda a ayuntamientos y empresas privadas a reducir carga administrativa y ganar trazabilidad, seguridad y control sobre sus procesos: redacción de planes urbanísticos, atención al ciudadano, vigilancia del BOPA y medición de satisfacción vecinal, con IA aplicada con criterio y protección de datos por diseño.",
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || DEFAULT_CONTACT_EMAIL,
+  phone: process.env.NEXT_PUBLIC_CONTACT_PHONE?.trim() || "+34 643 330 813",
+  location: "España",
+  url: process.env.NEXT_PUBLIC_SITE_URL?.trim() || DEFAULT_SITE_URL,
+  linkedin: "https://linkedin.com/company/trazev",
 };
 
-// =====================================================
-// NAVEGACIÓN
-// =====================================================
-
 export const NAV_LINKS = [
-  { label: "Cómo funciona", href: "/#como-funciona" },
-  { label: "Precios", href: "/#precios" },
+  { label: "Servicios", href: "/servicios" },
+  { label: "Casos de uso", href: "/casos-de-uso" },
+  { label: "Sobre nosotros", href: "/sobre-nosotros" },
   { label: "Contacto", href: "/contacto" },
 ] as const;
-
-// =====================================================
-// SERVICIOS
-// =====================================================
 
 export type Service = {
   slug: string;
@@ -35,8 +39,13 @@ export type Service = {
   shortName: string;
   tagline: string;
   description: string;
+  metaTitle: string;
+  metaDescription: string;
   icon: string;
   benefit: string;
+  hasPanel: boolean;
+  defaultLeadType: "demo" | "contacto";
+  category: "principal" | "adicional";
   features: string[];
   targetClients: string[];
   howItWorks: { step: number; title: string; description: string }[];
@@ -44,307 +53,429 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
-    slug: "bopa",
-    name: "BOPA con IA",
-    shortName: "BOPA con IA",
-    tagline: "Monitorización inteligente del Boletín Oficial del Principado de Asturias",
+    slug: "redactor-urbanistico",
+    name: "Redactor de Informes Urbanísticos",
+    shortName: "Informes Urbanísticos",
+    tagline: "Redacta informes técnicos de calificación urbanística por parcela, con datos del Catastro y la normativa municipal ya aplicada",
     description:
-      "Descarga, clasifica y analiza automáticamente el BOPA. Tu equipo recibe alertas personalizadas con los cambios normativos relevantes para sus proyectos, sin revisar manualmente cientos de páginas.",
+      "Genera el informe técnico urbanístico que la oficina técnica redacta cada vez que un vecino, notario o comprador solicita la calificación de una parcela. A partir de la referencia catastral, cruza los datos de la Sede Electrónica del Catastro con el planeamiento vigente para determinar la calificación urbanística aplicable, adjuntar el plano de zonificación y citar la normativa que regula ese suelo. El técnico solo tiene que revisar, ajustar y firmar.",
+    metaTitle: "Redactor de Informes Urbanísticos con IA | TRAZEV",
+    metaDescription:
+      "Genera informes técnicos de calificación urbanística por parcela con datos del Catastro y la normativa municipal aplicada: menos tiempo por informe, mismo criterio técnico.",
+    icon: "Map",
+    benefit: "Menos tiempo por informe, mismo criterio técnico",
+    hasPanel: false,
+    defaultLeadType: "contacto",
+    category: "principal",
+    features: [
+      "Búsqueda automática de datos catastrales por referencia o dirección (Sede Electrónica del Catastro)",
+      "Determinación de la calificación urbanística aplicable según el PGO vigente",
+      "Plano de zonificación con la parcela localizada, listo para adjuntar al informe",
+      "Cita automática de los artículos de la normativa municipal que regulan esa calificación",
+      "Redactado en el formato y estilo habitual del ayuntamiento, listo para firma",
+      "Historial de informes emitidos, consultable y reutilizable para parcelas similares",
+    ],
+    targetClients: [
+      "Oficinas técnicas municipales que emiten informes urbanísticos por parcela",
+      "Ayuntamientos con alta demanda de informes de calificación (compraventas, licencias, notarías)",
+      "Mancomunidades y consorcios de gestión urbanística",
+      "Ingenierías y consultoras que tramitan informes urbanísticos para administraciones",
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: "Nos das la referencia catastral o la dirección",
+        description:
+          "Localizamos la parcela y descargamos sus datos oficiales desde la Sede Electrónica del Catastro.",
+      },
+      {
+        step: 2,
+        title: "El sistema determina la calificación y redacta el borrador",
+        description:
+          "Cruza la ubicación con el planeamiento vigente, identifica la normativa aplicable y genera el informe con el plano de zonificación adjunto.",
+      },
+      {
+        step: 3,
+        title: "El técnico revisa, ajusta y firma",
+        description:
+          "El informe queda listo para su firma y entrega al solicitante, sin empezar cada vez desde cero.",
+      },
+    ],
+  },
+  {
+    slug: "atencion-ciudadana",
+    name: "Asistente de Atención al Ciudadano",
+    shortName: "Atención Ciudadana",
+    tagline: "Un asistente conversacional que responde a los ciudadanos 24/7 sobre trámites, plazos y servicios municipales",
+    description:
+      "Responde 24/7 a las dudas más frecuentes de los ciudadanos —trámites, horarios, requisitos, estado de expedientes— desde la web o el WhatsApp del ayuntamiento, sin colas ni saturar al personal de atención al público. Solo deriva la conversación a una persona cuando el caso realmente lo requiere.",
+    metaTitle: "Asistente de Atención al Ciudadano para Ayuntamientos | TRAZEV",
+    metaDescription:
+      "Chatbot municipal con IA que atiende consultas ciudadanas 24/7, reduce colas y llamadas, y deja más tiempo al personal para los casos complejos.",
+    icon: "MessageCircle",
+    benefit: "Menos llamadas y colas, más disponibilidad para el ciudadano",
+    hasPanel: false,
+    defaultLeadType: "demo",
+    category: "principal",
+    features: [
+      "Respuestas 24/7 sobre trámites, plazos y requisitos municipales",
+      "Integración en la web del ayuntamiento y/o WhatsApp",
+      "Base de conocimiento adaptada a la normativa y servicios locales",
+      "Derivación automática a personal cuando el caso lo requiere",
+      "Reduce llamadas y colas presenciales repetitivas",
+      "Panel de consultas frecuentes para detectar necesidades de los ciudadanos",
+    ],
+    targetClients: [
+      "Ayuntamientos con oficina de atención ciudadana saturada",
+      "Entidades locales con pocos recursos para atención telefónica",
+      "Mancomunidades con atención centralizada a varios municipios",
+      "Concejalías que reciben muchas consultas repetitivas por trámite",
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: "Cargamos el conocimiento municipal",
+        description:
+          "Trámites, horarios, ordenanzas y preguntas frecuentes reales del ayuntamiento alimentan al asistente.",
+      },
+      {
+        step: 2,
+        title: "El asistente atiende al ciudadano",
+        description:
+          "Responde por web o WhatsApp, en cualquier horario, con lenguaje claro y sin listas de espera.",
+      },
+      {
+        step: 3,
+        title: "Deriva cuando hace falta",
+        description:
+          "Si el caso es complejo, pasa la conversación a una persona del ayuntamiento con todo el contexto ya recogido.",
+      },
+    ],
+  },
+  {
+    slug: "bopa",
+    name: "BOPA Inteligente",
+    shortName: "BOPA Inteligente",
+    tagline: "Vigilancia inteligente del BOPA para detectar cambios relevantes sin revisión manual",
+    description:
+      "Deja de revisar el BOPA boletín por boletín: el sistema lo descarga, clasifica y analiza cada día, y tu equipo recibe solo las publicaciones que de verdad afectan a su actividad. Además, tienes a tu disposición un asistente de IA con todo el contenido de las publicaciones, listo para responder dudas sobre requisitos, plazos o impacto. Así reduces el riesgo de pasar algo por alto y ganas margen para actuar antes de que venza un plazo.",
+    metaTitle: "BOPA Inteligente | Vigilancia automática del BOPA",
+    metaDescription:
+      "Vigila el BOPA y consulta cada publicación con un asistente de IA: alertas, contexto y prioridad para empresas, ingenierías y asesorías en Asturias.",
     icon: "FileText",
-    benefit: "Hasta 8h semanales recuperadas por ingeniero",
+    benefit: "Menos revisión manual y más control normativo",
+    hasPanel: true,
+    defaultLeadType: "demo",
+    category: "principal",
     features: [
       "Descarga automática diaria del BOPA",
       "Clasificación por categorías y sectores",
       "Asistente conversacional para consultar normativa",
-      "Alertas personalizadas por proyecto o expediente",
+      "Alertas personalizadas por actividad o expediente",
       "Histórico de disposiciones indexado y buscable",
-      "Resumen ejecutivo semanal automático",
+      "Resumen ejecutivo automatizado por email",
     ],
     targetClients: [
-      "Ingenierías técnicas (ambiental, civil, agraria, minería)",
-      "Consultoras de medio ambiente",
-      "Despachos jurídicos con clientes asturianos",
-      "Administraciones públicas del Principado",
+      "Ingenierías técnicas y consultoras",
+      "Asesorías con carga normativa recurrente",
+      "Empresas que gestionan ayudas, licitaciones o cambios normativos",
+      "Equipos que necesitan vigilar el BOPA sin revisarlo todo a mano",
     ],
     howItWorks: [
       {
         step: 1,
-        title: "Configuramos tus alertas",
+        title: "Configuramos el criterio",
         description:
-          "Definimos juntos qué categorías del BOPA son relevantes para tu empresa: medio ambiente, urbanismo, subvenciones, empleo, contratación pública...",
+          "Definimos contigo qué categorías, palabras clave o tipos de publicación son relevantes para tu actividad.",
       },
       {
         step: 2,
-        title: "El sistema monitoriza por ti",
+        title: "El sistema revisa por ti",
         description:
-          "Cada día, el agente descarga el BOPA, extrae las disposiciones relevantes y las clasifica automáticamente según tus criterios.",
+          "BOPA Inteligente descarga, filtra y prioriza las publicaciones para separar lo relevante de lo accesorio.",
       },
       {
         step: 3,
-        title: "Recibes lo que necesitas",
+        title: "Recibes una salida útil",
         description:
-          "Alertas en tiempo real cuando aparece algo crítico. Resumen semanal cada lunes. Asistente disponible para consultar cualquier disposición.",
+          "Tu equipo recibe alertas claras por email y puede revisar el histórico, las publicaciones y el contexto desde el panel.",
       },
     ],
   },
   {
-    slug: "agentes-ia",
-    name: "Agentes de IA a medida",
-    shortName: "Agentes IA",
-    tagline: "Automatización personalizada para los procesos de tu empresa",
+    slug: "radar-satisfaccion",
+    name: "Radar de Satisfacción Municipal",
+    shortName: "Radar de Satisfacción",
+    tagline: "Encuestas por chat de voz y de texto para medir en continuo la satisfacción y las necesidades de la ciudadanía",
     description:
-      "Diseñamos y construimos agentes de inteligencia artificial adaptados exactamente a los procesos repetitivos de tu empresa. Desde la generación de informes hasta la gestión de expedientes.",
+      "Lanza encuestas cortas por chatbot de voz o de texto para conocer qué piensa la ciudadanía sobre los servicios, las obras y la gestión municipal, y qué necesita realmente. Convierte esas conversaciones accesibles en datos objetivos que el ayuntamiento puede usar para priorizar mejoras con evidencia, no con intuición.",
+    metaTitle: "Radar de Satisfacción Municipal | TRAZEV",
+    metaDescription:
+      "Encuestas por chatbot de voz y de texto para medir la satisfacción y las necesidades de la ciudadanía sobre la gestión municipal, con datos objetivos y continuos.",
+    icon: "Radar",
+    benefit: "Datos reales de satisfacción, no intuición",
+    hasPanel: false,
+    defaultLeadType: "contacto",
+    category: "principal",
+    features: [
+      "Encuestas conversacionales por chat de voz y/o de texto, accesibles para cualquier ciudadano",
+      "Mide satisfacción y necesidades sobre servicios, gestión y gobierno municipal",
+      "Panel con evolución de la satisfacción por servicio o área",
+      "Detección de quejas o problemas recurrentes antes de que escalen",
+      "Informes periódicos listos para presentar en pleno o memoria anual",
+      "Segmentación por barrio, servicio o tipo de trámite",
+    ],
+    targetClients: [
+      "Ayuntamientos que quieren medir la percepción ciudadana de forma objetiva",
+      "Concejalías de participación ciudadana o modernización",
+      "Entidades locales que necesitan justificar mejoras con datos",
+      "Municipios que hoy solo reciben quejas puntuales, sin visión de conjunto",
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: "Definimos qué medir",
+        description:
+          "Servicios, trámites o áreas municipales sobre los que el ayuntamiento quiere conocer la satisfacción real.",
+      },
+      {
+        step: 2,
+        title: "El sistema conversa con la ciudadanía",
+        description:
+          "Encuestas cortas por chat de voz o de texto, fáciles de responder desde el móvil, sin depender de que alguien conteste una llamada o un correo.",
+      },
+      {
+        step: 3,
+        title: "Recibes datos accionables",
+        description:
+          "El ayuntamiento ve la evolución, detecta puntos débiles y prioriza mejoras con evidencia, no con intuición.",
+      },
+    ],
+  },
+  {
+    slug: "automatizaciones",
+    name: "Automatizaciones a medida",
+    shortName: "Automatizaciones",
+    tagline: "Automatizaciones y soluciones de IA a medida para expedientes, documentación y mejora operativa",
+    description:
+      "Diseñamos e implantamos automatizaciones a medida —con o sin IA— para expedientes, documentación técnica, avisos y extracción de datos, adaptadas a la operativa real de cada cliente. El resultado: menos pasos manuales, menos errores y más tiempo para el trabajo que sí requiere criterio humano.",
+    metaTitle: "Automatizaciones a medida | TRAZEV",
+    metaDescription:
+      "Automatizaciones con y sin IA hechas a medida para reducir carga administrativa, ordenar expedientes y mejorar la operativa de equipos técnicos y administrativos.",
     icon: "Bot",
-    benefit: "Procesos automatizados en semanas, no meses",
+    benefit: "Menos tiempo perdido y más capacidad operativa",
+    hasPanel: false,
+    defaultLeadType: "contacto",
+    category: "adicional",
     features: [
-      "Análisis previo de procesos y oportunidades",
-      "Agentes conversacionales para equipos internos",
-      "Automatización de generación de documentos",
-      "Integración con herramientas existentes (email, Drive, ERP)",
-      "Panel de control y monitorización",
-      "Soporte y mantenimiento continuo",
+      "Análisis de procesos y detección de cuellos de botella",
+      "Automatizaciones con y sin IA adaptadas al flujo real",
+      "Tratamiento de expedientes y documentación técnica",
+      "Generación automatizada de informes y salidas operativas",
+      "Integración con email, hojas de cálculo, APIs o herramientas existentes",
+      "Soporte y mejora continua de los flujos implantados",
     ],
     targetClients: [
-      "Ingenierías con procesos documentales repetitivos",
-      "Consultoras con generación masiva de informes",
-      "Cooperativas con gestión administrativa compleja",
-      "Empresas técnicas en fase de crecimiento",
+      "Ingenierías con carga documental o técnica repetitiva",
+      "Consultoras que procesan expedientes, datos o informes",
+      "Entidades con tareas administrativas intensivas",
+      "Equipos que quieren mejorar procesos sin rehacer toda su operativa",
     ],
     howItWorks: [
       {
         step: 1,
-        title: "Analizamos tu proceso",
+        title: "Analizamos el proceso",
         description:
-          "Nos reunimos para entender exactamente qué procesos consumen más tiempo a tu equipo y dónde hay mayor valor en automatizar.",
+          "Detectamos las tareas que más tiempo consumen, dónde hay fricción y qué partes se pueden automatizar con seguridad.",
       },
       {
         step: 2,
-        title: "Construimos el agente",
+        title: "Diseñamos e implantamos",
         description:
-          "Desarrollamos el agente adaptado a tu flujo de trabajo, con las integraciones necesarias y validación contigo en cada paso.",
+          "Construimos la automatización y la conectamos con el entorno real de trabajo del equipo, sin capas innecesarias.",
       },
       {
         step: 3,
-        title: "Tu equipo opera sin fricción",
+        title: "Ajustamos para operar",
         description:
-          "Formación, puesta en producción y soporte continuo. Tu equipo adopta la herramienta y recupera tiempo para el trabajo de valor.",
+          "Formación, seguimiento y mejora para que el sistema funcione de verdad en el día a día y no se quede en una prueba.",
       },
     ],
   },
   {
-    slug: "subvenciones",
-    name: "Agente de Subvenciones",
-    shortName: "Subvenciones",
-    tagline: "Detecta y gestiona subvenciones del IDEPA y MAPA automáticamente",
+    slug: "asesorias",
+    name: "Asesoría en automatización e IA",
+    shortName: "Asesoría",
+    tagline: "Consultoría en IA y automatización para decidir bien qué mejorar y cómo hacerlo",
     description:
-      "El agente monitoriza convocatorias del IDEPA, MAPA, CDTI y otras fuentes, detecta las aplicables a tu empresa y prepara automáticamente la documentación inicial.",
-    icon: "Banknote",
-    benefit: "No pierdas ninguna convocatoria aplicable",
-    features: [
-      "Monitorización de IDEPA, MAPA, CDTI, Red.es y más",
-      "Detección automática de convocatorias aplicables",
-      "Alertas antes del cierre de plazo",
-      "Borrador de memoria técnica asistido",
-      "Seguimiento del estado de solicitudes",
-      "Informe mensual de oportunidades de financiación",
-    ],
-    targetClients: [
-      "Cooperativas agrícolas y ganaderas de Asturias",
-      "Ingenierías con proyectos financiables",
-      "PYMEs industriales y tecnológicas asturianas",
-      "Empresas en proceso de modernización o digitalización",
-    ],
-    howItWorks: [
-      {
-        step: 1,
-        title: "Perfil de tu empresa",
-        description:
-          "Definimos el perfil de tu empresa: sector, CNAE, tamaño, tipo de inversiones previstas. Esto permite filtrar convocatorias con alta precisión.",
-      },
-      {
-        step: 2,
-        title: "El agente busca por ti",
-        description:
-          "Monitorización continua de todas las fuentes relevantes. Cuando aparece una convocatoria aplicable, te avisamos con tiempo suficiente para preparar la solicitud.",
-      },
-      {
-        step: 3,
-        title: "Documentación lista para revisar",
-        description:
-          "El agente prepara el borrador de la memoria y los anexos con la información de tu empresa. Tu equipo solo revisa y firma.",
-      },
-    ],
-  },
-  {
-    slug: "cumplimiento",
-    name: "Agente de Cumplimiento",
-    shortName: "Cumplimiento",
-    tagline: "Monitorización automática de cambios normativos que afectan a tu empresa",
-    description:
-      "Mantente al día de los cambios en la normativa técnica y ambiental que afectan a tus proyectos. El agente monitoriza BOE, BOPA y reglamentos sectoriales y te alerta cuando necesitas actuar.",
+      "Te ayudamos a definir dónde tiene sentido automatizar, dónde la IA aporta valor real y cómo mejorar procesos sin añadir complejidad innecesaria: una consultoría práctica para priorizar con criterio y no invertir a ciegas.",
+    metaTitle: "Asesoría en automatización e IA | TRAZEV",
+    metaDescription:
+      "Consultoría en automatización, IA y eficiencia de procesos para equipos que necesitan decidir con criterio antes de implantar cambios operativos.",
     icon: "ShieldCheck",
-    benefit: "Cero sorpresas regulatorias en tus proyectos",
+    benefit: "Más criterio y menos inversión a ciegas",
+    hasPanel: false,
+    defaultLeadType: "contacto",
+    category: "adicional",
     features: [
-      "Monitorización de BOE, BOPA y diario oficial europeo",
-      "Seguimiento de reglamentos técnicos sectoriales",
-      "Alertas clasificadas por urgencia y ámbito",
-      "Resumen de impacto sobre proyectos activos",
-      "Histórico de cambios normativos por sector",
-      "Integración con tu sistema de gestión de proyectos",
+      "Revisión de procesos y puntos de mejora operativa",
+      "Asesoría en automatización con y sin IA",
+      "Priorización de oportunidades por impacto y viabilidad",
+      "Criterio técnico para herramientas, integraciones y arquitectura",
+      "Recomendaciones para implantar sin romper la operativa actual",
+      "Acompañamiento en decisiones de eficiencia de procesos",
     ],
     targetClients: [
-      "Ingenierías ambientales y de medio ambiente",
-      "Empresas con actividades reguladas (IPPC, residuos, aguas)",
-      "Constructoras y promotoras en Asturias",
-      "Industria agroalimentaria sujeta a normativa sanitaria",
+      "Equipos que quieren automatizar pero no saben por dónde empezar",
+      "Organizaciones que necesitan criterio antes de invertir en herramientas",
+      "Direcciones técnicas y operativas con procesos mejorables",
+      "Clientes que buscan eficiencia sin depender de soluciones genéricas",
     ],
     howItWorks: [
       {
         step: 1,
-        title: "Mapeamos tu exposición regulatoria",
+        title: "Revisamos la operativa",
         description:
-          "Identificamos qué normativas afectan a tu actividad y cuáles son los cambios más críticos a seguir: ambiental, técnica, laboral, sanitaria...",
+          "Analizamos cómo trabaja el equipo hoy, qué fricciones existen y dónde se está perdiendo más tiempo o claridad.",
       },
       {
         step: 2,
-        title: "Monitorización continua",
+        title: "Priorizamos y recomendamos",
         description:
-          "El agente rastrea diariamente todas las fuentes oficiales. Cuando detecta un cambio relevante, lo clasifica por urgencia e impacto potencial.",
+          "Definimos qué merece automatizar, qué no, qué herramientas encajan mejor y cómo implantar cambios sin exceso de complejidad.",
       },
       {
         step: 3,
-        title: "Actúas a tiempo",
+        title: "Acompañamos la implantación",
         description:
-          "Recibes la alerta con tiempo suficiente para adaptar tus procesos o proyectos. Sin sorpresas en auditorías ni sanciones por desconocimiento.",
+          "Convertimos la recomendación en una hoja de ruta clara para que las decisiones se puedan ejecutar con criterio y seguimiento.",
       },
     ],
   },
 ];
-
-// =====================================================
-// PAIN POINTS (sección homepage)
-// =====================================================
 
 export const PAIN_POINTS = [
   {
     icon: "Clock",
     title: "Horas perdidas en trámites",
     description:
-      "Tu equipo dedica días a revisar el BOPA, rellenar formularios y buscar normativa actualizada. Tiempo que debería ir a proyectos de valor.",
+      "Tu equipo dedica días a revisar normativa, ordenar documentación y repetir tareas administrativas que deberían estar más automatizadas.",
   },
   {
     icon: "AlertTriangle",
-    title: "Normativa que cambia sin avisar",
+    title: "Información dispersa y difícil de seguir",
     description:
-      "El BOPA, los requisitos del IDEPA y los reglamentos técnicos asturianos cambian constantemente. Perderse un cambio puede costar caro.",
+      "Boletines, expedientes, documentos técnicos y cambios de criterio se reparten entre demasiadas herramientas y demasiados pasos manuales.",
   },
   {
     icon: "TrendingDown",
-    title: "Procesos manuales que no escalan",
+    title: "Procesos que no escalan",
     description:
-      "Lo que funciona con un proyecto colapsa con diez. La carga burocrática crece más rápido que el equipo.",
+      "Lo que parece gestionable con pocos casos se vuelve un cuello de botella cuando crecen los expedientes, los informes o las personas implicadas.",
   },
-];
-
-// =====================================================
-// PASOS DE SOLUCIÓN (sección homepage)
-// =====================================================
+] as const;
 
 export const SOLUTION_STEPS = [
   {
     number: "01",
     title: "Analizamos tu proceso",
-    description: "Identificamos dónde la burocracia frena más a tu equipo.",
+    description: "Identificamos dónde la carga administrativa frena más a tu equipo.",
   },
   {
     number: "02",
-    title: "Construimos la automatización",
-    description: "Agentes de IA adaptados exactamente a tu flujo de trabajo.",
+    title: "Construimos la solución",
+    description: "Automatización, IA o combinación de ambas según el caso real.",
   },
   {
     number: "03",
-    title: "Tu equipo opera sin carga",
-    description: "Más tiempo para proyectos. Cero sorpresas regulatorias.",
+    title: "Tu equipo opera mejor",
+    description: "Menos trabajo manual, más claridad operativa y mejor seguimiento.",
   },
-];
-
-// =====================================================
-// CASOS DE USO (sección homepage + página completa)
-// =====================================================
+] as const;
 
 export const USE_CASES = [
   {
-    sector: "Ingeniería Técnica",
+    sector: "Oficina técnica municipal",
+    location: "España",
+    icon: "Map",
+    problem:
+      "Una oficina técnica municipal recibe constantemente solicitudes de informes urbanísticos por parcela (compraventas, licencias, notarías) y dedica horas a cada uno: catastro, plano de zonificación y normativa aplicable.",
+    solution:
+      "El Redactor de Informes Urbanísticos cruza los datos catastrales con el planeamiento vigente y genera el borrador del informe, con plano y normativa citada, listo para revisión.",
+    result:
+      "El equipo técnico reduce el tiempo por informe, mantiene el mismo criterio en todos los casos y dedica más horas a los expedientes que sí requieren análisis a fondo.",
+    metric: "Menos horas por informe urbanístico",
+  },
+  {
+    sector: "Ayuntamiento rural",
+    location: "España",
+    icon: "MessageCircle",
+    problem:
+      "Un ayuntamiento pequeño recibe muchas llamadas y visitas repetitivas sobre trámites, horarios y requisitos, con una plantilla reducida para atenderlas.",
+    solution:
+      "El Asistente de Atención al Ciudadano responde 24/7 desde la web o WhatsApp del ayuntamiento y solo deriva a una persona cuando el caso lo requiere.",
+    result:
+      "El ciudadano recibe respuesta inmediata a cualquier hora y el personal libera tiempo de las consultas más repetitivas.",
+    metric: "Menos llamadas y colas repetitivas",
+  },
+  {
+    sector: "Ingeniería técnica",
     location: "Oviedo, Asturias",
     icon: "Building2",
     problem:
-      "Imagina una ingeniería ambiental con 12 proyectos activos que dedica un día a la semana a revisar el BOPA y clasificar manualmente las disposiciones relevantes para cada expediente.",
+      "Una ingeniería ambiental con varios expedientes activos dedica horas cada semana a revisar el BOPA, localizar cambios relevantes y trasladarlos al equipo adecuado.",
     solution:
-      "Con el agente BOPA de RebAI, configurado para las categorías de medio ambiente, residuos y contratación pública, ese proceso se automatiza por completo.",
+      "Con BOPA Inteligente, ese seguimiento se automatiza y el equipo recibe una salida filtrada, priorizada y accionable sin revisar boletines a mano.",
     result:
-      "El equipo recibiría un resumen automático cada lunes con las alertas clasificadas por proyecto, recuperando más de 6 horas semanales para trabajo de valor.",
-    metric: "Estimación: +6h/semana",
+      "La ingeniería gana tiempo de trabajo técnico, reduce revisiones repetitivas y llega antes a lo que requiere acción.",
+    metric: "Estimación: +6 h/semana",
   },
   {
-    sector: "Cooperativa Ganadera",
-    location: "Navia, Asturias",
-    icon: "Tractor",
+    sector: "Concejalía de participación",
+    location: "España",
+    icon: "Radar",
     problem:
-      "Imagina una cooperativa láctea que pierde 3 semanas al año gestionando solicitudes de subvenciones del IDEPA y el MAPA. El proceso es completamente manual y se pierden convocatorias por desconocimiento.",
+      "Un ayuntamiento solo conoce la opinión de la ciudadanía por quejas puntuales y no tiene datos objetivos para priorizar mejoras en los servicios municipales.",
     solution:
-      "El agente de subvenciones monitoriza las convocatorias del IDEPA, MAPA y otras fuentes, y alerta cuando hay una aplicable con tiempo suficiente para preparar la solicitud.",
+      "El Radar de Satisfacción Municipal lanza encuestas por chat de voz y de texto para medir la satisfacción y las necesidades de la ciudadanía con cada servicio.",
     result:
-      "La cooperativa podría detectar convocatorias que antes pasaban desapercibidas y llegar a cada plazo con la documentación lista para presentar.",
-    metric: "Sin perder ningún plazo",
+      "El equipo de gobierno cuenta con datos reales para justificar mejoras y detecta problemas antes de que escalen.",
+    metric: "Datos de satisfacción, no solo quejas",
   },
-  {
-    sector: "Consultora Técnica",
-    location: "Gijón, Asturias",
-    icon: "BarChart3",
-    problem:
-      "Imagina una consultora con 8 técnicos que genera informes de cumplimiento normativo manualmente para sus clientes industriales. Cada informe tarda entre 4 y 6 horas.",
-    solution:
-      "Un agente de IA a medida generaría el borrador del informe automáticamente a partir de los datos de cada instalación, listo para revisar y firmar.",
-    result:
-      "El tiempo de generación podría reducirse de 5 horas a menos de 1 hora, liberando capacidad para atender más clientes sin ampliar equipo.",
-    metric: "Estimación: de 5h a <1h",
-  },
-];
-
-// =====================================================
-// DIFERENCIADORES (sección "Por qué RebAI")
-// =====================================================
+] as const;
 
 export const DIFFERENTIATORS = [
   {
-    icon: "MapPin",
-    title: "Especialización asturiana",
+    icon: "Lock",
+    title: "Trazabilidad y protección de datos por diseño",
     description:
-      "No somos una agencia genérica de Madrid. Conocemos el BOPA, el IDEPA, las cooperativas y el tejido empresarial del Principado.",
+      "Cada proceso queda registrado y es auditable. Trabajamos con cifrado, control de acceso y cumplimiento RGPD desde el primer día, tanto en administración pública como en empresa privada.",
+  },
+  {
+    icon: "Landmark",
+    title: "Especialización en administración pública y empresa técnica",
+    description:
+      "Conocemos el BOPA, la operativa municipal y los problemas administrativos de ingenierías, asesorías y equipos técnicos. No adaptamos plantillas genéricas: construimos desde el conocimiento real del sector.",
   },
   {
     icon: "Target",
     title: "Resultados medibles",
     description:
-      "Cada automatización se define con métricas claras: tiempo ahorrado, documentos procesados, convocatorias detectadas.",
+      "Cada automatización se define con métricas claras: tiempo ahorrado, tareas reducidas y mejoras reales en la operativa.",
   },
   {
     icon: "Cpu",
     title: "Tecnología con criterio",
     description:
-      "Usamos IA donde aporta valor real, no para impresionar. Sin soluciones genéricas — todo adaptado a tu sector.",
+      "Usamos IA donde aporta valor real, no para impresionar. Sin soluciones genéricas ni capas innecesarias.",
   },
   {
     icon: "Handshake",
-    title: "Equipo cercano",
+    title: "Acompañamiento cercano",
     description:
-      "Proyecto piloto, iteración, puesta en producción. Contigo en cada paso. Empresa local con respuesta ágil.",
+      "Análisis, implantación y ajuste. Contigo en cada paso. Empresa local con respuesta ágil.",
   },
-];
-
-// =====================================================
-// LEGAL LINKS
-// =====================================================
+] as const;
 
 export const LEGAL_LINKS = [
   { label: "Aviso Legal", href: "/aviso-legal" },

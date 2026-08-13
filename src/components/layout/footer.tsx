@@ -1,35 +1,42 @@
 import Link from "next/link";
 import { Linkedin, Mail } from "lucide-react";
-import { SITE, NAV_LINKS, LEGAL_LINKS } from "@/lib/constants";
+import { SITE, NAV_LINKS, LEGAL_LINKS, SERVICES } from "@/lib/constants";
+
+const FOOTER_SERVICES = SERVICES.filter((service) => service.category === "principal");
 
 export default function Footer() {
   return (
     <footer className="bg-[#0F172A] text-white">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          {/* Brand */}
+      <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-8">
+        <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-3">
           <div>
             <div className="mb-4">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.png" alt={SITE.name} className="h-24 w-auto brightness-0 invert" />
+              <div className="inline-flex rounded-2xl bg-white p-3 shadow-[0_10px_30px_rgba(15,23,42,0.18)]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={SITE.logoSrc}
+                  alt={SITE.name}
+                  className="h-11 w-auto object-contain lg:h-12"
+                />
+              </div>
             </div>
-            <p className="text-[#64748B] text-sm leading-relaxed max-w-xs">
-              Automatizamos la burocracia que frena a tu empresa en Asturias.
-              Agentes de IA para el sector técnico y rural del Principado.
+            <p className="max-w-xs text-sm leading-relaxed text-[#64748B]">
+              IA y automatización con trazabilidad, para ayuntamientos y
+              empresas de toda España.
             </p>
-            <div className="flex items-center gap-3 mt-6">
+            <div className="mt-6 flex items-center gap-3">
               <a
                 href={SITE.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-white/10 hover:bg-[#2563EB] rounded-lg flex items-center justify-center transition-colors duration-150"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 transition-colors duration-150 hover:bg-[#2563EB]"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={16} />
               </a>
               <a
                 href={`mailto:${SITE.email}`}
-                className="w-9 h-9 bg-white/10 hover:bg-[#2563EB] rounded-lg flex items-center justify-center transition-colors duration-150"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 transition-colors duration-150 hover:bg-[#2563EB]"
                 aria-label="Email"
               >
                 <Mail size={16} />
@@ -37,33 +44,34 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Servicios */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-[#64748B] mb-4">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#64748B]">
               Servicios
             </h3>
             <ul className="space-y-3">
-              {[
-                { label: "BOPA con IA", href: "/servicios/bopa" },
-                { label: "Agentes de IA a medida", href: "/servicios/agentes-ia" },
-                { label: "Agente de Subvenciones", href: "/servicios/subvenciones" },
-                { label: "Agente de Cumplimiento", href: "/servicios/cumplimiento" },
-              ].map((link) => (
-                <li key={link.href}>
+              {FOOTER_SERVICES.map((service) => (
+                <li key={service.slug}>
                   <Link
-                    href={link.href}
-                    className="text-[#94A3B8] hover:text-white text-sm transition-colors duration-150"
+                    href={`/servicios/${service.slug}`}
+                    className="text-sm text-[#94A3B8] transition-colors duration-150 hover:text-white"
                   >
-                    {link.label}
+                    {service.name}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/servicios"
+                  className="text-sm text-[#94A3B8] transition-colors duration-150 hover:text-white"
+                >
+                  Ver todos los servicios
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Empresa */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-[#64748B] mb-4">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#64748B]">
               Empresa
             </h3>
             <ul className="space-y-3">
@@ -71,7 +79,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[#94A3B8] hover:text-white text-sm transition-colors duration-150"
+                    className="text-sm text-[#94A3B8] transition-colors duration-150 hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -81,26 +89,25 @@ export default function Footer() {
             <div className="mt-6">
               <a
                 href={`mailto:${SITE.email}`}
-                className="text-[#3B82F6] hover:text-white text-sm transition-colors duration-150 font-mono"
+                className="font-mono text-sm text-[#3B82F6] transition-colors duration-150 hover:text-white"
               >
                 {SITE.email}
               </a>
-              <p className="text-[#64748B] text-xs mt-1">{SITE.location}</p>
+              <p className="mt-1 text-xs text-[#64748B]">{SITE.location}</p>
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[#64748B] text-xs">
-            © {new Date().getFullYear()} RebAI. Todos los derechos reservados.
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
+          <p className="text-xs text-[#64748B]">
+            © {new Date().getFullYear()} TRAZEV. Todos los derechos reservados.
           </p>
           <div className="flex items-center gap-6">
             {LEGAL_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[#64748B] hover:text-white text-xs transition-colors duration-150"
+                className="text-xs text-[#64748B] transition-colors duration-150 hover:text-white"
               >
                 {link.label}
               </Link>

@@ -1,25 +1,54 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
+import { AlertCircle, CheckCircle, Loader2, Send } from "lucide-react";
+
 import { submitContact, type ContactFormState } from "@/app/actions/contact";
-import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import {
+  GENERAL_SERVICE_SLUG,
+  type ContactServiceSlug,
+  type LeadType,
+  type PricingTier,
+} from "@/lib/contact";
+import { SERVICES } from "@/lib/constants";
 
 const initialState: ContactFormState = {
   status: "idle",
   message: "",
 };
 
-export default function ContactForm() {
+interface ContactFormProps {
+  initialServiceSlug: ContactServiceSlug;
+  leadType: LeadType;
+  pricingTier?: PricingTier;
+  sourcePage: string;
+  sourceSection: string;
+  submitLabel: string;
+}
+
+export default function ContactForm({
+  initialServiceSlug,
+  leadType,
+  pricingTier,
+  sourcePage,
+  sourceSection,
+  submitLabel,
+}: ContactFormProps) {
   const [state, formAction, isPending] = useActionState(submitContact, initialState);
+  const [selectedService, setSelectedService] =
+    useState<ContactServiceSlug>(initialServiceSlug);
+
+  const showBopaSituation =
+    selectedService === GENERAL_SERVICE_SLUG || selectedService === "bopa";
 
   if (state.status === "success") {
     return (
-      <div className="bg-[#F0FDF4] border border-[#BBF7D0] rounded-[12px] p-8 text-center">
-        <div className="w-14 h-14 rounded-full bg-[#16A34A] flex items-center justify-center mx-auto mb-4">
+      <div className="rounded-[12px] border border-[#BBF7D0] bg-[#F0FDF4] p-8 text-center">
+        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#16A34A]">
           <CheckCircle size={28} className="text-white" />
         </div>
-        <h3 className="text-[#0F172A] font-bold text-xl mb-2">
-          Consulta enviada
+        <h3 className="mb-2 text-xl font-bold text-[#0F172A]">
+          Gracias, ya tenemos tu caso
         </h3>
         <p className="text-[#64748B]">{state.message}</p>
       </div>
@@ -28,10 +57,44 @@ export default function ContactForm() {
 
   return (
     <form action={formAction} className="space-y-5">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        {/* Nombre */}
+      <input type="hidden" name="leadType" value={leadType} />
+      <input type="hidden" name="sourcePage" value={sourcePage} />
+      <input type="hidden" name="sourceSection" value={sourceSection} />
+      {pricingTier ? <input type="hidden" name="pricingTier" value={pricingTier} /> : null}
+
+      <div>
+        <label
+          htmlFor="serviceSlug"
+          className="mb-1.5 block text-sm font-medium text-[#0F172A]"
+        >
+          Que quieres explorar? <span className="text-[#EA580C]">*</span>
+        </label>
+        <select
+          id="serviceSlug"
+          name="serviceSlug"
+          value={selectedService}
+          required
+          disabled={isPending}
+          onChange={(event) =>
+            setSelectedService(event.target.value as ContactServiceSlug)
+          }
+          className="w-full rounded-lg border border-[#E2E8F0] bg-white px-4 py-3 text-sm text-[#0F172A] transition-all duration-150 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#2563EB] disabled:opacity-50"
+        >
+          <option value={GENERAL_SERVICE_SLUG}>No lo tengo claro todavia</option>
+          {SERVICES.map((service) => (
+            <option key={service.slug} value={service.slug}>
+              {service.name}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="nombre" className="block text-sm font-medium text-[#0F172A] mb-1.5">
+          <label
+            htmlFor="nombre"
+            className="mb-1.5 block text-sm font-medium text-[#0F172A]"
+          >
             Nombre <span className="text-[#EA580C]">*</span>
           </label>
           <input
@@ -41,13 +104,15 @@ export default function ContactForm() {
             required
             disabled={isPending}
             placeholder="Tu nombre"
-            className="w-full px-4 py-3 rounded-lg border border-[#E2E8F0] bg-white text-[#0F172A] placeholder:text-[#94A3B8] text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition-all duration-150 disabled:opacity-50"
+            className="w-full rounded-lg border border-[#E2E8F0] bg-white px-4 py-3 text-sm text-[#0F172A] placeholder:text-[#94A3B8] transition-all duration-150 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#2563EB] disabled:opacity-50"
           />
         </div>
 
-        {/* Empresa */}
         <div>
-          <label htmlFor="empresa" className="block text-sm font-medium text-[#0F172A] mb-1.5">
+          <label
+            htmlFor="empresa"
+            className="mb-1.5 block text-sm font-medium text-[#0F172A]"
+          >
             Empresa <span className="text-[#EA580C]">*</span>
           </label>
           <input
@@ -56,16 +121,18 @@ export default function ContactForm() {
             name="empresa"
             required
             disabled={isPending}
-            placeholder="Nombre de tu empresa"
-            className="w-full px-4 py-3 rounded-lg border border-[#E2E8F0] bg-white text-[#0F172A] placeholder:text-[#94A3B8] text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition-all duration-150 disabled:opacity-50"
+            placeholder="Empresa, despacho o entidad"
+            className="w-full rounded-lg border border-[#E2E8F0] bg-white px-4 py-3 text-sm text-[#0F172A] placeholder:text-[#94A3B8] transition-all duration-150 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#2563EB] disabled:opacity-50"
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        {/* Email */}
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-[#0F172A] mb-1.5">
+          <label
+            htmlFor="email"
+            className="mb-1.5 block text-sm font-medium text-[#0F172A]"
+          >
             Email <span className="text-[#EA580C]">*</span>
           </label>
           <input
@@ -75,52 +142,67 @@ export default function ContactForm() {
             required
             disabled={isPending}
             placeholder="tu@empresa.com"
-            className="w-full px-4 py-3 rounded-lg border border-[#E2E8F0] bg-white text-[#0F172A] placeholder:text-[#94A3B8] text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition-all duration-150 disabled:opacity-50"
+            className="w-full rounded-lg border border-[#E2E8F0] bg-white px-4 py-3 text-sm text-[#0F172A] placeholder:text-[#94A3B8] transition-all duration-150 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#2563EB] disabled:opacity-50"
           />
         </div>
 
-        {/* Teléfono */}
         <div>
-          <label htmlFor="telefono" className="block text-sm font-medium text-[#0F172A] mb-1.5">
-            Teléfono{" "}
-            <span className="text-[#94A3B8] font-normal">(opcional)</span>
+          <label
+            htmlFor="telefono"
+            className="mb-1.5 block text-sm font-medium text-[#0F172A]"
+          >
+            Telefono <span className="font-normal text-[#94A3B8]">(opcional)</span>
           </label>
           <input
             type="tel"
             id="telefono"
             name="telefono"
             disabled={isPending}
-            placeholder="+34 600 000 000"
-            className="w-full px-4 py-3 rounded-lg border border-[#E2E8F0] bg-white text-[#0F172A] placeholder:text-[#94A3B8] text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition-all duration-150 disabled:opacity-50"
+            placeholder="+34 600 000 000 si prefieres llamada"
+            className="w-full rounded-lg border border-[#E2E8F0] bg-white px-4 py-3 text-sm text-[#0F172A] placeholder:text-[#94A3B8] transition-all duration-150 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#2563EB] disabled:opacity-50"
           />
         </div>
       </div>
 
-      {/* Situación actual con el BOPA */}
-      <div>
-        <label htmlFor="situacion" className="block text-sm font-medium text-[#0F172A] mb-1.5">
-          ¿Cómo gestionáis el BOPA ahora? <span className="text-[#EA580C]">*</span>
-        </label>
-        <select
-          id="situacion"
-          name="situacion"
-          required
-          disabled={isPending}
-          defaultValue=""
-          className="w-full px-4 py-3 rounded-lg border border-[#E2E8F0] bg-white text-[#0F172A] text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition-all duration-150 disabled:opacity-50"
-        >
-          <option value="" disabled>Selecciona una opción...</option>
-          <option value="manual">Lo revisamos manualmente</option>
-          <option value="delegado">Tenemos a alguien que lo hace</option>
-          <option value="no-revisamos">No lo revisamos habitualmente</option>
-          <option value="otra-herramienta">Usamos otra herramienta</option>
-        </select>
-      </div>
+      {showBopaSituation ? (
+        <div>
+          <label
+            htmlFor="situacion"
+            className="mb-1.5 block text-sm font-medium text-[#0F172A]"
+          >
+            Hoy, como controlais las publicaciones que os afectan?{" "}
+            <span className="text-[#EA580C]">*</span>
+          </label>
+          <select
+            id="situacion"
+            name="situacion"
+            required
+            disabled={isPending}
+            defaultValue=""
+            className="w-full rounded-lg border border-[#E2E8F0] bg-white px-4 py-3 text-sm text-[#0F172A] transition-all duration-150 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#2563EB] disabled:opacity-50"
+          >
+            <option value="" disabled>
+              Selecciona una opcion...
+            </option>
+            <option value="manual">Lo revisamos a mano</option>
+            <option value="delegado">Lo lleva una persona del equipo</option>
+            <option value="no-revisamos">
+              Llegamos tarde o no lo revisamos de forma estable
+            </option>
+            <option value="otra-herramienta">
+              Usamos otra herramienta o servicio
+            </option>
+          </select>
+        </div>
+      ) : null}
 
-      {/* Reto */}
       <div>
-        <label htmlFor="reto" className="block text-sm font-medium text-[#0F172A] mb-1.5">
-          ¿Cuál es tu principal reto? <span className="text-[#EA580C]">*</span>
+        <label
+          htmlFor="reto"
+          className="mb-1.5 block text-sm font-medium text-[#0F172A]"
+        >
+          Que esta pasando ahora y que te gustaria mejorar?{" "}
+          <span className="text-[#EA580C]">*</span>
         </label>
         <textarea
           id="reto"
@@ -128,25 +210,23 @@ export default function ContactForm() {
           required
           disabled={isPending}
           rows={5}
-          placeholder="Cuéntanos qué proceso te consume más tiempo, qué problema administrativo quieres resolver o qué herramienta necesitarías. Cuanto más detalle, mejor podremos ayudarte."
-          className="w-full px-4 py-3 rounded-lg border border-[#E2E8F0] bg-white text-[#0F172A] placeholder:text-[#94A3B8] text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition-all duration-150 disabled:opacity-50 resize-none"
+          placeholder="Por ejemplo: revisamos el BOPA a mano, llegamos tarde a ayudas o cambios normativos, o necesitamos que el equipo tenga un criterio claro para actuar. Si quieres, cuentanos tambien el objetivo que buscais."
+          className="w-full resize-none rounded-lg border border-[#E2E8F0] bg-white px-4 py-3 text-sm text-[#0F172A] placeholder:text-[#94A3B8] transition-all duration-150 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#2563EB] disabled:opacity-50"
         />
       </div>
 
-      {/* Error message */}
-      {state.status === "error" && (
-        <div className="flex items-start gap-3 p-4 bg-[#FFF7ED] border border-[#FED7AA] rounded-lg">
-          <AlertCircle size={18} className="text-[#EA580C] shrink-0 mt-0.5" />
-          <p className="text-[#EA580C] text-sm">{state.message}</p>
+      {state.status === "error" ? (
+        <div className="flex items-start gap-3 rounded-lg border border-[#FED7AA] bg-[#FFF7ED] p-4">
+          <AlertCircle size={18} className="mt-0.5 shrink-0 text-[#EA580C]" />
+          <p className="text-sm text-[#EA580C]">{state.message}</p>
         </div>
-      )}
+      ) : null}
 
-      {/* Submit */}
       <div>
         <button
           type="submit"
           disabled={isPending}
-          className="w-full flex items-center justify-center gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold px-6 py-3.5 rounded-lg transition-all duration-150"
+          className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#2563EB] px-6 py-3.5 font-semibold text-white transition-all duration-150 hover:bg-[#1D4ED8] disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isPending ? (
             <>
@@ -156,16 +236,17 @@ export default function ContactForm() {
           ) : (
             <>
               <Send size={18} />
-              Enviar consulta
+              {submitLabel}
             </>
           )}
         </button>
-        <p className="text-[#94A3B8] text-xs text-center mt-3">
+        <p className="mt-3 text-center text-xs text-[#94A3B8]">
           Al enviar, aceptas nuestra{" "}
           <a href="/politica-de-privacidad" className="text-[#2563EB] hover:underline">
-            política de privacidad
+            politica de privacidad
           </a>
-          . Sin compromiso. Respondemos en menos de 48h.
+          . Sin compromiso. Te responderemos con una recomendacion clara en menos de
+          48h.
         </p>
       </div>
     </form>

@@ -1,26 +1,43 @@
 import { NextResponse } from "next/server";
 
+import { LeadValidationError, submitLead } from "@/lib/leads";
+
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const body = (await request.json()) as Record<string, unknown>;
+    const result = await submitLead(body);
 
-    const webhookUrl = process.env.N8N_WEBHOOK_URL;
-    if (webhookUrl) {
-      await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...body,
-          fecha: new Date().toISOString(),
-          source: "rebai.es",
-        }),
-      }).catch(() => {
-        // Fallo silencioso
-      });
+    if (!result.ok) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: "No se ha podido entregar el lead en este momento.",
+          delivery: result.delivery,
+        },
+        { status: 503 }
+      );
     }
 
-    return NextResponse.json({ ok: true });
-  } catch {
-    return NextResponse.json({ ok: false }, { status: 500 });
+    return NextResponse.json({
+      ok: true,
+      lead: result.lead,
+      delivery: result.delivery,
+    });
+  } catch (error) {
+    if (error instanceof LeadValidationError) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: error.issues[0] ?? "Payload de lead no valido.",
+          issues: error.issues,
+        },
+        { status: 400 }
+      );
+    }
+
+    return NextResponse.json(
+      { ok: false, error: "No se ha podido procesar el lead." },
+      { status: 500 }
+    );
   }
 }

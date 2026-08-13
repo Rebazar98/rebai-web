@@ -1,5 +1,9 @@
 import SectionLabel from "@/components/shared/section-label";
 import AnimatedSection from "@/components/shared/animated-section";
+import { EMAIL_DEFAULTS, SITE } from "@/lib/constants";
+
+const siteDomain = new URL(SITE.url).hostname.replace(/^www\./, "");
+const senderEmail = EMAIL_DEFAULTS.transactionalFromAddress;
 
 export default function ProductPreview() {
   return (
@@ -46,11 +50,11 @@ export default function ProductPreview() {
                 <div className="bg-[#1B2A4A] px-6 py-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
-                      <span className="text-white text-xs font-bold">R</span>
+                      <span className="text-white text-xs font-bold">T</span>
                     </div>
                     <div>
-                      <div className="text-white text-sm font-semibold">Resumen BOPA · RebAI</div>
-                      <div className="text-white/50 text-xs">noreply@rebai.es</div>
+                      <div className="text-white text-sm font-semibold">Resumen BOPA · TRAZEV</div>
+                      <div className="text-white/50 text-xs">{senderEmail}</div>
                     </div>
                   </div>
                   <div className="text-white/40 text-xs">Hoy, 07:30</div>
@@ -118,7 +122,7 @@ export default function ProductPreview() {
                     <span className="text-[#94A3B8] text-xs">
                       Próximo resumen mañana a las 7:30
                     </span>
-                    <span className="text-[#94A3B8] text-xs">rebai.es</span>
+                    <span className="text-[#94A3B8] text-xs">{siteDomain}</span>
                   </div>
                 </div>
               </div>
