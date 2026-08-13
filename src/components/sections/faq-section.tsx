@@ -35,9 +35,9 @@ export default function FAQSection() {
               Respuestas claras antes de que tengas que escribirnos.
             </h2>
             <p className="text-lg leading-relaxed text-[#64748B]">
-              Estas son las objeciones más normales cuando un ayuntamiento se
-              plantea automatizar mejor un proceso o empezar por un servicio
-              como BOPA Inteligente.
+              Estas son las objeciones más normales cuando un ayuntamiento o
+              una empresa se plantea automatizar mejor un proceso o empezar por
+              un servicio como BOPA Inteligente.
             </p>
           </div>
         </AnimatedSection>
