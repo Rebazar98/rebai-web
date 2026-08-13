@@ -13,6 +13,12 @@ services:
     environment:
       NODE_ENV: production
       PORT: 3000
+      # Docker define automaticamente $HOSTNAME dentro del contenedor (el id del propio
+      # contenedor); el server.js standalone de Next.js lo usa para decidir en que interfaz
+      # escuchar, y esa HOSTNAME resuelve solo a la IP del contenedor en la red de Docker,
+      # no a localhost. Sin forzar esto a 0.0.0.0, ni el healthcheck ni nada que conecte por
+      # localhost/127.0.0.1 puede llegar a la app, aunque el proceso este vivo.
+      HOSTNAME: "0.0.0.0"
     networks:
       - trazev_net
     # Sin "ports": no se expone directamente, solo a través de Caddy.
