@@ -1,0 +1,10 @@
+# HTTPS automático (Let's Encrypt) para trazev.com, con www redirigido a la raíz.
+
+www.trazev.com {
+	redir https://trazev.com{uri} permanent
+}
+
+trazev.com {
+	reverse_proxy web:3000
+	encode gzip
+}
