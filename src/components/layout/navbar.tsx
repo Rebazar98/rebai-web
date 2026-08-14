@@ -60,7 +60,7 @@ export default function Navbar() {
               Contacto
             </Link>
             <Link
-              href="/contacto"
+              href="/contacto?tipo=demo"
               className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors duration-150"
             >
               Hablar con TRAZEV
@@ -97,7 +97,7 @@ export default function Navbar() {
             Área clientes
           </Link>
           <Link
-            href="/contacto"
+            href="/contacto?tipo=demo"
             onClick={() => setMenuOpen(false)}
             className="bg-[#2563EB] text-white font-semibold px-4 py-3 rounded-lg text-center mt-2"
           >

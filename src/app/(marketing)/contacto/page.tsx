@@ -18,6 +18,13 @@ export const metadata: Metadata = {
   title: "Contacto",
   description:
     "Habla con TRAZEV y cuentanos donde hoy pierdes tiempo o contexto. Te respondemos en menos de 48 horas con una recomendacion clara y el siguiente paso mas sensato.",
+  // Esta pagina genera variantes por parametros (?servicio=...&tier=...&tipo=demo) para
+  // adaptar el formulario segun de donde venga el usuario, pero todas son la misma pagina
+  // a efectos de SEO -- la canonical evita que Google indexe cada variante por separado
+  // (ej. /contacto?servicio=bopa&tier=empresa) en vez de la URL limpia.
+  alternates: {
+    canonical: "/contacto",
+  },
 };
 
 function asString(value: string | string[] | undefined): string | undefined {
