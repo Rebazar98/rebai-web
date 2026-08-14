@@ -7,7 +7,6 @@ import {
   Radar,
   Bot,
   ShieldCheck,
-  GraduationCap,
   ChevronRight,
 } from "lucide-react";
 import SectionLabel from "@/components/shared/section-label";
@@ -21,7 +20,7 @@ export const metadata: Metadata = {
     "Servicios de TRAZEV para ayuntamientos y empresas: redacción de planes urbanísticos, atención al ciudadano, BOPA Inteligente y medición de satisfacción ciudadana con IA.",
 };
 
-const iconMap = { FileText, Map, MessageCircle, Radar, Bot, ShieldCheck, GraduationCap } as const;
+const iconMap = { FileText, Map, MessageCircle, Radar, Bot, ShieldCheck } as const;
 
 export default function ServiciosPage() {
   const principales = SERVICES.filter((service) => service.category === "principal");
