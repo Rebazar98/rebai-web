@@ -352,6 +352,56 @@ export const SERVICES: Service[] = [
       },
     ],
   },
+  {
+    slug: "formacion-alfabetizacion-ia",
+    name: "Formación en Alfabetización IA",
+    shortName: "Alfabetización IA",
+    tagline: "Formación práctica para cumplir el art. 4 del Reglamento de IA: que tu equipo entienda, use y supervise la IA con criterio",
+    description:
+      "El Reglamento de IA (art. 4) obliga desde febrero de 2025 a que toda organización que usa o despliega sistemas de IA garantice un nivel suficiente de alfabetización en IA entre su personal. Diseñamos e impartimos formación práctica, adaptada al perfil real de cada equipo (técnico, administrativo, dirección), que cubre qué es la IA, sus riesgos y límites, cómo supervisarla con criterio y qué obligaciones concretas aplican según el uso real que hace la organización. No es un curso genérico: se construye sobre los sistemas de IA que la organización usa de verdad, con constancia documentada de la formación impartida.",
+    metaTitle: "Formación en Alfabetización IA (art. 4 Reglamento de IA) | TRAZEV",
+    metaDescription:
+      "Formación práctica en alfabetización IA para cumplir el art. 4 del Reglamento de IA: adaptada a tu equipo y a los sistemas de IA que usa tu organización de verdad.",
+    icon: "GraduationCap",
+    benefit: "Cumplimiento real, no un curso genérico",
+    hasPanel: false,
+    defaultLeadType: "contacto",
+    category: "adicional",
+    features: [
+      "Formación adaptada al perfil de cada equipo (técnico, administrativo, dirección)",
+      "Cobertura del art. 4 del Reglamento de IA: qué exige y a quién aplica",
+      "Casos prácticos sobre los sistemas de IA reales que usa la organización, no ejemplos genéricos",
+      "Material y registro de la formación impartida, útil como evidencia de cumplimiento",
+      "Sesiones presenciales, online o mixtas según necesidad",
+      "Actualización cuando cambie la normativa o se incorporen nuevos sistemas de IA",
+    ],
+    targetClients: [
+      "Ayuntamientos y entidades públicas que usan o van a usar sistemas de IA",
+      "Empresas que despliegan IA en su operativa (chatbots, automatizaciones, herramientas de gestión)",
+      "Equipos técnicos y administrativos que operan o supervisan sistemas de IA",
+      "Direcciones que necesitan poder acreditar el cumplimiento del art. 4 del Reglamento de IA",
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: "Analizamos qué IA usa tu organización",
+        description:
+          "Identificamos qué sistemas de IA se usan hoy (o se van a incorporar), y quién los opera, supervisa o toma decisiones a partir de ellos.",
+      },
+      {
+        step: 2,
+        title: "Diseñamos la formación a medida",
+        description:
+          "Contenido adaptado a esos sistemas concretos y a cada perfil, no una charla genérica sobre IA en abstracto.",
+      },
+      {
+        step: 3,
+        title: "Impartimos y dejamos constancia",
+        description:
+          "Formación presencial, online o mixta, con material y registro documentado que sirve como evidencia de cumplimiento.",
+      },
+    ],
+  },
 ];
 
 export const PAIN_POINTS = [

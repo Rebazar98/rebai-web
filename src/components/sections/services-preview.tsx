@@ -6,6 +6,7 @@ import {
   Radar,
   Bot,
   ShieldCheck,
+  GraduationCap,
   ChevronRight,
   ArrowRight,
 } from "lucide-react";
@@ -20,6 +21,7 @@ const iconMap = {
   Radar,
   Bot,
   ShieldCheck,
+  GraduationCap,
 } as const;
 
 export default function ServicesPreview() {

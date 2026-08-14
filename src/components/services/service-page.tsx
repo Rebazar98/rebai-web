@@ -5,6 +5,7 @@ import {
   Bot,
   CheckCircle,
   FileText,
+  GraduationCap,
   ShieldCheck,
 } from "lucide-react";
 import SectionLabel from "@/components/shared/section-label";
@@ -12,7 +13,7 @@ import AnimatedSection from "@/components/shared/animated-section";
 import type { Service } from "@/lib/constants";
 import { buildServiceContactHref } from "@/lib/contact";
 
-const iconMap = { FileText, Bot, Banknote, ShieldCheck } as const;
+const iconMap = { FileText, Bot, Banknote, ShieldCheck, GraduationCap } as const;
 
 const BOPA_AGENT_CAPABILITIES = [
   {
