@@ -1,8 +1,8 @@
 import { ImageResponse } from "next/og";
 
 export const size = {
-  width: 32,
-  height: 32,
+  width: 48,
+  height: 48,
 };
 
 export const contentType = "image/png";
@@ -18,9 +18,9 @@ export default function Icon() {
           alignItems: "center",
           justifyContent: "center",
           background: "linear-gradient(135deg, #1B2A4A 0%, #2563EB 100%)",
-          borderRadius: "8px",
+          borderRadius: "12px",
           color: "#FFFFFF",
-          fontSize: 22,
+          fontSize: 32,
           fontWeight: 800,
           fontFamily: "system-ui, sans-serif",
         }}
