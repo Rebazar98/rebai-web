@@ -55,15 +55,9 @@ export default function Navbar() {
             </Link>
             <Link
               href="/contacto"
-              className="text-[#1D4ED8] hover:text-[#1E40AF] text-sm font-medium transition-colors duration-150"
-            >
-              Contacto
-            </Link>
-            <Link
-              href="/contacto?tipo=demo"
               className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors duration-150"
             >
-              Hablar con TRAZEV
+              Contacto
             </Link>
           </div>
 
@@ -95,13 +89,6 @@ export default function Navbar() {
             className="text-[#1D4ED8] font-semibold py-2 border-b border-[#F1F5F9]"
           >
             Área clientes
-          </Link>
-          <Link
-            href="/contacto?tipo=demo"
-            onClick={() => setMenuOpen(false)}
-            className="bg-[#2563EB] text-white font-semibold px-4 py-3 rounded-lg text-center mt-2"
-          >
-            Hablar con TRAZEV
           </Link>
         </div>
       )}
