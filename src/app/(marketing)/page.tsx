@@ -11,10 +11,10 @@ import { SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "IA y automatización para ayuntamientos y empresas",
   description:
-    "TRAZEV ayuda a ayuntamientos y empresas privadas de toda España a redactar planes urbanísticos, atender al ciudadano, vigilar el BOPA y medir la satisfacción ciudadana con IA.",
+    "TRAZEV ayuda a ayuntamientos y empresas privadas de toda España a redactar planes urbanísticos, atender al ciudadano, vigilar boletines oficiales y medir la satisfacción ciudadana con IA.",
   keywords: [
     "TRAZEV automatización",
-    "BOPA Inteligente",
+    "Boletín Inteligente",
     "IA para ayuntamientos",
     "redacción de planes urbanísticos con IA",
     "asistente de atención al ciudadano",
@@ -35,7 +35,7 @@ export default function HomePage() {
             name: "TRAZEV",
             url: SITE.url,
             description:
-              "TRAZEV ayuda a ayuntamientos y empresas privadas de toda España a redactar planes urbanísticos, atender al ciudadano, vigilar el BOPA y medir la satisfacción ciudadana con IA.",
+              "TRAZEV ayuda a ayuntamientos y empresas privadas de toda España a redactar planes urbanísticos, atender al ciudadano, vigilar boletines oficiales y medir la satisfacción ciudadana con IA.",
             areaServed: {
               "@type": "Country",
               name: "España",

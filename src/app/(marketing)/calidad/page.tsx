@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Calidad y transparencia · BOPA Inteligente — Trazev",
+  title: "Calidad y transparencia · Boletín Inteligente — Trazev",
   description:
-    "Métricas públicas de calidad de BOPA Inteligente: puntuación de fidelidad, revisiones manuales y valoraciones de clientes actualizadas mensualmente.",
+    "Métricas públicas de calidad de Boletín Inteligente: puntuación de fidelidad, revisiones manuales y valoraciones de clientes actualizadas mensualmente.",
 };
 
 const API = process.env.NEXT_PUBLIC_API_URL ?? "https://api.trazev.com";
@@ -90,7 +90,7 @@ export default async function CalidadPage() {
           Transparencia
         </p>
         <h1 className="mt-3 text-4xl font-semibold text-slate-900">
-          Calidad de BOPA Inteligente
+          Calidad de Boletín Inteligente
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-slate-500">
           Monitorizamos continuamente la precisión de nuestro sistema de IA con tres capas
@@ -109,7 +109,7 @@ export default async function CalidadPage() {
             <Stat
               value={data.publicaciones_procesadas.toLocaleString("es-ES")}
               label="Publicaciones procesadas"
-              sub="Anuncios del BOPA analizados por IA"
+              sub="Anuncios del boletín oficial analizados por IA"
             />
             <Stat
               value={data.fidelidad.total_evaluadas.toLocaleString("es-ES")}
@@ -161,7 +161,7 @@ export default async function CalidadPage() {
             <ul className="mt-3 space-y-1.5 list-disc list-inside">
               <li>
                 <strong>Fidelity Score:</strong> GPT-4o-mini evalúa la coherencia entre el texto
-                original del BOPA y la clasificación generada (0-100).
+                original del boletín oficial y la clasificación generada (0-100).
               </li>
               <li>
                 <strong>Revisión humana:</strong> El 10% de las clasificaciones relevantes pasan

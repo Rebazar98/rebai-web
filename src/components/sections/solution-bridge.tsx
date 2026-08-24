@@ -8,7 +8,7 @@ const WORKFLOW_STEPS = [
   {
     number: "01",
     icon: FileSearch,
-    title: "Revisa el BOPA cada dia por ti",
+    title: "Revisa el boletín oficial cada dia por ti",
     description:
       "El sistema detecta nuevas publicaciones, convocatorias y cambios para que tu equipo no tenga que abrir y revisar el boletin completo a mano.",
   },
@@ -67,7 +67,7 @@ export default function SolutionBridge() {
           <div className="mb-12 text-center">
             <SectionLabel className="mb-6">Como funciona</SectionLabel>
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
-              BOPA Inteligente convierte publicaciones oficiales en decisiones mas
+              Boletín Inteligente convierte publicaciones oficiales en decisiones mas
               rapidas para tu equipo.
             </h2>
             <p className="mx-auto max-w-3xl text-lg text-[#64748B]">

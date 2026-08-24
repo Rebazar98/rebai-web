@@ -13,7 +13,7 @@ const EXAMPLES = [
   {
     question: "¿Qué cambios ha habido en la normativa de contratación pública que afecten a nuestros expedientes?",
     answer:
-      "El BOPA del 18 de marzo publicó la modificación que afecta a licitaciones de obra menor. Entrada en vigor: 1 de mayo. Tus expedientes nº 234 y 891 podrían verse afectados.",
+      "El boletín oficial del 18 de marzo publicó la modificación que afecta a licitaciones de obra menor. Entrada en vigor: 1 de mayo. Tus expedientes nº 234 y 891 podrían verse afectados.",
   },
 ];
 
@@ -26,7 +26,7 @@ const FEATURES = [
   {
     icon: FileText,
     title: "Acceso al histórico",
-    description: "Consulta disposiciones de los últimos 5 años del BOPA de Asturias.",
+    description: "Consulta disposiciones de los últimos 5 años del boletín oficial.",
   },
   {
     icon: Zap,
@@ -50,11 +50,11 @@ export default function ChatbotSection() {
               Diferenciador clave
             </SectionLabel>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
-              Consulta el BOPA como si hablaras con un experto
+              Consulta el boletín oficial como si hablaras con un experto
             </h2>
             <p className="text-white/60 text-lg max-w-2xl mx-auto">
               Además de las alertas automáticas, tienes un asistente que conoce
-              todo el BOPA de Asturias. Pregúntale lo que necesites.
+              todo el boletín oficial. Pregúntale lo que necesites.
             </p>
           </div>
         </AnimatedSection>
@@ -69,7 +69,7 @@ export default function ChatbotSection() {
                   <MessageSquare size={14} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-white text-sm font-semibold">Asistente BOPA</div>
+                  <div className="text-white text-sm font-semibold">Asistente del Boletín</div>
                   <div className="flex items-center gap-1.5">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse" />
                     <span className="text-white/40 text-xs">En línea</span>
@@ -98,7 +98,7 @@ export default function ChatbotSection() {
 
                 {/* Input */}
                 <div className="flex items-center gap-2 mt-4 bg-white/5 border border-white/10 rounded-[10px] px-4 py-2.5">
-                  <span className="text-white/30 text-sm flex-1">Pregunta sobre el BOPA...</span>
+                  <span className="text-white/30 text-sm flex-1">Pregunta sobre el boletín...</span>
                   <button className="w-7 h-7 rounded-lg bg-[#2563EB] flex items-center justify-center">
                     <ArrowRight size={13} className="text-white" />
                   </button>

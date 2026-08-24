@@ -27,7 +27,7 @@ export default function CasosDeUsoPage() {
             <p className="mx-auto max-w-2xl text-xl text-[#64748B]">
               Escenarios representativos del tipo de trabajo donde el Redactor
               de Informes Urbanísticos, el Asistente de Atención al Ciudadano,
-              BOPA Inteligente y el Radar de Satisfacción Municipal generan
+              Boletín Inteligente y el Radar de Satisfacción Municipal generan
               más impacto.
             </p>
           </div>

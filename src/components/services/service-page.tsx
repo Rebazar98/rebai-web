@@ -69,7 +69,7 @@ const BOPA_DAY_TO_DAY_IMPACT = [
 
 const BOPA_FAQS = [
   {
-    question: "BOPA Inteligente sustituye revisar el BOPA por completo?",
+    question: "Boletín Inteligente sustituye revisar el boletín oficial por completo?",
     answer:
       "Reduce muchisimo la revision manual y el ruido, pero no pretende esconder el documento oficial. Lo que hace es llevarte antes a lo importante, con un resumen util y un agente que ayuda a revisar impacto, requisitos y siguiente paso.",
   },
@@ -103,7 +103,7 @@ const BOPA_TARGET_CLIENTS = [
 ] as const;
 
 const BOPA_FEATURES = [
-  "Revision automatica diaria del BOPA segun tus criterios",
+  "Revision automatica diaria del boletin oficial segun tus criterios",
   "Resumen claro de cada publicacion relevante para tu actividad",
   "Agente con base RAG sobre publicaciones y documentos asociados",
   "Chat web para consultar impacto, requisitos, plazos o encaje",
@@ -122,7 +122,7 @@ const BOPA_HOW_IT_WORKS = [
     step: 2,
     title: "Filtra, prioriza y resume",
     description:
-      "BOPA Inteligente revisa el boletin, detecta lo importante y lo convierte en una salida mucho mas clara para el equipo.",
+      "Boletín Inteligente revisa el boletin, detecta lo importante y lo convierte en una salida mucho mas clara para el equipo.",
   },
   {
     step: 3,
@@ -147,20 +147,20 @@ export default function ServicePage({ service }: ServicePageProps) {
       : "Solicitar diagnostico";
 
   const heroSupport = isBopa
-    ? "BOPA Inteligente revisa el boletin cada dia, detecta las publicaciones que encajan con tus criterios y se las devuelve a tu equipo ya filtradas, resumidas y listas para consultar con un agente de IA."
+    ? "Boletín Inteligente revisa el boletin cada dia, detecta las publicaciones que encajan con tus criterios y se las devuelve a tu equipo ya filtradas, resumidas y listas para consultar con un agente de IA."
     : "Pensado para equipos que necesitan menos carga manual, mas trazabilidad y una forma mas rapida de mover expedientes, documentacion o decisiones operativas.";
 
   const resolutionTitle = isBopa ? "Lo que hace el agente por tu equipo" : "Que resuelve";
   const featuresTitle = isBopa ? "Lo que recibe tu equipo" : "Incluye";
-  const processTitle = isBopa ? "Como trabaja BOPA Inteligente" : "Como se implanta";
+  const processTitle = isBopa ? "Como trabaja Boletín Inteligente" : "Como se implanta";
   const ctaTitle = isBopa
     ? "Quieres ver como encaja en tu actividad?"
     : "Quieres ver si encaja con tu operativa?";
   const ctaBody = isBopa
-    ? "Te ensenamos como BOPA Inteligente puede detectar, resumir y ayudarte a procesar publicaciones de interes sin revisar el boletin a mano."
+    ? "Te ensenamos como Boletín Inteligente puede detectar, resumir y ayudarte a procesar publicaciones de interes sin revisar el boletin a mano."
     : "Cuentanos que proceso, expediente o carga administrativa quieres mejorar. Te diremos si tiene sentido empezar por este servicio y cual seria el siguiente paso mas razonable.";
   const displayTagline = isBopa
-    ? "El agente de IA que detecta lo importante en el BOPA y ayuda a tu equipo a decidir que hacer"
+    ? "El agente de IA que detecta lo importante en el boletin oficial y ayuda a tu equipo a decidir que hacer"
     : service.tagline;
   const displayDescription = isBopa
     ? "No se limita a enviar alertas. Filtra ayudas, convocatorias y cambios relevantes, resume el contenido clave de cada publicacion y deja a tu equipo un agente con base documental para preguntar por encaje, plazos, requisitos y siguiente paso."
@@ -412,13 +412,13 @@ export default function ServicePage({ service }: ServicePageProps) {
           <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
             <AnimatedSection>
               <div className="mb-12 max-w-3xl">
-                <SectionLabel className="mb-4">FAQ de BOPA Inteligente</SectionLabel>
+                <SectionLabel className="mb-4">FAQ de Boletín Inteligente</SectionLabel>
                 <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#0F172A]">
                   Lo que mas suelen preguntarnos antes de empezar
                 </h2>
                 <p className="text-lg leading-relaxed text-[#64748B]">
                   Estas son las dudas mas habituales cuando un equipo quiere dejar de
-                  revisar el BOPA a mano, pero necesita entender bien como ayuda el
+                  revisar el boletin oficial a mano, pero necesita entender bien como ayuda el
                   agente y que puede esperar de la solucion.
                 </p>
               </div>

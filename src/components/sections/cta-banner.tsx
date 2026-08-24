@@ -24,7 +24,7 @@ export default function CTABanner() {
           os ayudamos a detectar el siguiente paso correcto.
         </h2>
         <p className="mx-auto mb-10 max-w-2xl text-lg text-white/60">
-          En una primera conversacion aterrizamos si conviene BOPA Inteligente,
+          En una primera conversacion aterrizamos si conviene Boletín Inteligente,
           el Asistente de Atencion al Ciudadano, el Redactor de Planes
           Urbanisticos o el Radar de Satisfaccion Municipal. Sales con una
           recomendacion clara, no con una propuesta generica.

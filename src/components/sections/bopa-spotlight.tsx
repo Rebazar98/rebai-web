@@ -20,7 +20,7 @@ const VALUE_POINTS = [
     icon: Search,
     title: "Filtra lo que si encaja con tu actividad",
     description:
-      "El agente revisa las publicaciones del BOPA y separa el ruido de lo que de verdad puede afectar a tu empresa.",
+      "El agente revisa las publicaciones del boletín oficial y separa el ruido de lo que de verdad puede afectar a tu empresa.",
   },
   {
     icon: Sparkles,
@@ -58,7 +58,7 @@ export default function BopaSpotlight() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#2563EB]">
-                    Servicio BOPA
+                    Boletines oficiales
                   </p>
                   <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
                     {BOPA_SERVICE.name}
@@ -68,7 +68,7 @@ export default function BopaSpotlight() {
 
               <p className="mb-5 text-xl leading-relaxed text-[#36506F]">
                 Un agente de IA que filtra, resume y te ayuda a procesar las
-                publicaciones del BOPA que si importan para tu empresa.
+                publicaciones del boletín oficial que si importan para tu empresa.
               </p>
 
               <p className="mb-6 text-base leading-relaxed text-[#64748B]">
@@ -121,7 +121,7 @@ export default function BopaSpotlight() {
                   href="/servicios/bopa"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-[#1D4ED8] transition-colors duration-150 hover:text-[#1E40AF]"
                 >
-                  Ver ficha completa de BOPA Inteligente
+                  Ver ficha completa de Boletín Inteligente
                   <ExternalLink size={15} />
                 </Link>
                 <span className="text-sm text-[#64748B]">
@@ -161,7 +161,7 @@ export default function BopaSpotlight() {
                     <div className="flex items-center justify-between gap-3">
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#64748B]">
-                          De: BOPA Inteligente
+                          De: Boletín Inteligente
                         </p>
                         <h4 className="mt-2 text-lg font-semibold text-[#0F172A]">
                           Publicacion procesada por el agente
@@ -189,7 +189,7 @@ export default function BopaSpotlight() {
                     </h4>
 
                     <p className="text-sm leading-relaxed text-[#64748B]">
-                      Detectada en el BOPA de hoy. El agente la cruza con los
+                      Detectada en el boletín oficial de hoy. El agente la cruza con los
                       criterios definidos para tu organizacion y la marca como
                       relevante para revisar.
                     </p>
@@ -251,7 +251,7 @@ export default function BopaSpotlight() {
                     <p className="mb-4 text-sm leading-relaxed text-[#36506F]">
                       Agenda una demo contextual y vemos como puede ayudarte el
                       agente a procesar publicaciones de interes sin revisar el
-                      BOPA a mano.
+                      boletín oficial a mano.
                     </p>
                     <Link
                       href={buildContactHref({ servicio: "bopa", tipo: "demo" })}

@@ -37,7 +37,7 @@ export default function FAQSection() {
             <p className="text-lg leading-relaxed text-[#64748B]">
               Estas son las objeciones más normales cuando un ayuntamiento o
               una empresa se plantea automatizar mejor un proceso o empezar por
-              un servicio como BOPA Inteligente.
+              un servicio como Boletín Inteligente.
             </p>
           </div>
         </AnimatedSection>

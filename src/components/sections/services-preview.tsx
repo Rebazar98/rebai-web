@@ -39,7 +39,7 @@ export default function ServicesPreview() {
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-[#64748B]">
               Desde redactar informes urbanísticos hasta atender al
-              ciudadano, vigilar el BOPA o medir la satisfacción ciudadana. El
+              ciudadano, vigilar el boletín oficial o medir la satisfacción ciudadana. El
               objetivo es el mismo: que tu equipo trabaje mejor con menos
               fricción y menos carga manual.
             </p>

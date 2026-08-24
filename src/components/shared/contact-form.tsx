@@ -210,7 +210,7 @@ export default function ContactForm({
           required
           disabled={isPending}
           rows={5}
-          placeholder="Por ejemplo: revisamos el BOPA a mano, llegamos tarde a ayudas o cambios normativos, o necesitamos que el equipo tenga un criterio claro para actuar. Si quieres, cuentanos tambien el objetivo que buscais."
+          placeholder="Por ejemplo: revisamos el boletín oficial a mano, llegamos tarde a ayudas o cambios normativos, o necesitamos que el equipo tenga un criterio claro para actuar. Si quieres, cuentanos tambien el objetivo que buscais."
           className="w-full resize-none rounded-lg border border-[#E2E8F0] bg-white px-4 py-3 text-sm text-[#0F172A] placeholder:text-[#94A3B8] transition-all duration-150 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#2563EB] disabled:opacity-50"
         />
       </div>

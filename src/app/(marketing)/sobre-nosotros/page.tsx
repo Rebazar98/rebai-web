@@ -88,7 +88,7 @@ export default function SobreNosotrosPage() {
                       icon: Landmark,
                       title: "Especialización en administración pública y empresa técnica",
                       description:
-                        "Conocemos el BOPA, la operativa municipal y los procesos administrativos de ingenierías y asesorías. No adaptamos plantillas genéricas: construimos desde el conocimiento real del sector.",
+                        "Conocemos los boletines oficiales, la operativa municipal y los procesos administrativos de ingenierías y asesorías. No adaptamos plantillas genéricas: construimos desde el conocimiento real del sector.",
                     },
                     {
                       icon: Target,

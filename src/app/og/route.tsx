@@ -152,7 +152,7 @@ export async function GET() {
                 maxWidth: "880px",
               }}
             >
-              Planes urbanísticos, atención al ciudadano, BOPA Inteligente y
+              Planes urbanísticos, atención al ciudadano, Boletín Inteligente y
               satisfacción ciudadana con IA para entidades locales y empresas
               de toda España.
             </div>
@@ -174,7 +174,7 @@ export async function GET() {
                 flexWrap: "wrap",
               }}
             >
-              {["Urbanismo", "Atención Ciudadana", "BOPA Inteligente", "Satisfacción Vecinal"].map(
+              {["Urbanismo", "Atención Ciudadana", "Boletín Inteligente", "Satisfacción Vecinal"].map(
                 (label) => (
                   <div
                     key={label}

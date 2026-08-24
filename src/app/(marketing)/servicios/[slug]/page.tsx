@@ -15,9 +15,9 @@ function getService(slug: string) {
 function getServiceMetadata(slug: string, service: NonNullable<ReturnType<typeof getService>>) {
   if (slug === "bopa") {
     return {
-      title: "BOPA Inteligente | Agente de IA para revisar y procesar el BOPA",
+      title: "Boletín Inteligente | Agente de IA para revisar y procesar boletines oficiales",
       description:
-        "Filtra el BOPA, resume cada publicacion relevante y ayuda a tu equipo a procesar ayudas, cambios y convocatorias con un agente de IA y chat web.",
+        "Filtra el boletín oficial, resume cada publicacion relevante y ayuda a tu equipo a procesar ayudas, cambios y convocatorias con un agente de IA y chat web.",
     };
   }
 

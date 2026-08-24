@@ -17,7 +17,7 @@ import { SERVICES } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Servicios",
   description:
-    "Servicios de TRAZEV para ayuntamientos y empresas: redacción de planes urbanísticos, atención al ciudadano, BOPA Inteligente y medición de satisfacción ciudadana con IA.",
+    "Servicios de TRAZEV para ayuntamientos y empresas: redacción de planes urbanísticos, atención al ciudadano, Boletín Inteligente y medición de satisfacción ciudadana con IA.",
 };
 
 const iconMap = { FileText, Map, MessageCircle, Radar, Bot, ShieldCheck } as const;

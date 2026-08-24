@@ -17,7 +17,7 @@ export default function ProductPreview() {
               Así es la alerta que recibe tu equipo
             </h2>
             <p className="text-[#64748B] text-lg leading-relaxed mb-8">
-              Cada mañana, un resumen inteligente del BOPA en tu bandeja de
+              Cada mañana, un resumen inteligente del boletín oficial en tu bandeja de
               entrada. Solo lo que afecta a tu empresa, explicado en lenguaje
               claro. Ninguna convocatoria se escapa.
             </p>
@@ -26,7 +26,7 @@ export default function ProductPreview() {
                 "Convocatorias de subvenciones con plazo y dotación",
                 "Cambios normativos con impacto en tus proyectos activos",
                 "Resumen ejecutivo generado por IA, sin tecnicismos",
-                "Enlace directo al texto oficial del BOPA",
+                "Enlace directo al texto oficial del boletín",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center shrink-0 mt-0.5">
@@ -53,7 +53,7 @@ export default function ProductPreview() {
                       <span className="text-white text-xs font-bold">T</span>
                     </div>
                     <div>
-                      <div className="text-white text-sm font-semibold">Resumen BOPA · TRAZEV</div>
+                      <div className="text-white text-sm font-semibold">Resumen Boletín · TRAZEV</div>
                       <div className="text-white/50 text-xs">{senderEmail}</div>
                     </div>
                   </div>
@@ -67,7 +67,7 @@ export default function ProductPreview() {
                       ⚡ 2 alertas
                     </span>
                     <span className="text-[#0F172A] text-sm font-medium">
-                      BOPA del martes — Ayudas y normativa relevante
+                      Boletín del martes — Ayudas y normativa relevante
                     </span>
                   </div>
                 </div>

@@ -18,7 +18,7 @@ export const SITE = {
   logoSrc: "/logo.png",
   tagline: "IA y automatización con trazabilidad, seguridad y protección de datos, para ayuntamientos y empresas",
   description:
-    "TRAZEV ayuda a ayuntamientos y empresas privadas a reducir carga administrativa y ganar trazabilidad, seguridad y control sobre sus procesos: redacción de planes urbanísticos, atención al ciudadano, vigilancia del BOPA y medición de satisfacción vecinal, con IA aplicada con criterio y protección de datos por diseño.",
+    "TRAZEV ayuda a ayuntamientos y empresas privadas a reducir carga administrativa y ganar trazabilidad, seguridad y control sobre sus procesos: redacción de planes urbanísticos, atención al ciudadano, vigilancia de boletines oficiales y medición de satisfacción vecinal, con IA aplicada con criterio y protección de datos por diseño.",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || DEFAULT_CONTACT_EMAIL,
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE?.trim() || "+34 643 330 813",
   location: "España",
@@ -154,21 +154,21 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "bopa",
-    name: "BOPA Inteligente",
-    shortName: "BOPA Inteligente",
-    tagline: "Vigilancia inteligente del BOPA para detectar cambios relevantes sin revisión manual",
+    name: "Boletín Inteligente",
+    shortName: "Boletín Inteligente",
+    tagline: "Vigilancia inteligente de boletines oficiales para detectar cambios relevantes sin revisión manual",
     description:
-      "Deja de revisar el BOPA boletín por boletín: el sistema lo descarga, clasifica y analiza cada día, y tu equipo recibe solo las publicaciones que de verdad afectan a su actividad. Además, tienes a tu disposición un asistente de IA con todo el contenido de las publicaciones, listo para responder dudas sobre requisitos, plazos o impacto. Así reduces el riesgo de pasar algo por alto y ganas margen para actuar antes de que venza un plazo.",
-    metaTitle: "BOPA Inteligente | Vigilancia automática del BOPA",
+      "Deja de revisar el boletín oficial boletín por boletín: el sistema lo descarga, clasifica y analiza cada día, y tu equipo recibe solo las publicaciones que de verdad afectan a su actividad. Además, tienes a tu disposición un asistente de IA con todo el contenido de las publicaciones, listo para responder dudas sobre requisitos, plazos o impacto. Así reduces el riesgo de pasar algo por alto y ganas margen para actuar antes de que venza un plazo.",
+    metaTitle: "Boletín Inteligente | Vigilancia automática de boletines oficiales",
     metaDescription:
-      "Vigila el BOPA y consulta cada publicación con un asistente de IA: alertas, contexto y prioridad para empresas, ingenierías y asesorías en Asturias.",
+      "Vigila el boletín oficial que elijas y consulta cada publicación con un asistente de IA: alertas, contexto y prioridad para empresas, ingenierías y asesorías.",
     icon: "FileText",
     benefit: "Menos revisión manual y más control normativo",
     hasPanel: true,
     defaultLeadType: "demo",
     category: "principal",
     features: [
-      "Descarga automática diaria del BOPA",
+      "Descarga automática diaria del boletín oficial",
       "Clasificación por categorías y sectores",
       "Asistente conversacional para consultar normativa",
       "Alertas personalizadas por actividad o expediente",
@@ -179,7 +179,7 @@ export const SERVICES: Service[] = [
       "Ingenierías técnicas y consultoras",
       "Asesorías con carga normativa recurrente",
       "Empresas que gestionan ayudas, licitaciones o cambios normativos",
-      "Equipos que necesitan vigilar el BOPA sin revisarlo todo a mano",
+      "Equipos que necesitan vigilar el boletín oficial sin revisarlo todo a mano",
     ],
     howItWorks: [
       {
@@ -192,7 +192,7 @@ export const SERVICES: Service[] = [
         step: 2,
         title: "El sistema revisa por ti",
         description:
-          "BOPA Inteligente descarga, filtra y prioriza las publicaciones para separar lo relevante de lo accesorio.",
+          "Boletín Inteligente descarga, filtra y prioriza las publicaciones para separar lo relevante de lo accesorio.",
       },
       {
         step: 3,
@@ -423,9 +423,9 @@ export const USE_CASES = [
     location: "Oviedo, Asturias",
     icon: "Building2",
     problem:
-      "Una ingeniería ambiental con varios expedientes activos dedica horas cada semana a revisar el BOPA, localizar cambios relevantes y trasladarlos al equipo adecuado.",
+      "Una ingeniería ambiental con varios expedientes activos dedica horas cada semana a revisar el boletín oficial, localizar cambios relevantes y trasladarlos al equipo adecuado.",
     solution:
-      "Con BOPA Inteligente, ese seguimiento se automatiza y el equipo recibe una salida filtrada, priorizada y accionable sin revisar boletines a mano.",
+      "Con Boletín Inteligente, ese seguimiento se automatiza y el equipo recibe una salida filtrada, priorizada y accionable sin revisar boletines a mano.",
     result:
       "La ingeniería gana tiempo de trabajo técnico, reduce revisiones repetitivas y llega antes a lo que requiere acción.",
     metric: "Estimación: +6 h/semana",
@@ -455,7 +455,7 @@ export const DIFFERENTIATORS = [
     icon: "Landmark",
     title: "Especialización en administración pública y empresa técnica",
     description:
-      "Conocemos el BOPA, la operativa municipal y los problemas administrativos de ingenierías, asesorías y equipos técnicos. No adaptamos plantillas genéricas: construimos desde el conocimiento real del sector.",
+      "Conocemos los boletines oficiales, la operativa municipal y los problemas administrativos de ingenierías, asesorías y equipos técnicos. No adaptamos plantillas genéricas: construimos desde el conocimiento real del sector.",
   },
   {
     icon: "Target",

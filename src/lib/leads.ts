@@ -212,7 +212,7 @@ function buildLeadEmailHtml(lead: LeadPayload): string {
     ["Teléfono", lead.telefono ?? "-"],
     ["Página", lead.sourcePage],
     ["Sección", lead.sourceSection],
-    ["Situación BOPA", lead.currentBopaSituation ?? "-"],
+    ["Situación boletín oficial", lead.currentBopaSituation ?? "-"],
     ["Fecha", formatLeadDisplayDate(lead.createdAt)],
   ]
     .map(

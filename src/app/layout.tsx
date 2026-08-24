@@ -8,9 +8,9 @@ export const metadata: Metadata = {
     template: "%s | TRAZEV",
   },
   description:
-    "TRAZEV ayuda a ayuntamientos y empresas privadas de toda España a redactar planes urbanísticos, atender al ciudadano, vigilar el BOPA y medir la satisfacción ciudadana con IA.",
+    "TRAZEV ayuda a ayuntamientos y empresas privadas de toda España a redactar planes urbanísticos, atender al ciudadano, vigilar boletines oficiales y medir la satisfacción ciudadana con IA.",
   keywords: [
-    "automatizacion BOPA Asturias",
+    "automatización boletines oficiales con IA",
     "IA para ayuntamientos",
     "redacción de planes urbanísticos con IA",
     "asistente de atención al ciudadano",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "TRAZEV",
     title: "TRAZEV - IA y automatización para ayuntamientos y empresas",
     description:
-      "Planes urbanísticos, atención al ciudadano, BOPA Inteligente y satisfacción ciudadana con IA para entidades locales y empresas de toda España.",
+      "Planes urbanísticos, atención al ciudadano, Boletín Inteligente y satisfacción ciudadana con IA para entidades locales y empresas de toda España.",
     images: [
       {
         url: "/og",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TRAZEV - IA y automatización para ayuntamientos y empresas",
     description:
-      "Planes urbanísticos, atención al ciudadano, BOPA Inteligente y satisfacción ciudadana con IA.",
+      "Planes urbanísticos, atención al ciudadano, Boletín Inteligente y satisfacción ciudadana con IA.",
     images: ["/og"],
   },
   robots: {

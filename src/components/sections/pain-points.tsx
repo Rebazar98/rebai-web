@@ -19,7 +19,7 @@ const FIT_CASES = [
     icon: Target,
     title: "Sabes que hay margen de mejora, pero no quieres improvisar",
     description:
-      "Necesitas criterio para decidir por qué servicio empezar (urbanismo, atención ciudadana, BOPA o satisfacción vecinal) sin invertir a ciegas.",
+      "Necesitas criterio para decidir por qué servicio empezar (urbanismo, atención ciudadana, boletín oficial o satisfacción vecinal) sin invertir a ciegas.",
   },
 ] as const;
 

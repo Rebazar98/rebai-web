@@ -82,12 +82,12 @@ export default function Pricing() {
       <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
         <AnimatedSection>
           <div className="mb-16 text-center">
-            <SectionLabel className="mb-6">Precios de BOPA Inteligente</SectionLabel>
+            <SectionLabel className="mb-6">Precios de Boletín Inteligente</SectionLabel>
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
-              Elige como empezar a dejar de revisar el BOPA a mano
+              Elige como empezar a dejar de revisar el boletín oficial a mano
             </h2>
             <p className="mx-auto max-w-3xl text-lg text-[#64748B]">
-              BOPA Inteligente detecta lo que afecta a tu actividad, lo resume y te
+              Boletín Inteligente detecta lo que afecta a tu actividad, lo resume y te
               ayuda a decidir el siguiente paso. La diferencia esta en cuanta gente lo
               usa y cuanta operativa necesitas cubrir.
             </p>
