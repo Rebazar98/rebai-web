@@ -17,7 +17,7 @@ function getServiceMetadata(slug: string, service: NonNullable<ReturnType<typeof
     return {
       title: "Boletín Inteligente | Agente de IA para revisar y procesar boletines oficiales",
       description:
-        "Filtra el boletín oficial, resume cada publicacion relevante y ayuda a tu equipo a procesar ayudas, cambios y convocatorias con un agente de IA y chat web.",
+        "Filtra el boletín oficial, resume cada publicación relevante y ayuda a tu equipo a procesar ayudas, cambios y convocatorias con un agente de IA y chat web.",
     };
   }
 

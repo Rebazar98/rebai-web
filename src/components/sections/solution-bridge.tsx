@@ -8,23 +8,23 @@ const WORKFLOW_STEPS = [
   {
     number: "01",
     icon: FileSearch,
-    title: "Revisa el boletín oficial cada dia por ti",
+    title: "Revisa el boletín oficial cada día por ti",
     description:
-      "El sistema detecta nuevas publicaciones, convocatorias y cambios para que tu equipo no tenga que abrir y revisar el boletin completo a mano.",
+      "El sistema detecta nuevas publicaciones, convocatorias y cambios para que tu equipo no tenga que abrir y revisar el boletín completo a mano.",
   },
   {
     number: "02",
     icon: CheckCircle,
-    title: "Filtra y prioriza segun tus criterios",
+    title: "Filtra y prioriza según tus criterios",
     description:
-      "Combina reglas, contexto y clasificacion asistida para separar lo que afecta a tu actividad del ruido que no requiere movimiento.",
+      "Combina reglas, contexto y clasificación asistida para separar lo que afecta a tu actividad del ruido que no requiere movimiento.",
   },
   {
     number: "03",
     icon: Mail,
     title: "Resume lo relevante y lo deja listo",
     description:
-      "Cada publicacion importante llega con un resumen claro, mas contexto para entender el impacto, los requisitos y el siguiente paso.",
+      "Cada publicación importante llega con un resumen claro, más contexto para entender el impacto, los requisitos y el siguiente paso.",
   },
   {
     number: "04",
@@ -46,13 +46,13 @@ const SUPPORT_POINTS = [
     icon: Bot,
     title: "Agente con RAG",
     description:
-      "No se limita a mandar alertas. Ayuda a procesar la publicacion y a responder preguntas utiles para actuar antes.",
+      "No se limita a mandar alertas. Ayuda a procesar la publicación y a responder preguntas útiles para actuar antes.",
   },
   {
     icon: CheckCircle,
     title: "Salidas accionables",
     description:
-      "El objetivo no es leer mas. Es decidir antes que hacer con cada ayuda, cambio o convocatoria relevante.",
+      "El objetivo no es leer más. Es decidir antes qué hacer con cada ayuda, cambio o convocatoria relevante.",
   },
 ] as const;
 
@@ -65,14 +65,14 @@ export default function SolutionBridge() {
       <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
         <AnimatedSection>
           <div className="mb-12 text-center">
-            <SectionLabel className="mb-6">Como funciona</SectionLabel>
+            <SectionLabel className="mb-6">Cómo funciona</SectionLabel>
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
-              Boletín Inteligente convierte publicaciones oficiales en decisiones mas
-              rapidas para tu equipo.
+              Boletín Inteligente convierte publicaciones oficiales en decisiones más
+              rápidas para tu equipo.
             </h2>
             <p className="mx-auto max-w-3xl text-lg text-[#64748B]">
-              No se queda en una alerta. Revisa el boletin, filtra lo que encaja con tus
-              criterios, resume cada publicacion relevante y pone a tu equipo un agente de
+              No se queda en una alerta. Revisa el boletín, filtra lo que encaja con tus
+              criterios, resume cada publicación relevante y pone a tu equipo un agente de
               IA para consultar impacto, requisitos, plazos y siguiente paso.
             </p>
           </div>

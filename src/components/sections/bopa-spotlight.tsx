@@ -18,21 +18,21 @@ const BOPA_SERVICE = SERVICES.find((service) => service.slug === "bopa");
 const VALUE_POINTS = [
   {
     icon: Search,
-    title: "Filtra lo que si encaja con tu actividad",
+    title: "Filtra lo que sí encaja con tu actividad",
     description:
       "El agente revisa las publicaciones del boletín oficial y separa el ruido de lo que de verdad puede afectar a tu empresa.",
   },
   {
     icon: Sparkles,
-    title: "Resume y explica cada publicacion",
+    title: "Resume y explica cada publicación",
     description:
-      "Cada publicacion relevante llega resumida, con contexto para tu caso y lista para consultarla sin leer el documento entero.",
+      "Cada publicación relevante llega resumida, con contexto para tu caso y lista para consultarla sin leer el documento entero.",
   },
   {
     icon: Mail,
-    title: "Ayuda al equipo a decidir que hacer",
+    title: "Ayuda al equipo a decidir qué hacer",
     description:
-      "El equipo puede preguntar al chat, validar requisitos, plazos o impacto y convertir la publicacion en una accion concreta.",
+      "El equipo puede preguntar al chat, validar requisitos, plazos o impacto y convertir la publicación en una acción concreta.",
   },
 ] as const;
 
@@ -50,7 +50,7 @@ export default function BopaSpotlight() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <AnimatedSection direction="left">
             <div className="max-w-2xl">
-              <SectionLabel className="mb-6">Solucion especializada</SectionLabel>
+              <SectionLabel className="mb-6">Solución especializada</SectionLabel>
 
               <div className="mb-6 flex items-center gap-4">
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1B2A4A] shadow-[0_10px_30px_rgba(27,42,74,0.18)]">
@@ -68,20 +68,20 @@ export default function BopaSpotlight() {
 
               <p className="mb-5 text-xl leading-relaxed text-[#36506F]">
                 Un agente de IA que filtra, resume y te ayuda a procesar las
-                publicaciones del boletín oficial que si importan para tu empresa.
+                publicaciones del boletín oficial que sí importan para tu empresa.
               </p>
 
               <p className="mb-6 text-base leading-relaxed text-[#64748B]">
                 Si tu actividad depende de ayudas, convocatorias o cambios
                 normativos, el problema no es solo detectarlos: es entender si
-                aplican, que implican y que tiene que hacer el equipo. TRAZEV
-                convierte cada publicacion relevante en una salida util,
+                aplican, qué implican y qué tiene que hacer el equipo. TRAZEV
+                convierte cada publicación relevante en una salida útil,
                 consultable y accionable.
               </p>
 
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#BFDBFE] bg-white px-4 py-2 text-sm font-semibold text-[#1D4ED8] shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
                 <CheckCircle size={15} />
-                Menos lectura manual y mas decisiones con contexto
+                Menos lectura manual y más decisiones con contexto
               </div>
 
               <div className="mb-8 flex flex-wrap gap-2">
@@ -125,7 +125,7 @@ export default function BopaSpotlight() {
                   <ExternalLink size={15} />
                 </Link>
                 <span className="text-sm text-[#64748B]">
-                  Una solucion concreta dentro de la propuesta de automatizacion
+                  Una solución concreta dentro de la propuesta de automatización
                   de TRAZEV.
                 </span>
               </div>
@@ -141,7 +141,7 @@ export default function BopaSpotlight() {
                       Vista de producto
                     </p>
                     <h3 className="mt-2 text-2xl font-semibold text-white">
-                      Asi ayuda el agente a tu equipo
+                      Así ayuda el agente a tu equipo
                     </h3>
                   </div>
                   <div className="rounded-full border border-[#60A5FA]/40 bg-[#1E3A8A]/30 px-3 py-1 text-xs font-semibold text-[#BFDBFE]">
@@ -164,7 +164,7 @@ export default function BopaSpotlight() {
                           De: Boletín Inteligente
                         </p>
                         <h4 className="mt-2 text-lg font-semibold text-[#0F172A]">
-                          Publicacion procesada por el agente
+                          Publicación procesada por el agente
                         </h4>
                       </div>
                       <span className="rounded-full border border-[#DBEAFE] bg-[#EFF6FF] px-3 py-1 text-xs font-semibold text-[#1D4ED8]">
@@ -184,34 +184,34 @@ export default function BopaSpotlight() {
                     </div>
 
                     <h4 className="text-base font-semibold text-[#0F172A]">
-                      Nueva convocatoria de subvenciones para modernizacion
-                      y eficiencia energetica
+                      Nueva convocatoria de subvenciones para modernización
+                      y eficiencia energética
                     </h4>
 
                     <p className="text-sm leading-relaxed text-[#64748B]">
                       Detectada en el boletín oficial de hoy. El agente la cruza con los
-                      criterios definidos para tu organizacion y la marca como
+                      criterios definidos para tu organización y la marca como
                       relevante para revisar.
                     </p>
 
                     <div className="grid gap-3 sm:grid-cols-2">
                       <div className="rounded-[18px] border border-[#DBEAFE] bg-[#EFF6FF] p-4">
                         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#1D4ED8]">
-                          Que entiende el agente
+                          Qué entiende el agente
                         </p>
                         <p className="text-sm leading-relaxed text-[#36506F]">
-                          Que afecta a tu ambito de actividad, que el plazo
-                          esta abierto y que encaja con el perfil configurado
-                          para tu organizacion.
+                          Qué afecta a tu ámbito de actividad, que el plazo
+                          está abierto y que encaja con el perfil configurado
+                          para tu organización.
                         </p>
                       </div>
                       <div className="rounded-[18px] border border-[#E2E8F0] bg-[#F8FAFC] p-4">
                         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#64748B]">
-                          Que puede hacer tu equipo
+                          Qué puede hacer tu equipo
                         </p>
                         <p className="text-sm leading-relaxed text-[#36506F]">
-                          Consultar la publicacion en el chat, validar si aplica
-                          y decidir si se abre revision, seguimiento o
+                          Consultar la publicación en el chat, validar si aplica
+                          y decidir si se abre revisión, seguimiento o
                           expediente.
                         </p>
                       </div>
@@ -223,7 +223,7 @@ export default function BopaSpotlight() {
                           size={14}
                           className="mt-0.5 shrink-0 text-[#2563EB]"
                         />
-                        Resumen claro de la publicacion y su impacto potencial
+                        Resumen claro de la publicación y su impacto potencial
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle
@@ -250,7 +250,7 @@ export default function BopaSpotlight() {
                     </p>
                     <p className="mb-4 text-sm leading-relaxed text-[#36506F]">
                       Agenda una demo contextual y vemos como puede ayudarte el
-                      agente a procesar publicaciones de interes sin revisar el
+                      agente a procesar publicaciones de interés sin revisar el
                       boletín oficial a mano.
                     </p>
                     <Link

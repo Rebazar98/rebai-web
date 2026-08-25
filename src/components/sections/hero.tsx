@@ -23,9 +23,9 @@ const iconMap: Record<string, LucideIcon> = {
 const HERO_SERVICES = SERVICES.filter((service) => service.category === "principal");
 
 const VALUE_POINTS = [
-  "Detecta antes que cambia, que te afecta y que necesita movimiento del equipo.",
-  "Reduce revision manual, retrasos y errores con mas contexto util para decidir.",
-  "Empieza por una demo, un diagnostico o una mejora concreta, sin rehacer toda tu operativa.",
+  "Detecta antes qué cambia, qué te afecta y qué necesita movimiento del equipo.",
+  "Reduce revisión manual, retrasos y errores con más contexto útil para decidir.",
+  "Empieza por una demo, un diagnóstico o una mejora concreta, sin rehacer toda tu operativa.",
 ] as const;
 
 export default function Hero() {
@@ -59,11 +59,11 @@ export default function Hero() {
       <div className="relative mx-auto max-w-[1280px] px-6 py-20 lg:px-8 lg:py-24">
         <div className="mx-auto mb-16 max-w-5xl text-center lg:mb-20">
           <SectionLabel className="mb-6">
-            Menos revision manual. Mas decisiones claras.
+            Menos revisión manual. Más decisiones claras.
           </SectionLabel>
 
           <h1 className="mx-auto max-w-5xl text-4xl font-bold leading-[1.06] tracking-tight text-[#0F172A] sm:text-5xl lg:text-6xl xl:text-[5rem]">
-            IA y automatizacion para que tu equipo deje de perseguir
+            IA y automatización para que tu equipo deje de perseguir
             publicaciones, expedientes y tareas repetitivas.
           </h1>
         </div>
@@ -81,7 +81,7 @@ export default function Hero() {
                 href="/contacto"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-6 py-3.5 font-semibold text-white transition-colors duration-150 hover:bg-[#1D4ED8]"
               >
-                Quiero una recomendacion clara
+                Quiero una recomendación clara
                 <ArrowRight size={16} />
               </Link>
               <Link
@@ -93,7 +93,7 @@ export default function Hero() {
             </div>
 
             <p className="mt-5 text-sm leading-relaxed text-[#64748B]">
-              Diagnostico inicial sin compromiso · Respuesta en menos de 48 h ·{" "}
+              Diagnóstico inicial sin compromiso · Respuesta en menos de 48 h ·{" "}
               {SITE.location}
             </p>
 
@@ -126,7 +126,7 @@ export default function Hero() {
               </div>
 
               <p className="mb-6 max-w-xl text-sm leading-relaxed text-white/70">
-                No vendemos tecnologia por vender. Aplicamos IA y automatizacion donde
+                No vendemos tecnología por vender. Aplicamos IA y automatización donde
                 reducen trabajo manual, acortan tiempos y mejoran la capacidad real del
                 equipo para actuar.
               </p>
@@ -161,8 +161,8 @@ export default function Hero() {
               <div className="mt-6 flex flex-wrap gap-2">
                 {[
                   "Menos carga administrativa",
-                  "Mas control operativo",
-                  "Implantacion realista",
+                  "Más control operativo",
+                  "Implantación realista",
                   "Cobertura nacional",
                 ].map((item) => (
                   <span

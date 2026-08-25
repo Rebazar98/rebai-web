@@ -2,22 +2,22 @@ import { Clock3, Compass, MapPin, ShieldCheck } from "lucide-react";
 
 const TRUST_ITEMS = [
   {
-    title: "Diagnostico util",
-    description: "Te decimos por donde empezar y que mejora tiene mas sentido primero.",
+    title: "Diagnóstico útil",
+    description: "Te decimos por dónde empezar y qué mejora tiene más sentido primero.",
     icon: Compass,
   },
   {
-    title: "Implantacion realista",
+    title: "Implantación realista",
     description: "Automatizamos lo que compensa, sin rehacer toda tu operativa.",
     icon: ShieldCheck,
   },
   {
     title: "Cobertura nacional",
-    description: "Trabajamos con ayuntamientos y empresas de toda Espana.",
+    description: "Trabajamos con ayuntamientos y empresas de toda España.",
     icon: MapPin,
   },
   {
-    title: "Respuesta rapida",
+    title: "Respuesta rápida",
     description: "Respondemos en menos de 48 horas.",
     icon: Clock3,
   },

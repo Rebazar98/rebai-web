@@ -67,7 +67,7 @@ export default function ContactForm({
           htmlFor="serviceSlug"
           className="mb-1.5 block text-sm font-medium text-[#0F172A]"
         >
-          Que quieres explorar? <span className="text-[#EA580C]">*</span>
+          ¿Qué quieres explorar? <span className="text-[#EA580C]">*</span>
         </label>
         <select
           id="serviceSlug"
@@ -80,7 +80,7 @@ export default function ContactForm({
           }
           className="w-full rounded-lg border border-[#E2E8F0] bg-white px-4 py-3 text-sm text-[#0F172A] transition-all duration-150 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#2563EB] disabled:opacity-50"
         >
-          <option value={GENERAL_SERVICE_SLUG}>No lo tengo claro todavia</option>
+          <option value={GENERAL_SERVICE_SLUG}>No lo tengo claro todavía</option>
           {SERVICES.map((service) => (
             <option key={service.slug} value={service.slug}>
               {service.name}
@@ -151,7 +151,7 @@ export default function ContactForm({
             htmlFor="telefono"
             className="mb-1.5 block text-sm font-medium text-[#0F172A]"
           >
-            Telefono <span className="font-normal text-[#94A3B8]">(opcional)</span>
+            Teléfono <span className="font-normal text-[#94A3B8]">(opcional)</span>
           </label>
           <input
             type="tel"
@@ -170,7 +170,7 @@ export default function ContactForm({
             htmlFor="situacion"
             className="mb-1.5 block text-sm font-medium text-[#0F172A]"
           >
-            Hoy, como controlais las publicaciones que os afectan?{" "}
+            Hoy, ¿cómo controláis las publicaciones que os afectan?{" "}
             <span className="text-[#EA580C]">*</span>
           </label>
           <select
@@ -182,7 +182,7 @@ export default function ContactForm({
             className="w-full rounded-lg border border-[#E2E8F0] bg-white px-4 py-3 text-sm text-[#0F172A] transition-all duration-150 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#2563EB] disabled:opacity-50"
           >
             <option value="" disabled>
-              Selecciona una opcion...
+              Selecciona una opción...
             </option>
             <option value="manual">Lo revisamos a mano</option>
             <option value="delegado">Lo lleva una persona del equipo</option>
@@ -201,7 +201,7 @@ export default function ContactForm({
           htmlFor="reto"
           className="mb-1.5 block text-sm font-medium text-[#0F172A]"
         >
-          Que esta pasando ahora y que te gustaria mejorar?{" "}
+          ¿Qué está pasando ahora y qué te gustaría mejorar?{" "}
           <span className="text-[#EA580C]">*</span>
         </label>
         <textarea
@@ -210,7 +210,7 @@ export default function ContactForm({
           required
           disabled={isPending}
           rows={5}
-          placeholder="Por ejemplo: revisamos el boletín oficial a mano, llegamos tarde a ayudas o cambios normativos, o necesitamos que el equipo tenga un criterio claro para actuar. Si quieres, cuentanos tambien el objetivo que buscais."
+          placeholder="Por ejemplo: revisamos el boletín oficial a mano, llegamos tarde a ayudas o cambios normativos, o necesitamos que el equipo tenga un criterio claro para actuar. Si quieres, cuéntanos también el objetivo que buscáis."
           className="w-full resize-none rounded-lg border border-[#E2E8F0] bg-white px-4 py-3 text-sm text-[#0F172A] placeholder:text-[#94A3B8] transition-all duration-150 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#2563EB] disabled:opacity-50"
         />
       </div>
@@ -243,9 +243,9 @@ export default function ContactForm({
         <p className="mt-3 text-center text-xs text-[#94A3B8]">
           Al enviar, aceptas nuestra{" "}
           <a href="/politica-de-privacidad" className="text-[#2563EB] hover:underline">
-            politica de privacidad
+            política de privacidad
           </a>
-          . Sin compromiso. Te responderemos con una recomendacion clara en menos de
+          . Sin compromiso. Te responderemos con una recomendación clara en menos de
           48h.
         </p>
       </div>

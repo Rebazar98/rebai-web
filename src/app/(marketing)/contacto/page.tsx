@@ -17,9 +17,9 @@ import { SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Habla con TRAZEV y cuentanos donde hoy pierdes tiempo o contexto. Te respondemos en menos de 48 horas con una recomendacion clara y el siguiente paso mas sensato.",
-  // Esta pagina genera variantes por parametros (?servicio=...&tier=...&tipo=demo) para
-  // adaptar el formulario segun de donde venga el usuario, pero todas son la misma pagina
+    "Habla con TRAZEV y cuéntanos dónde hoy pierdes tiempo o contexto. Te respondemos en menos de 48 horas con una recomendación clara y el siguiente paso más sensato.",
+  // Esta página genera variantes por parámetros (?servicio=...&tier=...&tipo=demo) para
+  // adaptar el formulario según de dónde venga el usuario, pero todas son la misma página
   // a efectos de SEO -- la canonical evita que Google indexe cada variante por separado
   // (ej. /contacto?servicio=bopa&tier=empresa) en vez de la URL limpia.
   alternates: {
@@ -79,21 +79,21 @@ export default async function ContactoPage({
       ? `Veamos si ${serviceName} encaja en tu operativa`
       : leadType === "pricing" && pricingTierLabel
         ? `Veamos si el plan ${pricingTierLabel} es el correcto para tu equipo`
-        : "Cuentanos donde se atasca hoy tu operativa";
+        : "Cuéntanos dónde se atasca hoy tu operativa";
 
   const description =
     leadType === "demo"
-      ? `En una demo corta te ensenamos como encaja ${serviceName} en tu operativa, donde puedes reducir revision manual y que valor tendria para tu equipo desde el principio.`
+      ? `En una demo corta te enseñamos cómo encaja ${serviceName} en tu operativa, dónde puedes reducir revisión manual y qué valor tendría para tu equipo desde el principio.`
       : leadType === "pricing" && pricingTierLabel
         ? `Revisamos contigo el nivel de uso, los perfiles y la operativa real para decirte si el plan ${pricingTierLabel} te compensa de verdad o si conviene otro enfoque.`
-        : "Sin compromiso. Si nos das un poco de contexto, te diremos donde puedes ganar tiempo, reducir carga manual y empezar con una solucion realista.";
+        : "Sin compromiso. Si nos das un poco de contexto, te diremos dónde puedes ganar tiempo, reducir carga manual y empezar con una solución realista.";
 
   const steps =
     leadType === "demo"
       ? [
-          "Nos cuentas en dos minutos que proceso, expediente o seguimiento quieres mejorar.",
+          "Nos cuentas en dos minutos qué proceso, expediente o seguimiento quieres mejorar.",
           "Te mostramos el producto con ejemplos cercanos a tu operativa real.",
-          "Sales con una recomendacion clara sobre si encaja y por donde empezar.",
+          "Sales con una recomendación clara sobre si encaja y por dónde empezar.",
         ]
       : leadType === "pricing"
         ? [
@@ -102,9 +102,9 @@ export default async function ContactoPage({
             "Si encaja, te proponemos un siguiente paso claro y realista.",
           ]
         : [
-            "Leemos tu caso y detectamos donde puedes ganar tiempo o reducir revision manual.",
-            "Te respondemos con una orientacion clara y, si hace falta, con una pregunta corta para afinar.",
-            "Si encaja, te proponemos demo, plan o solucion a medida.",
+            "Leemos tu caso y detectamos dónde puedes ganar tiempo o reducir revisión manual.",
+            "Te respondemos con una orientación clara y, si hace falta, con una pregunta corta para afinar.",
+            "Si encaja, te proponemos demo, plan o solución a medida.",
           ];
 
   const mailtoHref = `mailto:${SITE.email}?subject=${encodeURIComponent(
@@ -145,7 +145,7 @@ export default async function ContactoPage({
             <div className="space-y-6 lg:col-span-2">
               <div className="rounded-[12px] border border-[#E2E8F0] bg-[#F8FAFC] p-6">
                 <h2 className="mb-4 text-base font-semibold text-[#0F172A]">
-                  Que pasa despues
+                  Qué pasa después
                 </h2>
                 <ol className="space-y-4">
                   {steps.map((step, index) => (
@@ -186,12 +186,12 @@ export default async function ContactoPage({
                     <Phone size={18} className="text-[#2563EB]" />
                   </div>
                   <div>
-                    <div className="text-xs text-[#64748B]">Telefono y WhatsApp</div>
+                    <div className="text-xs text-[#64748B]">Teléfono y WhatsApp</div>
                     <div className="text-sm font-medium text-[#0F172A] group-hover:text-[#2563EB]">
                       {SITE.phone}
                     </div>
                     <div className="mt-1 text-xs text-[#64748B]">
-                      Para resolver dudas rapido antes de decidir
+                      Para resolver dudas rápido antes de decidir
                     </div>
                   </div>
                 </a>
@@ -211,7 +211,7 @@ export default async function ContactoPage({
                       Escribir por WhatsApp
                     </div>
                     <div className="mt-1 text-xs text-[#64748B]">
-                      Si prefieres una conversacion corta y directa
+                      Si prefieres una conversación corta y directa
                     </div>
                   </div>
                 </a>
@@ -302,7 +302,7 @@ export default async function ContactoPage({
                   ) : (
                     <div className="rounded-[12px] border border-dashed border-[#BFDBFE] bg-white p-6">
                       <p className="mb-4 text-sm text-[#64748B]">
-                        El calendario embebido no esta configurado todavia. Si prefieres,
+                        El calendario embebido no está configurado todavía. Si prefieres,
                         puedes reservar la demo por email y te proponemos huecos.
                       </p>
                       <a

@@ -18,12 +18,12 @@ const BOPA_AGENT_CAPABILITIES = [
   {
     title: "Filtra solo lo relevante",
     description:
-      "Separa lo que de verdad afecta a tu actividad del ruido que no requiere revision ni movimiento del equipo.",
+      "Separa lo que de verdad afecta a tu actividad del ruido que no requiere revisión ni movimiento del equipo.",
   },
   {
-    title: "Resume con contexto util",
+    title: "Resume con contexto útil",
     description:
-      "Convierte cada publicacion en una lectura mucho mas clara para que el equipo entienda rapido que ha salido y por que importa.",
+      "Convierte cada publicación en una lectura mucho más clara para que el equipo entienda rápido qué ha salido y por qué importa.",
   },
   {
     title: "Responde sobre el documento",
@@ -33,102 +33,102 @@ const BOPA_AGENT_CAPABILITIES = [
   {
     title: "Ayuda a decidir antes",
     description:
-      "No se queda en la alerta: ayuda a convertir cada publicacion en una decision mas util y un siguiente paso mas claro.",
+      "No se queda en la alerta: ayuda a convertir cada publicación en una decisión más útil y un siguiente paso más claro.",
   },
 ] as const;
 
 const BOPA_CHAT_EXAMPLES = [
   {
-    question: "Esta publicacion aplica a una actividad como la nuestra?",
+    question: "¿Esta publicación aplica a una actividad como la nuestra?",
     answer:
-      "El agente te dice si encaja, por que encaja y que aspectos conviene revisar antes de mover nada.",
+      "El agente te dice si encaja, por qué encaja y qué aspectos conviene revisar antes de mover nada.",
   },
   {
-    question: "Que requisitos, plazos o cambios aparecen aqui?",
+    question: "¿Qué requisitos, plazos o cambios aparecen aquí?",
     answer:
-      "Extrae lo importante del documento y te orienta sobre que revisar con mas detalle en vez de empezar desde cero.",
+      "Extrae lo importante del documento y te orienta sobre qué revisar con más detalle en vez de empezar desde cero.",
   },
   {
-    question: "Cual deberia ser el siguiente paso?",
+    question: "¿Cuál debería ser el siguiente paso?",
     answer:
-      "Sugiere un siguiente paso razonable para que la publicacion no se quede en lectura pasiva, sino en accion util para el equipo.",
+      "Sugiere un siguiente paso razonable para que la publicación no se quede en lectura pasiva, sino en acción útil para el equipo.",
   },
 ] as const;
 
 const BOPA_AGENT_DEMO_SUMMARY = [
-  "Convocatoria alineada con explotaciones agrarias y proyectos de modernizacion del sector.",
-  "Plazo abierto y requisitos tecnicos que conviene validar antes de preparar la solicitud.",
-  "Relevante para equipos que gestionan ayudas o asesoran a clientes que pueden optar a esta linea.",
+  "Convocatoria alineada con explotaciones agrarias y proyectos de modernización del sector.",
+  "Plazo abierto y requisitos técnicos que conviene validar antes de preparar la solicitud.",
+  "Relevante para equipos que gestionan ayudas o asesoran a clientes que pueden optar a esta línea.",
 ] as const;
 
 const BOPA_DAY_TO_DAY_IMPACT = [
   "Menos tiempo perdido revisando publicaciones que no aplican",
-  "Mas rapidez para detectar ayudas, cambios y convocatorias que si importan",
-  "Mas criterio para decidir que revisar, que mover y que descartar",
+  "Más rapidez para detectar ayudas, cambios y convocatorias que sí importan",
+  "Más criterio para decidir qué revisar, qué mover y qué descartar",
 ] as const;
 
 const BOPA_FAQS = [
   {
-    question: "Boletín Inteligente sustituye revisar el boletín oficial por completo?",
+    question: "¿Boletín Inteligente sustituye revisar el boletín oficial por completo?",
     answer:
-      "Reduce muchisimo la revision manual y el ruido, pero no pretende esconder el documento oficial. Lo que hace es llevarte antes a lo importante, con un resumen util y un agente que ayuda a revisar impacto, requisitos y siguiente paso.",
+      "Reduce muchísimo la revisión manual y el ruido, pero no pretende esconder el documento oficial. Lo que hace es llevarte antes a lo importante, con un resumen útil y un agente que ayuda a revisar impacto, requisitos y siguiente paso.",
   },
   {
-    question: "Como decide si una publicacion encaja con nuestra actividad?",
+    question: "¿Cómo decide si una publicación encaja con nuestra actividad?",
     answer:
-      "Trabaja con criterios y fuentes ajustados a tu caso, combinando reglas, contexto y clasificacion asistida. Asi separa mejor lo que afecta a tu actividad de lo que no requiere movimiento del equipo.",
+      "Trabaja con criterios y fuentes ajustados a tu caso, combinando reglas, contexto y clasificación asistida. Así separa mejor lo que afecta a tu actividad de lo que no requiere movimiento del equipo.",
   },
   {
-    question: "Que pasa si la publicacion o el PDF es muy largo?",
+    question: "¿Qué pasa si la publicación o el PDF es muy largo?",
     answer:
-      "El sistema no se queda en el titular. Guarda y consulta el contenido documental para que el agente pueda resumir, recuperar contexto y responder preguntas utiles incluso cuando la publicacion es larga.",
+      "El sistema no se queda en el titular. Guarda y consulta el contenido documental para que el agente pueda resumir, recuperar contexto y responder preguntas útiles incluso cuando la publicación es larga.",
   },
   {
-    question: "Que puede preguntarle el equipo al agente?",
+    question: "¿Qué puede preguntarle el equipo al agente?",
     answer:
-      "Puede preguntar si una publicacion aplica, que requisitos o plazos aparecen, que cambia respecto a la situacion anterior o que siguiente paso conviene valorar. La idea es ayudar a procesar la publicacion, no solo leerla.",
+      "Puede preguntar si una publicación aplica, qué requisitos o plazos aparecen, qué cambia respecto a la situación anterior o qué siguiente paso conviene valorar. La idea es ayudar a procesar la publicación, no solo leerla.",
   },
   {
-    question: "Encaja mejor para una sola persona o para varios usuarios?",
+    question: "¿Encaja mejor para una sola persona o para varios usuarios?",
     answer:
-      "Encaja en ambos casos. Pro esta pensado para un responsable principal que quiere dejar de revisar el boletin a mano. Equipo y Empresa encajan mejor cuando varias personas necesitan compartir seguimiento, consulta y criterio.",
+      "Encaja en ambos casos. Pro está pensado para un responsable principal que quiere dejar de revisar el boletín a mano. Equipo y Empresa encajan mejor cuando varias personas necesitan compartir seguimiento, consulta y criterio.",
   },
 ] as const;
 
 const BOPA_TARGET_CLIENTS = [
-  "Ingenierias, consultoras y asesorias con seguimiento normativo recurrente",
+  "Ingenierías, consultoras y asesorías con seguimiento normativo recurrente",
   "Empresas que no pueden permitirse perder ayudas, cambios o convocatorias",
-  "Equipos que necesitan procesar publicaciones sin abrir el boletin completo cada dia",
-  "Responsables tecnicos que quieren mas contexto antes de mover un expediente o una solicitud",
+  "Equipos que necesitan procesar publicaciones sin abrir el boletín completo cada día",
+  "Responsables técnicos que quieren más contexto antes de mover un expediente o una solicitud",
 ] as const;
 
 const BOPA_FEATURES = [
-  "Revision automatica diaria del boletin oficial segun tus criterios",
-  "Resumen claro de cada publicacion relevante para tu actividad",
+  "Revisión automática diaria del boletín oficial según tus criterios",
+  "Resumen claro de cada publicación relevante para tu actividad",
   "Agente con base RAG sobre publicaciones y documentos asociados",
   "Chat web para consultar impacto, requisitos, plazos o encaje",
   "Alerta diaria por email con lo importante para tu equipo",
-  "Historico consultable y exportable de publicaciones detectadas",
+  "Histórico consultable y exportable de publicaciones detectadas",
 ] as const;
 
 const BOPA_HOW_IT_WORKS = [
   {
     step: 1,
-    title: "Definimos que debe vigilar el sistema",
+    title: "Definimos qué debe vigilar el sistema",
     description:
-      "Configuramos contigo que tipos de publicacion, palabras clave, organismos o criterios deben activar el seguimiento.",
+      "Configuramos contigo qué tipos de publicación, palabras clave, organismos o criterios deben activar el seguimiento.",
   },
   {
     step: 2,
     title: "Filtra, prioriza y resume",
     description:
-      "Boletín Inteligente revisa el boletin, detecta lo importante y lo convierte en una salida mucho mas clara para el equipo.",
+      "Boletín Inteligente revisa el boletín, detecta lo importante y lo convierte en una salida mucho más clara para el equipo.",
   },
   {
     step: 3,
     title: "Tu equipo consulta y decide",
     description:
-      "El equipo recibe alertas, consulta al agente, revisa el historial y decide el siguiente paso con mas criterio y menos tiempo perdido.",
+      "El equipo recibe alertas, consulta al agente, revisa el historial y decide el siguiente paso con más criterio y menos tiempo perdido.",
   },
 ] as const;
 
@@ -141,29 +141,29 @@ export default function ServicePage({ service }: ServicePageProps) {
   const isBopa = service.slug === "bopa";
   const ctaHref = buildServiceContactHref(service);
   const ctaLabel = isBopa
-    ? "Quiero ver el agente en accion"
+    ? "Quiero ver el agente en acción"
     : service.defaultLeadType === "demo"
       ? "Solicitar demo"
-      : "Solicitar diagnostico";
+      : "Solicitar diagnóstico";
 
   const heroSupport = isBopa
-    ? "Boletín Inteligente revisa el boletin cada dia, detecta las publicaciones que encajan con tus criterios y se las devuelve a tu equipo ya filtradas, resumidas y listas para consultar con un agente de IA."
-    : "Pensado para equipos que necesitan menos carga manual, mas trazabilidad y una forma mas rapida de mover expedientes, documentacion o decisiones operativas.";
+    ? "Boletín Inteligente revisa el boletín cada día, detecta las publicaciones que encajan con tus criterios y se las devuelve a tu equipo ya filtradas, resumidas y listas para consultar con un agente de IA."
+    : "Pensado para equipos que necesitan menos carga manual, más trazabilidad y una forma más rápida de mover expedientes, documentación o decisiones operativas.";
 
-  const resolutionTitle = isBopa ? "Lo que hace el agente por tu equipo" : "Que resuelve";
+  const resolutionTitle = isBopa ? "Lo que hace el agente por tu equipo" : "Qué resuelve";
   const featuresTitle = isBopa ? "Lo que recibe tu equipo" : "Incluye";
-  const processTitle = isBopa ? "Como trabaja Boletín Inteligente" : "Como se implanta";
+  const processTitle = isBopa ? "Cómo trabaja Boletín Inteligente" : "Cómo se implanta";
   const ctaTitle = isBopa
-    ? "Quieres ver como encaja en tu actividad?"
-    : "Quieres ver si encaja con tu operativa?";
+    ? "¿Quieres ver cómo encaja en tu actividad?"
+    : "¿Quieres ver si encaja con tu operativa?";
   const ctaBody = isBopa
-    ? "Te ensenamos como Boletín Inteligente puede detectar, resumir y ayudarte a procesar publicaciones de interes sin revisar el boletin a mano."
-    : "Cuentanos que proceso, expediente o carga administrativa quieres mejorar. Te diremos si tiene sentido empezar por este servicio y cual seria el siguiente paso mas razonable.";
+    ? "Te enseñamos cómo Boletín Inteligente puede detectar, resumir y ayudarte a procesar publicaciones de interés sin revisar el boletín a mano."
+    : "Cuéntanos qué proceso, expediente o carga administrativa quieres mejorar. Te diremos si tiene sentido empezar por este servicio y cuál sería el siguiente paso más razonable.";
   const displayTagline = isBopa
-    ? "El agente de IA que detecta lo importante en el boletin oficial y ayuda a tu equipo a decidir que hacer"
+    ? "El agente de IA que detecta lo importante en el boletín oficial y ayuda a tu equipo a decidir qué hacer"
     : service.tagline;
   const displayDescription = isBopa
-    ? "No se limita a enviar alertas. Filtra ayudas, convocatorias y cambios relevantes, resume el contenido clave de cada publicacion y deja a tu equipo un agente con base documental para preguntar por encaje, plazos, requisitos y siguiente paso."
+    ? "No se limita a enviar alertas. Filtra ayudas, convocatorias y cambios relevantes, resume el contenido clave de cada publicación y deja a tu equipo un agente con base documental para preguntar por encaje, plazos, requisitos y siguiente paso."
     : service.description;
   const displayFeatures = isBopa ? BOPA_FEATURES : service.features;
   const displayTargetClients = isBopa ? BOPA_TARGET_CLIENTS : service.targetClients;
@@ -256,11 +256,11 @@ export default function ServicePage({ service }: ServicePageProps) {
                 <div>
                   <SectionLabel className="mb-4">Agente de IA</SectionLabel>
                   <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#0F172A]">
-                    Convierte cada publicacion en contexto util para actuar antes
+                    Convierte cada publicación en contexto útil para actuar antes
                   </h2>
                   <p className="mb-8 text-lg leading-relaxed text-[#64748B]">
-                    La diferencia no esta en recibir un aviso. Esta en entender rapido si
-                    una publicacion aplica, que cambia, que requisitos trae y que deberia
+                    La diferencia no está en recibir un aviso. Está en entender rápido si
+                    una publicación aplica, qué cambia, qué requisitos trae y qué debería
                     hacer ahora el equipo responsable.
                   </p>
 
@@ -290,7 +290,7 @@ export default function ServicePage({ service }: ServicePageProps) {
                         Demo del agente
                       </p>
                       <h3 className="text-2xl font-semibold text-white">
-                        Asi convierte una publicacion en una decision mas clara
+                        Así convierte una publicación en una decisión más clara
                       </h3>
                     </div>
                     <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/75">
@@ -302,10 +302,10 @@ export default function ServicePage({ service }: ServicePageProps) {
                     <div className="rounded-[20px] border border-white/10 bg-white p-5 text-[#0F172A]">
                       <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#64748B]">
                         <FileText size={14} className="text-[#2563EB]" />
-                        Publicacion detectada para tu perfil
+                        Publicación detectada para tu perfil
                       </div>
                       <p className="mb-3 text-lg font-semibold">
-                        Nueva ayuda para modernizacion de explotaciones agrarias
+                        Nueva ayuda para modernización de explotaciones agrarias
                       </p>
                       <div className="flex flex-wrap gap-2">
                         <span className="rounded-full bg-[#EFF6FF] px-3 py-1 text-xs font-semibold text-[#2563EB]">
@@ -338,7 +338,7 @@ export default function ServicePage({ service }: ServicePageProps) {
                     <div className="space-y-3 rounded-[20px] border border-white/10 bg-white/5 p-5">
                       <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#93C5FD]">
                         <Bot size={14} className="text-[#93C5FD]" />
-                        Conversacion con el agente
+                        Conversación con el agente
                       </div>
 
                       {BOPA_CHAT_EXAMPLES.map((item) => (
@@ -355,7 +355,7 @@ export default function ServicePage({ service }: ServicePageProps) {
 
                     <div className="rounded-[18px] border border-white/10 bg-white/5 p-4">
                       <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#93C5FD]">
-                        En el dia a dia
+                        En el día a día
                       </p>
                       <ul className="space-y-2">
                         {BOPA_DAY_TO_DAY_IMPACT.map((item) => (
@@ -414,12 +414,12 @@ export default function ServicePage({ service }: ServicePageProps) {
               <div className="mb-12 max-w-3xl">
                 <SectionLabel className="mb-4">FAQ de Boletín Inteligente</SectionLabel>
                 <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#0F172A]">
-                  Lo que mas suelen preguntarnos antes de empezar
+                  Lo que más suelen preguntarnos antes de empezar
                 </h2>
                 <p className="text-lg leading-relaxed text-[#64748B]">
-                  Estas son las dudas mas habituales cuando un equipo quiere dejar de
-                  revisar el boletin oficial a mano, pero necesita entender bien como ayuda el
-                  agente y que puede esperar de la solucion.
+                  Estas son las dudas más habituales cuando un equipo quiere dejar de
+                  revisar el boletín oficial a mano, pero necesita entender bien cómo ayuda el
+                  agente y qué puede esperar de la solución.
                 </p>
               </div>
             </AnimatedSection>

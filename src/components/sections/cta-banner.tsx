@@ -2,8 +2,8 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, MessageSquare } from "lucide-react";
 
 const CTA_POINTS = [
-  "Te decimos por donde empezar y que no merece la pena automatizar todavia.",
-  "Recibes una recomendacion clara: demo, plan o mejora operativa concreta.",
+  "Te decimos por dónde empezar y qué no merece la pena automatizar todavía.",
+  "Recibes una recomendación clara: demo, plan o mejora operativa concreta.",
   "Respuesta humana, sin compromiso y en menos de 48 horas.",
 ] as const;
 
@@ -24,10 +24,10 @@ export default function CTABanner() {
           os ayudamos a detectar el siguiente paso correcto.
         </h2>
         <p className="mx-auto mb-10 max-w-2xl text-lg text-white/60">
-          En una primera conversacion aterrizamos si conviene Boletín Inteligente,
-          el Asistente de Atencion al Ciudadano, el Redactor de Planes
-          Urbanisticos o el Radar de Satisfaccion Municipal. Sales con una
-          recomendacion clara, no con una propuesta generica.
+          En una primera conversación aterrizamos si conviene Boletín Inteligente,
+          el Asistente de Atención al Ciudadano, el Redactor de Planes
+          Urbanísticos o el Radar de Satisfacción Municipal. Sales con una
+          recomendación clara, no con una propuesta genérica.
         </p>
 
         <div className="mx-auto mb-10 grid max-w-4xl gap-3 text-left md:grid-cols-3">
@@ -49,7 +49,7 @@ export default function CTABanner() {
             href="/contacto"
             className="group inline-flex items-center justify-center gap-2 rounded-lg bg-[#2563EB] px-8 py-4 text-base font-semibold text-white transition-all duration-150 hover:bg-[#3B82F6]"
           >
-            Quiero una recomendacion clara
+            Quiero una recomendación clara
             <ArrowRight
               size={18}
               className="transition-transform duration-150 group-hover:translate-x-0.5"
@@ -65,7 +65,7 @@ export default function CTABanner() {
         </div>
 
         <p className="mt-8 text-sm text-white/40">
-          Sin compromiso · Respuesta en menos de 48 h · Enfoque practico y local
+          Sin compromiso · Respuesta en menos de 48 h · Enfoque práctico y local
         </p>
       </div>
     </section>

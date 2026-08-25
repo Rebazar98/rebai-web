@@ -27,11 +27,11 @@ const TIERS: PricingTier[] = [
     features: [
       "1 usuario con acceso completo al agente",
       "1 perfil de seguimiento ajustado a tu actividad",
-      "Resumen claro de cada publicacion que realmente te afecta",
+      "Resumen claro de cada publicación que realmente te afecta",
       "Chat para preguntar impacto, requisitos y siguiente paso",
       "Criterios y fuentes ajustados a medida",
       "Alerta diaria por email para no llegar tarde",
-      "Historico y soporte por email",
+      "Histórico y soporte por email",
     ],
     cta: "Quiero empezar con Pro",
     href: buildContactHref({ servicio: "bopa", tier: "basico" }),
@@ -40,31 +40,31 @@ const TIERS: PricingTier[] = [
   {
     name: "Equipo",
     description:
-      "Para despachos, ingenierias y equipos pequenos que comparten seguimiento, criterio y decisiones.",
+      "Para despachos, ingenierías y equipos pequeños que comparten seguimiento, criterio y decisiones.",
     price: "79 EUR/mes",
-    priceNote: "Pensado para equipos que necesitan mas uso, mas perfiles y consulta compartida.",
+    priceNote: "Pensado para equipos que necesitan más uso, más perfiles y consulta compartida.",
     features: [
       "Hasta 5 usuarios para compartir seguimiento y consulta",
       "Hasta 5 perfiles de seguimiento por actividad o cliente",
-      "Resumenes utiles para priorizar sin repartir PDFs",
+      "Resúmenes útiles para priorizar sin repartir PDFs",
       "Agente compartido para resolver dudas y procesar publicaciones",
       "Criterios y fuentes ajustados a medida",
       "Mayor volumen de consultas y uso del chat",
-      "Historico completo, exportacion y soporte prioritario",
+      "Histórico completo, exportación y soporte prioritario",
     ],
-    cta: "Quiero ver Equipo en accion",
+    cta: "Quiero ver Equipo en acción",
     href: buildContactHref({ servicio: "bopa", tier: "profesional" }),
     highlighted: true,
   },
   {
     name: "Empresa",
     description:
-      "Para organizaciones con varias areas, criterios internos complejos e integraciones propias.",
+      "Para organizaciones con varias áreas, criterios internos complejos e integraciones propias.",
     price: "A consultar",
-    priceNote: "Cuando necesitas adaptar el seguimiento al funcionamiento real de tu organizacion.",
+    priceNote: "Cuando necesitas adaptar el seguimiento al funcionamiento real de tu organización.",
     features: [
       "Usuarios y perfiles de seguimiento ilimitados",
-      "Resumenes filtrados por actividad, equipo o criterio interno",
+      "Resúmenes filtrados por actividad, equipo o criterio interno",
       "Agente y chat web para varios equipos y casos de uso",
       "Criterios y fuentes ajustados a medida",
       "API o webhook para conectar con tu sistema",
@@ -88,8 +88,8 @@ export default function Pricing() {
             </h2>
             <p className="mx-auto max-w-3xl text-lg text-[#64748B]">
               Boletín Inteligente detecta lo que afecta a tu actividad, lo resume y te
-              ayuda a decidir el siguiente paso. La diferencia esta en cuanta gente lo
-              usa y cuanta operativa necesitas cubrir.
+              ayuda a decidir el siguiente paso. La diferencia está en cuánta gente lo
+              usa y cuánta operativa necesitas cubrir.
             </p>
           </div>
         </AnimatedSection>
@@ -191,8 +191,8 @@ export default function Pricing() {
 
         <AnimatedSection>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center text-sm text-[#94A3B8]">
-            <span>Sin permanencia minima</span>
-            <span>Implantacion sencilla</span>
+            <span>Sin permanencia mínima</span>
+            <span>Implantación sencilla</span>
             <span>Respuesta humana y contextual</span>
             <span>Criterios ajustados a tu actividad</span>
           </div>
