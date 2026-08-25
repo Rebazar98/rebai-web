@@ -205,6 +205,26 @@ Puntos importantes:
 - la renovacion de certificados se ejecuta de forma automatica en el VPS
 - el `Dockerfile` usa salida `standalone`
 
+## Acceso SSH al servidor
+
+- IP: `178.105.163.47` (Hetzner, servidor `Trazev`)
+- **Root solo admite login por clave SSH, nunca por contrasena** — es el valor por defecto de Ubuntu (`PermitRootLogin prohibit-password` en `/etc/ssh/sshd_config`), no un fallo de configuracion. Resetear la contrasena de root desde el panel de Hetzner no sirve para entrar por SSH.
+- Si cambias de ordenador y no tienes la clave privada que ya esta autorizada, necesitas anadir una nueva. La consola web de Hetzner (boton `>_`) tiene un bug conocido: las combinaciones con Shift (`_`, `>`, `&`, etc.) y el pegado de portapapeles no funcionan de forma fiable — no la uses para escribir comandos con simbolos.
+- Via mas fiable para anadir una clave nueva sin tener ya acceso:
+  1. Genera un par de claves en el ordenador nuevo (`ssh-keygen -t ed25519`).
+  2. En el panel de Hetzner, pestana **Rescue** → activar con **"Enable rescue & power cycle"** (sin seleccionar ninguna clave SSH existente) → copiar la contrasena de rescate que muestra el panel.
+  3. Desde una terminal normal (PowerShell, no la consola web), `ssh root@178.105.163.47` con esa contrasena de rescate.
+  4. Montar el disco real y anadir la clave publica nueva:
+     ```bash
+     mkdir -p /mnt/disk && mount /dev/sda1 /mnt/disk
+     mkdir -p /mnt/disk/root/.ssh
+     echo "TU_CLAVE_PUBLICA_AQUI" >> /mnt/disk/root/.ssh/authorized_keys
+     chmod 700 /mnt/disk/root/.ssh && chmod 600 /mnt/disk/root/.ssh/authorized_keys
+     umount /mnt/disk
+     ```
+  5. En el panel de Hetzner, pestana **Power** → **Power cycle** (el modo rescate se desactiva solo en el siguiente reinicio, no hace falta desactivarlo aparte).
+  6. Tras 1-2 minutos, `ssh -i /ruta/a/tu/clave root@178.105.163.47` ya deberia funcionar.
+
 ## Acceso actual a `n8n`
 
 Referencia operativa vigente:
