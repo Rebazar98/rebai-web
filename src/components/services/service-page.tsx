@@ -9,7 +9,9 @@ import {
 } from "lucide-react";
 import SectionLabel from "@/components/shared/section-label";
 import AnimatedSection from "@/components/shared/animated-section";
+import StructuredData from "@/components/shared/structured-data";
 import type { Service } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
 import { buildServiceContactHref } from "@/lib/contact";
 
 const iconMap = { FileText, Bot, Banknote, ShieldCheck } as const;
@@ -169,8 +171,58 @@ export default function ServicePage({ service }: ServicePageProps) {
   const displayTargetClients = isBopa ? BOPA_TARGET_CLIENTS : service.targetClients;
   const displayHowItWorks = isBopa ? BOPA_HOW_IT_WORKS : service.howItWorks;
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.name,
+    description: service.description,
+    provider: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.url,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "España",
+    },
+    url: `${SITE.url}/servicios/${service.slug}`,
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: SITE.url },
+      { "@type": "ListItem", position: 2, name: "Servicios", item: `${SITE.url}/servicios` },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: service.name,
+        item: `${SITE.url}/servicios/${service.slug}`,
+      },
+    ],
+  };
+
+  const faqSchema = isBopa
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: BOPA_FAQS.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
+
   return (
     <div className="min-h-screen bg-white pt-24">
+      <StructuredData data={serviceSchema} />
+      <StructuredData data={breadcrumbSchema} />
+      {faqSchema ? <StructuredData data={faqSchema} /> : null}
       <section className="border-b border-[#E2E8F0] bg-[#F8FAFC] py-20 lg:py-28">
         <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
           <div className="max-w-3xl">

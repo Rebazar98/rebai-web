@@ -67,6 +67,14 @@ export default function Footer() {
                   Ver todos los servicios
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/alfabetizacion-ia"
+                  className="text-sm text-[#94A3B8] transition-colors duration-150 hover:text-white"
+                >
+                  Alfabetización en IA
+                </Link>
+              </li>
             </ul>
           </div>
 

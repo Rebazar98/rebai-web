@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     "satisfacción ciudadana ayuntamiento",
     "automatización administrativa para empresas",
   ],
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function HomePage() {

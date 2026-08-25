@@ -45,7 +45,12 @@ export async function generateMetadata({
     };
   }
 
-  return getServiceMetadata(slug, service);
+  return {
+    ...getServiceMetadata(slug, service),
+    alternates: {
+      canonical: `/servicios/${slug}`,
+    },
+  };
 }
 
 export default async function ServiceDetailPage({
