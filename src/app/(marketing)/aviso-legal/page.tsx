@@ -34,7 +34,7 @@ export default function AvisoLegalPage() {
               </li>
               <li>
                 <strong className="text-[#0F172A]">Domicilio:</strong>{" "}
-                {SITE.location}
+                {SITE.legalAddress}
               </li>
             </ul>
           </section>
@@ -88,7 +88,7 @@ export default function AvisoLegalPage() {
 
           <p className="text-xs text-[#94A3B8]">
             Última actualización:{" "}
-            {new Date().toLocaleDateString("es-ES", { dateStyle: "long" })}
+            {new Date("2026-08-25").toLocaleDateString("es-ES", { dateStyle: "long" })}
           </p>
         </div>
       </div>

@@ -40,6 +40,21 @@ export default function CookiesPage() {
               reforzada que no usen cookies de seguimiento ni almacenen datos
               personales identificables.
             </p>
+            <p>
+              Si en la página de contacto reservas una demo a través de
+              Calendly, ese proveedor puede instalar sus propias cookies
+              técnicas y de terceros conforme a su{" "}
+              <a
+                href="https://calendly.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#2563EB] hover:underline"
+              >
+                política de privacidad
+              </a>
+              , y te mostrará su propio aviso de cookies antes de que se
+              instalen.
+            </p>
           </section>
 
           <section>
@@ -55,7 +70,7 @@ export default function CookiesPage() {
 
           <p className="text-xs text-[#94A3B8]">
             Última actualización:{" "}
-            {new Date().toLocaleDateString("es-ES", { dateStyle: "long" })}
+            {new Date("2026-08-25").toLocaleDateString("es-ES", { dateStyle: "long" })}
           </p>
         </div>
       </div>

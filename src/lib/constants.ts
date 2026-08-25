@@ -22,6 +22,9 @@ export const SITE = {
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || DEFAULT_CONTACT_EMAIL,
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE?.trim() || "+34 643 330 813",
   location: "España",
+  // Domicilio del responsable del tratamiento a efectos de LSSI-CE art. 10 / RGPD.
+  // Distinto de `location`, que es el mensaje de cobertura ("España") usado en marketing.
+  legalAddress: "Calle Río Cares, número 11, Gijón, Asturias",
   url: process.env.NEXT_PUBLIC_SITE_URL?.trim() || DEFAULT_SITE_URL,
   linkedin: "https://linkedin.com/company/trazev",
 };

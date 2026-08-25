@@ -34,7 +34,10 @@ function asString(value: string | string[] | undefined): string | undefined {
 function buildCalendlyUrl(url: string): string {
   try {
     const calendlyUrl = new URL(url);
-    calendlyUrl.searchParams.set("hide_gdpr_banner", "1");
+    // No ocultar el aviso de cookies propio de Calendly (hide_gdpr_banner): el
+    // widget pone cookies de terceros y hoy no tenemos banner de consentimiento
+    // propio. Si en el futuro se sustituye por un banner propio de TRAZEV que
+    // cubra también estas cookies, entonces sí se puede ocultar el de Calendly.
     calendlyUrl.searchParams.set("hide_event_type_details", "1");
     return calendlyUrl.toString();
   } catch {

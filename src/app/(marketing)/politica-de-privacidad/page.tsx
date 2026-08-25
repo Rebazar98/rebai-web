@@ -29,7 +29,7 @@ export default function PrivacidadPage() {
               </li>
               <li>
                 <strong className="text-[#0F172A]">Domicilio:</strong>{" "}
-                {SITE.location}
+                {SITE.legalAddress}
               </li>
             </ul>
           </section>
@@ -83,14 +83,17 @@ export default function PrivacidadPage() {
               6. Transferencias internacionales
             </h2>
             <p>
-              En caso de utilizar servicios de terceros para el envío de emails,
-              se procurará que los datos se traten en conformidad con el RGPD.
+              Utilizamos Resend (Resend, Inc., con sede en Estados Unidos) como
+              proveedor para el envío de emails transaccionales y notificaciones
+              del formulario de contacto. Esta transferencia se realiza al
+              amparo de las cláusulas contractuales tipo de la Comisión Europea
+              u otro mecanismo de transferencia válido conforme al RGPD.
             </p>
           </section>
 
           <p className="text-xs text-[#94A3B8]">
             Última actualización:{" "}
-            {new Date().toLocaleDateString("es-ES", { dateStyle: "long" })}
+            {new Date("2026-08-25").toLocaleDateString("es-ES", { dateStyle: "long" })}
           </p>
         </div>
       </div>
